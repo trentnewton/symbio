@@ -1,0 +1,50 @@
+<div class="off-canvas-wrap docs-wrap" data-offcanvas="">
+  <div class="inner-wrap">
+    <main id="main-wrapper">
+      <?php include ($directory."/partials/header.php"); ?>
+    <?php if(!drupal_is_front_page()):?>
+      <section id="masthead">
+        <div class="row">
+          <div class="column">
+            <?php if ($page['masthead']): ?>
+            <div class="page-title" data-sr="enter bottom">
+              <?php print render($page['masthead']); ?>
+            </div>
+            <?php endif; ?>
+            <?php if ($page['masthead_nav']): ?>
+            <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
+              <?php print render($page['masthead_nav']); ?>
+            </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </section>
+      <section class="regular-page">
+        <div class="row">
+          <div class="column">
+            <?php if ($messages): ?>
+            <?php print $messages; ?>
+            <?php endif; ?>
+            <?php if ($tabs): ?>
+            <div class="tabs">
+              <?php print render($tabs); ?>
+            </div>
+            <?php endif; ?>
+            <figure><img src="<?php print $base_path; ?><?php print $directory; ?>/assets/img/images/error.jpg" alt="Error"></figure>
+            <?php if ($page['content']): ?>
+        <?php print render($page['content']); ?>
+        <?php endif; ?>
+          </div>
+        </div>
+      </section>
+      <?php if ($page['search']): ?>
+      <section id="search-box">
+        <?php print render($page['search']); ?>
+      </section>
+      <?php endif; ?>
+    <?php endif;?>
+    </main>
+    <?php include ($directory."/partials/footer.php"); ?>
+    <a class="exit-off-canvas"></a>
+  </div>
+</div>

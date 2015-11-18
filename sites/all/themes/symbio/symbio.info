@@ -1,0 +1,22 @@
+name = Symbio
+description = Theme for symbio.com.au
+core = 7.x
+
+scripts[] = assets/js/min/app-min.js
+
+regions[notices] = Notices
+regions[desktop_search] = Desktop Search
+regions[mobile_search] = Mobile Search
+regions[header] = Header
+regions[masthead] = Masthead
+regions[masthead_nav] = Masthead Navigation
+regions[search] = Search
+regions[content] = Content
+regions[first-category-section] = First Category Section
+regions[secondary-category-section] = Secondary Category Section
+regions[third-category-section] = Third Category Section
+regions[fourth-category-section] = Fourth Category Section
+regions[split-box-left] = Split Box Left
+regions[split-box-right] = Split Box Right
+regions[copyright] = Copyright
+regions[footer] = Footer

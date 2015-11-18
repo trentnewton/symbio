@@ -1,0 +1,4 @@
+name = Symbio Icons
+description = Creates tokens to be used as icon placeholders.
+dependencies[] = token
+core = 7.x

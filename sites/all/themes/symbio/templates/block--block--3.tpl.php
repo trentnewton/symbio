@@ -1,0 +1,1 @@
+<p data-sr="enter bottom wait 0.5s"><?php print $content ?></p>

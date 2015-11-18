@@ -1,0 +1,122 @@
+<?php
+
+// Creating custom tokens
+
+function symbio_icons_token_info() {
+  $info = array();
+  // Define a new token type.
+  $info['types']['icon'] = array(
+    'name' => t('Icons'),
+    'description' => t('A token type for icons.'),
+  );
+  // Define any new tokens.
+  $info['tokens']['icon']['icon-phone'] = array(
+    'name' => t('Phone Icon'),
+    'description' => t('A phone icon'),
+  );
+  $info['tokens']['icon']['icon-chevron-up'] = array(
+    'name' => t('Chevron Up Icon'),
+    'description' => t('An up-pointing chevron icon'),
+  );
+  $info['tokens']['icon']['icon-facebook'] = array(
+    'name' => t('Facebook Icon'),
+    'description' => t('A Facebook icon'),
+  );
+  $info['tokens']['icon']['icon-linkedin'] = array(
+    'name' => t('LinkedIn Icon'),
+    'description' => t('A LinkedIn icon'),
+  );
+  $info['tokens']['icon']['icon-search'] = array(
+    'name' => t('Search Icon'),
+    'description' => t('A search icon'),
+  );
+  $info['tokens']['icon']['icon-mail'] = array(
+    'name' => t('Mail Icon'),
+    'description' => t('A mail icon'),
+  );
+  $info['tokens']['icon']['icon-download'] = array(
+    'name' => t('Download Icon'),
+    'description' => t('A download icon'),
+  );
+  $info['tokens']['icon']['icon-login'] = array(
+    'name' => t('Login Icon'),
+    'description' => t('A login icon'),
+  );
+  $info['tokens']['icon']['icon-home'] = array(
+    'name' => t('Home Icon'),
+    'description' => t('A home icon'),
+  );
+  $info['tokens']['icon']['icon-warning'] = array(
+    'name' => t('Warning Icon'),
+    'description' => t('A warning icon'),
+  );
+  $info['tokens']['icon']['icon-key'] = array(
+    'name' => t('Key Icon'),
+    'description' => t('A key icon'),
+  );
+  return $info;
+}
+
+/**
+ * Implements hook_tokens().
+ */
+function symbio_icons_tokens($type, $tokens, array $data = array(), array $options = array()) {
+  $replacements = array();
+
+  if ($type == 'icon') {
+    // Loop through the available tokens.
+    foreach ($tokens as $name => $original) {
+      // Find our custom tokens by name.
+      switch ($name) {
+        case 'icon-phone':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>';
+          break;
+        case 'icon-chevron-up':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-chevron-up"><use xlink:href="#icon-chevron-up"></use></svg>';
+          break;
+        case 'icon-facebook':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-facebook"><use xlink:href="#icon-facebook"></use></svg>';
+          break;
+        case 'icon-linkedin':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-linkedin"><use xlink:href="#icon-linkedin"></use></svg>';
+          break;
+        case 'icon-search':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
+          break;
+        case 'icon-mail':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>';
+          break;
+        case 'icon-download':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>';
+          break;
+        case 'icon-login':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>';
+          break;
+        case 'icon-home':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>';
+          break;
+        case 'icon-warning':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-warning"><use xlink:href="#icon-warning"></use></svg>';
+          break;
+        case 'icon-key':
+          // Give our token it's value!
+          $replacements[$original] = '<svg class="icon icon-key"><use xlink:href="#icon-key"></use></svg>';
+          break;
+      }
+    }
+  }
+
+  return $replacements;
+}
+
+?>

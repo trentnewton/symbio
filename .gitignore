@@ -1,0 +1,137 @@
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+ 
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+ 
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+ 
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+ 
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+ 
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore configuration files that may contain sensitive information.
+sites/*/*settings*.php
+
+# Ignore paths that contain generated content.
+files/
+sites/*/files
+sites/*/private
+
+# Ignore default text files
+robots.txt
+/CHANGELOG.txt
+/COPYRIGHT.txt
+/INSTALL*.txt
+/LICENSE.txt
+/MAINTAINERS.txt
+/UPGRADE.txt
+/README.txt
+sites/README.txt
+sites/all/README.txt
+sites/all/modules/README.txt
+sites/all/themes/README.txt
+
+# Ignore everything but the "sites" folder ( for non core developer )
+web.config
+authorize.php
+cron.php
+index.php
+install.php
+update.php
+xmlrpc.php
+/includes
+/misc
+/modules
+/profiles
+/scripts
+/sites/default
+/themes
+
+ -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+# add your own entries here
+!sites/all/modules/symbio_icons
+!sites/all/themes/symbio
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!README.md
+!CHANGELOG.md
+!composer.json
+ 
+# track these mu-plugins, plugins, and themes
+
+
+# -------------------------
+# BEGIN Blacklisted Files
+# -------------------------
+
+# disallow these
+sites/example.sites.php
+sites/all/modules/blockify
+sites/all/modules/breadcrumb_manager
+sites/all/modules/checklistapi
+sites/all/modules/content_access
+sites/all/modules/context
+sites/all/modules/ctools
+sites/all/modules/custom_search
+sites/all/modules/date
+sites/all/modules/devel
+sites/all/modules/entity
+sites/all/modules/file_entity
+sites/all/modules/google_analytics
+sites/all/modules/hierarchical_select
+sites/all/modules/jquery_update
+sites/all/modules/link
+sites/all/modules/media
+sites/all/modules/menu_attributes
+sites/all/modules/menu_html
+sites/all/modules/menu_token
+sites/all/modules/metatag
+sites/all/modules/page_title
+sites/all/modules/pathauto
+sites/all/modules/site_map
+sites/all/modules/site_verify
+sites/all/modules/special_menu_items
+sites/all/modules/strongarm
+sites/all/modules/taxonomy_access
+sites/all/modules/taxonomy_menu
+sites/all/modules/token
+sites/all/modules/transliteration
+sites/all/modules/tvi
+sites/all/modules/views
+sites/all/modules/webform
+sites/all/modules/webform_ajax
+sites/all/modules/xmlsitemap
+sites/all/libraries
+sites/all/themes/adminimal_theme
+
