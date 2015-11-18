@@ -119,6 +119,7 @@ sites/all/modules/menu_token
 sites/all/modules/metatag
 sites/all/modules/page_title
 sites/all/modules/pathauto
+sites/all/modules/optimizedb
 sites/all/modules/site_map
 sites/all/modules/site_verify
 sites/all/modules/special_menu_items
