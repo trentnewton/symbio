@@ -27,9 +27,6 @@
       <section class="split-boxes" data-equalizer data-equalizer-mq="medium-up">
         <div class="columns medium-6 collapse split-box-left regular-page" data-equalizer-watch>
           <div class="row-split">
-            <?php if ($messages): ?>
-            <?php print $messages; ?>
-            <?php endif; ?>
             <?php if ($tabs): ?>
             <div class="tabs">
               <?php print render($tabs); ?>
