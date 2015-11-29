@@ -1478,7 +1478,7 @@ select {
 		margin: 0;
 
 		.leaf {
-			display: initial;
+			display: inline-block;
 			margin: 0;
 			padding: 0;
 
@@ -1511,5 +1511,5 @@ select {
 
 .footer-logo {
 	width: rem-calc(84);
-	height: auto;
+	height: rem-calc(84);
 }
