@@ -22,7 +22,10 @@ $('.site-map-box-menu>.content>ul.site-map-menu>li>a').wrap('<h4 />');
 
 // change input type to search
 
-$('.form-type-textfield').find('input:text').attr({type:"search"});
+$('.form-item-search-block-form').find('input:text').attr({type:"search"});
+$('.form-item-custom-search-blocks-form-1').find('input:text').attr({type:"search"});
+$('.form-item-custom-search-blocks-form-2').find('input:text').attr({type:"search"});
+$('.form-item-keys').find('input:text').attr({type:"search"});
 
 // animations
 
