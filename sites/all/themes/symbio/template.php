@@ -200,7 +200,6 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
     $form['basic']['keys']['#attributes']['class'][] = 'radius';
     $form['basic']['submit']['#prefix'] = '<div class="form-type-submit-button">';
-    $form['basic']['submit']['#suffix'] = '</div">';
     $form['basic']['submit']['#value'] = t('Go');
     $form['basic']['submit']['#attributes']['class'][] = 'postfix';
     $form['basic']['submit']['#suffix'] = '</div>';
