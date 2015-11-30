@@ -113,6 +113,15 @@
         <?php if ($page['header']): ?>
           <?php print render($page['header']); ?>
         <?php endif; ?>
+        <?php if ($page['slogan']): ?>
+          <h1 data-sr="enter bottom"><?php print render($page['slogan']); ?></h1>
+        <?php endif; ?>
+        <?php if ($page['home_page_paragraph']): ?>
+          <p data-sr="enter bottom wait 0.5s"><?php print render($page['home_page_paragraph']); ?></p>
+        <?php endif; ?>
+        <?php if ($page['home_page_bottom_header']): ?>
+          <h2 data-sr="enter bottom wait 1s"><?php print render($page['home_page_bottom_header']); ?></h2>
+        <?php endif; ?>
       </div>
     </div>
   </div>
