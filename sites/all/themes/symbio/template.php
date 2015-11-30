@@ -186,15 +186,13 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       break;
   }
 
-  if($form_id == 'custom_search_blocks_form_2')
-  {
+  if ($form_id == 'custom_search_blocks_form_2') {
     $form['#attributes']['class'][] = 'expanding-search';
     $form['custom_search_blocks_form_2']['#prefix'] = '<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
     $form['custom_search_blocks_form_2']['#attributes']['class'][] = 'expanding-search-input';
   }
 
-  if($form_id == 'search_form')
-  {
+  if ($form_id == 'search_form') {
     $form['#attributes']['class'][] = 'search-form-custom';
     $form['basic']['keys']['#prefix'] = '<div class="row">';
     $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
@@ -245,7 +243,7 @@ function symbio_theme_registry_alter(&$theme_registry) {
 }
 
 function _symbio_insert_after_first_element(&$a, $element) {
-  if(is_array($a)) { 
+  if (is_array($a)) { 
     $first_element = array_shift($a); 
     if ($first_element) { 
       array_unshift($a, $first_element, $element); 

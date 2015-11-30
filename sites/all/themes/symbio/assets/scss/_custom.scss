@@ -944,6 +944,7 @@ select {
 
 	img {
 		border-radius: $global-radius;
+		width: 100%;
 	}
 
 	figure {
@@ -1217,7 +1218,8 @@ select {
 
 .categories,
 .view-safety-data-sheets-main,
-.view-product-data-sheets-main {
+.view-product-data-sheets-main,
+.view-product-ranges-page {
 	text-align: center;
 	color: $tuatara;
 
