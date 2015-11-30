@@ -5,10 +5,10 @@
     <title><?php print $head_title; ?></title>
     <meta name="application-name" content="<?php print $site_name; ?>">
     <meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/img/icons/icon-270x270.png">
     <meta name="theme-color" content="#ffffff">
     <link rel="icon" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/img/icons/icon-192x192.png" sizes="192x192">
     <link rel="apple-touch-icon-precomposed" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/img/icons/icon-180x180.png">
-    <meta name="msapplication-TileImage" content="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/img/icons/icon-270x270.png">
 		<?php print $head; ?>
 		<?php
 		  global $user;
