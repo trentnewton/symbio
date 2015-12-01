@@ -26,7 +26,7 @@
       }
     </style>
 	</head>
-	<body class="<?php print $classes; ?>" <?php print $attributes;?>>
+	<body class="<?php print $classes; ?>" <?php print $attributes;?> itemscope itemtype="http://schema.org/WebPage">
 		<?php include ($directory."/partials/svg.php"); ?>
 		<?php print $page_top; ?>
 		<?php print $page; ?>

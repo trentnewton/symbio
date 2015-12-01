@@ -8,4 +8,4 @@ $title = $term->name;
   <?php if ($rows): ?>
       <?php print $rows; ?>
   <?php endif; ?>
-</div><?php /* class view */ ?>
+</div>

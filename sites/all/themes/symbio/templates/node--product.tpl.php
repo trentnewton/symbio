@@ -1,4 +1,7 @@
-<header class="major-header"><h2><?php print render($content['field_category']); ?></h2></header>
+<header class="major-header">
+  <h5 class="subheader"><?php print t('Category:'); ?></h5>
+  <h4><?php print render($content['field_category']); ?></h4>
+</header>
 <ul class="medium-block-grid-2">
   <li>
     <div class="row">
