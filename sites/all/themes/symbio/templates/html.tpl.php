@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
-	<head>
+	<head profile="<?php print $grddl_profile; ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title><?php print $head_title; ?></title>
     <meta name="application-name" content="<?php print $site_name; ?>">

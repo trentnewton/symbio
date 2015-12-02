@@ -3,22 +3,7 @@
     <main id="main-wrapper">
       <?php include ($directory."/partials/header.php"); ?>
     <?php if(!drupal_is_front_page()):?>
-      <section id="masthead">
-        <div class="row">
-          <div class="column">
-            <?php if ($page['masthead']): ?>
-            <div class="page-title" data-sr="enter bottom">
-              <?php print render($page['masthead']); ?>
-            </div>
-            <?php endif; ?>
-            <?php if ($page['masthead_nav']): ?>
-            <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
-              <?php print render($page['masthead_nav']); ?>
-            </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </section>
+      <?php include ($directory."/partials/masthead.php"); ?>
       <section class="regular-page">
         <div class="row">
           <div class="column">

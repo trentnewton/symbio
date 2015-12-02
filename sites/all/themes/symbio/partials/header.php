@@ -1,4 +1,4 @@
-<header id="header">
+<header id="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="top-info">
     <div class="row">
       <div class="small-12 large-5 columns">
@@ -37,7 +37,7 @@
       <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
     </div>
     <div class="middle tab-bar-section">
-      <a href="<?php print render($front_page); ?>" class="responsive-svg-container">
+      <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>">
         <svg class="responsive-svg tab-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
       </a>
     </div>
@@ -48,7 +48,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="<?php print render($front_page); ?>" class="responsive-svg-container">
+              <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>">
                 <svg class="responsive-svg top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
               </a>
             </h1>
@@ -99,8 +99,7 @@
         else
         { ?>
         <li><a href="<?php print $base_path; ?>user/login"><?php print t('Log in'); ?>&nbsp;<svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg></a></li>
-        <?php } 
-      ?>
+      <?php } ?>
       <?php if ($secondary_menu): ?>
       <?php print theme('links__system_secondary_menu', array('links' => $secondary_menu, 'attributes' => array('id' => 'secondary-menu-links')));?>
       <?php endif; ?>

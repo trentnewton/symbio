@@ -101,13 +101,12 @@ function symbio_preprocess_page(&$vars, $hook) {
     // name will be "page--my-machine-name.tpl.php".
     $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
   }
+  if (drupal_is_front_page()) {
+    unset($vars['page']['content']['system_main']['default_message']); //will remove message "no front page content is created"
+  }
 }
 
-/**
- * @file
- *
- * Make the login screens better :).
- */
+// styling and formatting of forms
 
 /**
  * Implementation of hook_init().
@@ -166,7 +165,21 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_login':
       drupal_set_title(t('Log in'));
-
+      $form['#action'] = 'user';
+      $form['name']['#prefix'] ='<div class="column">';
+      $form['name']['#attributes']['placeholder'] = t('Username');
+      $form['name']['#suffix'] ='</div>';
+      $form['pass']['#prefix'] ='<div class="column">';
+      $form['pass']['#attributes']['placeholder'] = t('Password');
+      $form['pass']['#suffix'] ='</div>';
+      $form['actions']['submit'] = array
+      (
+        '#prefix' => '<div class="column submit-area text-right">' . l(t('Forgot your password?'), 'user/password') . '<button type="submit" id="edit-submit" name="op"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
+        '#type' => 'submit',
+        '#value' => '',
+        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#suffix' => '</button></div>',
+      );
       break;
 
     case 'user_register_form':
@@ -178,11 +191,29 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
 
     case 'user_pass':
       drupal_set_title(t('Forgot your password?'));
+      $form['name']['#prefix'] ='<div class="column">';
       $form['name']['#attributes']['placeholder'] = t('Username or e-mail address');
+      $form['name']['#suffix'] ='</div>';
+      $form['actions']['submit'] = array
+      (
+        '#prefix' => '<div class="column submit-area text-right"><button type="submit" id="edit-submit" name="op"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
+        '#type' => 'submit',
+        '#value' => '',
+        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#suffix' => '</button></div>',
+      );
       break;
 
     case 'user_pass_reset':
       drupal_set_title(t('Reset password'));
+      $form['actions']['submit'] = array
+      (
+        '#prefix' => '<button type="submit" id="edit-submit" name="op"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Log In'),
+        '#type' => 'submit',
+        '#value' => '',
+        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#suffix' => '</button>',
+      );
       break;
   }
 

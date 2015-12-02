@@ -117,7 +117,6 @@ sites/all/modules/menu_attributes
 sites/all/modules/menu_html
 sites/all/modules/menu_token
 sites/all/modules/metatag
-sites/all/modules/page_title
 sites/all/modules/pathauto
 sites/all/modules/optimizedb
 sites/all/modules/site_map
@@ -136,4 +135,3 @@ sites/all/modules/webform_ajax
 sites/all/modules/xmlsitemap
 sites/all/libraries
 sites/all/themes/adminimal_theme
-

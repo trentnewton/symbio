@@ -11,8 +11,8 @@
   <?php print render($page['search']); ?>
 </section>
 <?php endif; ?>
-<section class="about-page-container">
-  <div id="first-section" class="row" data-equalizer>
+<section class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+  <article id="first-section" class="row" data-equalizer>
     <div class="columns medium-6 push-6 about-page second circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter right wait 1s move 50px">
         <header class="major-header">
@@ -27,8 +27,8 @@
       </figure>
       <div class="circles-bg"></div>
     </div>
-  </div>
-  <div id="second-section" class="row" data-equalizer>
+  </article>
+  <article id="second-section" class="row" data-equalizer>
     <div class="columns medium-6 about-page third circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter left move 50px">
         <header class="major-header">
@@ -43,8 +43,8 @@
       </figure>
       <div class="circles-bg"></div>
     </div>
-  </div>
-  <div id="third-section" class="row" data-equalizer>
+  </article>
+  <article id="third-section" class="row" data-equalizer>
     <div class="columns medium-6 push-6 about-page sixth circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter right move 50px">
         <header class="major-header">
@@ -59,8 +59,8 @@
       </figure>
       <div class="circles-bg"></div>
     </div>
-  </div>
-  <div class="row" id="quote">
+  </article>
+  <article class="row" id="quote">
     <div class="column about-page">
       <div class="text-blurb text-center" data-sr="enter bottom">
         <span class="quote-title"><?php print render($content['field_about_quote_section_title']); ?></span>

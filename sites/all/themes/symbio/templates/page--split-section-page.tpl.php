@@ -3,29 +3,14 @@
     <main id="main-wrapper">
       <?php include ($directory."/partials/header.php"); ?>
     <?php if(!drupal_is_front_page()):?>
-      <section id="masthead">
-        <div class="row">
-          <div class="column">
-            <?php if ($page['masthead']): ?>
-            <div class="page-title" data-sr="enter bottom">
-              <?php print render($page['masthead']); ?>
-            </div>
-            <?php endif; ?>
-            <?php if ($page['masthead_nav']): ?>
-            <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
-              <?php print render($page['masthead_nav']); ?>
-            </div>
-            <?php endif; ?>
-          </div>
-        </div>
-      </section>
+      <?php include ($directory."/partials/masthead.php"); ?>
       <?php if ($page['search']): ?>
       <section id="search-box">
         <?php print render($page['search']); ?>
       </section>
       <?php endif; ?>
       <section class="split-boxes" data-equalizer data-equalizer-mq="medium-up">
-        <div class="columns medium-6 collapse split-box-left regular-page" data-equalizer-watch>
+        <div class="columns medium-6 collapse split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <div class="row-split">
             <?php if ($tabs): ?>
             <div class="tabs">

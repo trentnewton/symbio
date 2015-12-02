@@ -1434,6 +1434,33 @@ select {
 
 #login-footer {
 	border-top: 3px solid $iron;
+
+	nav {
+
+		a {
+			position: relative;
+			margin-right: rem-calc(10px);
+
+			&:before {
+				position: absolute;
+				right: rem-calc(-15);
+				content: "\00A0\00A0\007C\00A0";
+				color: rgba($body-font-color, 0.7);
+			}
+
+			&:last-child {
+				margin-right: 0;
+
+				&:before {
+					content: '';
+				}
+
+			}
+
+		}
+
+	}
+
 }
 
 .login-form-box,

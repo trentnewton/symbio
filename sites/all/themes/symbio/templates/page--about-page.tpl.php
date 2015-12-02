@@ -24,7 +24,7 @@
               <?php endif; ?>
             </div>
           </div>
-        </div>
+        </article>
       </section>
       <?php else : ?>
           </div>
