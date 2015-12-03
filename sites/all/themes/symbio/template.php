@@ -225,13 +225,14 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
 
   if ($form_id == 'search_form') {
     $form['#attributes']['class'][] = 'search-form-custom';
-    $form['basic']['keys']['#prefix'] = '<div class="row">';
+    $form['basic']['keys']['#prefix'] = '<div class="row"><div class="small-7 medium-10 columns">';
     $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
     $form['basic']['keys']['#attributes']['class'][] = 'radius';
-    $form['basic']['submit']['#prefix'] = '<div class="form-type-submit-button">';
+    $form['basic']['keys']['#suffix'] = '</div>';
+    $form['basic']['submit']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['basic']['submit']['#value'] = t('Go');
     $form['basic']['submit']['#attributes']['class'][] = 'postfix';
-    $form['basic']['submit']['#suffix'] = '</div>';
+    $form['basic']['submit']['#suffix'] = '</div></div>';
   }
 
   if ($form_id == 'search_block_form') {
@@ -242,12 +243,14 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       }
     }
     $form['#attributes']['class'][] = 'search-form-custom';
-    $form['search_block_form']['#prefix'] = '<div class="row"><div class="small-7 medium-10 columns"><div class="row collapse postfix-radius">';
+    $form['search_block_form']['#prefix'] = '<div class="row"><div class="small-7 medium-10 columns"><div class="row collapse postfix-radius"><div class="small-8 medium-9 columns">';
+    $form['search_block_form']['#suffix'] = '</div>';
+    $form['custom_search_types']['#prefix'] = '<div class="small-4 medium-3 columns">';
     $form['custom_search_types']['#attributes']['class'][] = 'postfix';
-    $form['custom_search_types']['#suffix'] = '</div></div>';
+    $form['custom_search_types']['#suffix'] = '</div></div></div>';
+    $form['actions']['submit']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['actions']['submit']['#attributes']['class'][] = 'postfix';
-    $form['actions']['submit']['#suffix'] = '</div>';
-
+    $form['actions']['submit']['#suffix'] = '</div></div>';
   }
 
 }

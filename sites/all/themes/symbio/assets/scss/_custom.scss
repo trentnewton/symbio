@@ -281,6 +281,14 @@ ul.primary {
 
 }
 
+th.active {
+
+	img {
+		width: initial;
+	}
+
+}
+
 // main wrapper
 
 .off-canvas-wrap {
@@ -1146,26 +1154,11 @@ select {
 
 	}
 
-	.search-form-custom {
-
-		.form-type-textfield {
-			@extend .small-8, .medium-9;
-		}
-
-		.form-type-select {
-			@extend .small-4, .medium-3, .columns;
-		}
-
-	}
-
 }
 
 // search form on results page
 
 .search-form-custom {
-
-	.form-type-textfield {
-		@extend .small-7, .medium-10, .columns;
 
 		label {
 			display: none;
@@ -1174,13 +1167,6 @@ select {
 		.form-text {
 			box-shadow: 0 1px 3px 1px rgba($black, 0.2);
 		}
-
-	}
-
-	.form-type-submit-button,
-	.form-actions {
-		@extend .small-5, .medium-2, .columns;			
-	}
 
 }
 
