@@ -110,6 +110,8 @@ sites/all/modules/entity
 sites/all/modules/file_entity
 sites/all/modules/google_analytics
 sites/all/modules/hierarchical_select
+sites/all/modules/imageapi_optimize
+sites/all/modules/imagemagick
 sites/all/modules/jquery_update
 sites/all/modules/link
 sites/all/modules/media
