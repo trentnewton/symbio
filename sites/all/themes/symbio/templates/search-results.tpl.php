@@ -1,25 +1,3 @@
-<?php
-
-/**
- * @file
- * Default theme implementation for displaying search results.
- *
- * This template collects each invocation of theme_search_result(). This and
- * the child template are dependent to one another sharing the markup for
- * definition lists.
- *
- * Note that modules may implement their own search type and theme function
- * completely bypassing this template.
- *
- * Available variables:
- * - $search_results: All results as it is rendered through
- *   search-result.tpl.php
- * - $type: The type of search, e.g., "node" or "user".
- *
- *
- * @see template_preprocess_custom_search_results()
- */
-?>
 <?php if ($search_results) : ?>
   <h2><?php print t('Search results');?></h2>
   <?php if (isset($filter) && $filter != '' && $filter_position == 'above') : ?>

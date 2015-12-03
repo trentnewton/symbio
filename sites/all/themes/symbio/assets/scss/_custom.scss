@@ -239,6 +239,7 @@ ul.primary {
 		    border-top-left-radius: $global-radius;
 		    border-top-right-radius: $global-radius;
 		    line-height: 2.6;
+		    color: inherit;
 			}
 
 			&:not([class]) {
@@ -1280,10 +1281,30 @@ select {
 
 .brand-cat {
 	padding: rem-calc(36);
+
+	svg {
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		 width: em-calc(224);
+		  height: em-calc(192);
+		}
+
+	}
+
 }
 
 .prod-cat {
 	padding: rem-calc(10);
+
+	svg {
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+		  width: em-calc(224);
+		  height: em-calc(224);
+		}
+
+	}
+
 }
 
 .cat-overlay {

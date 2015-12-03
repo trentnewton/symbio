@@ -106,7 +106,7 @@
     </ul>
   </aside>
   <?php if(drupal_is_front_page()):?>
-  <div id="banner">
+  <section id="banner">
     <div class="row">
       <div class="column">
         <?php if ($page['header']): ?>
@@ -123,6 +123,6 @@
         <?php endif; ?>
       </div>
     </div>
-  </div>
+  </section>
   <?php endif;?>
 </header>
