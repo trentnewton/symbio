@@ -101,6 +101,11 @@ address {
 	margin-bottom: $paragraph-margin-bottom;
 }
 
+
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
 svg {
 	vertical-align: middle;
 
