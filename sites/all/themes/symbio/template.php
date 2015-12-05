@@ -229,10 +229,14 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
     $form['basic']['keys']['#attributes']['class'][] = 'radius';
     $form['basic']['keys']['#suffix'] = '</div>';
-    $form['basic']['submit']['#prefix'] = '<div class="small-5 medium-2 columns">';
-    $form['basic']['submit']['#value'] = t('Go');
-    $form['basic']['submit']['#attributes']['class'][] = 'postfix';
-    $form['basic']['submit']['#suffix'] = '</div></div>';
+    $form['basic']['submit'] = array
+    (
+      '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" id="edit-submit" name="op" class="postfix">' . t('Go'),
+      '#type' => 'submit',
+      '#value' => '',
+      '#attributes' => array('style' => array( 'display: none' )), // hide the input field
+      '#suffix' => '</button></div>',
+    );
   }
 
   if ($form_id == 'search_block_form') {
@@ -249,7 +253,14 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['custom_search_types']['#attributes']['class'][] = 'postfix';
     $form['custom_search_types']['#suffix'] = '</div></div></div>';
     $form['actions']['#prefix'] = '<div class="small-5 medium-2 columns">';
-    $form['actions']['submit']['#attributes']['class'][] = 'postfix';
+    $form['actions']['submit'] = array
+    (
+      '#prefix' => '<button type="submit" id="edit-submit" name="op" class="postfix">' . t('Go'),
+      '#type' => 'submit',
+      '#value' => '',
+      '#attributes' => array('style' => array( 'display: none' )), // hide the input field
+      '#suffix' => '</button>',
+    );
     $form['actions']['#suffix'] = '</div></div>';
   }
 
