@@ -165,7 +165,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
   switch ($form_id) {
     case 'user_login':
       drupal_set_title(t('Log in'));
-      $form['#action'] = 'user';
+      $form['#action'] = base_path() . 'user/login';
       $form['name']['#prefix'] ='<div class="column">';
       $form['name']['#attributes']['placeholder'] = t('Username');
       $form['name']['#suffix'] ='</div>';

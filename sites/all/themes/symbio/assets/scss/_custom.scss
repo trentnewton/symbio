@@ -287,6 +287,10 @@ ul.primary {
 
 }
 
+.block-region {
+	color: $black;
+}
+
 // main wrapper
 
 .off-canvas-wrap {
@@ -1379,27 +1383,10 @@ p.search-snippet {
 		&:not([class]) {
 
 			color: $body-font-color;
-			position: relative;
-			z-index: 3;
-
-			&:after {
-				content: '';
-				position: absolute;
-				left: 0;
-				top: 0;
-				width: 100%;
-				height: $h5-font-size;
-				border-bottom: $tertiary-color 2px solid;
-				z-index: -1;
-				transition: background $transition-time ease-in-out;
-			}
+			border-bottom: $tertiary-color 2px solid;
 
 			&:hover {
-				
-				&:after {
-					background: $tertiary-color;
-				}
-
+				background: $tertiary-color;
 			}
 
 		}
