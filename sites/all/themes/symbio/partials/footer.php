@@ -1,4 +1,4 @@
-<footer id="footer" role="contentinfo" itemscope itemtype="http://schema.org/WPFooter">
+<footer id="footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="row">
     <div class="column">
       <a href="<?php print render($front_page); ?>" title="<?php print t('Home'); ?>">

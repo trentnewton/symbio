@@ -12,7 +12,6 @@
 		<?php print $head; ?>
 		<?php
 		  global $user;
-
 		  // Check to see if $user has the administrator role.
 		  if (in_array('administrator', array_values($user->roles))) {
 		    print $styles;

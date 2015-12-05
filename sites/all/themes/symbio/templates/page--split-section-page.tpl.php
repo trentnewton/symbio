@@ -11,7 +11,7 @@
       <?php endif; ?>
       <section class="split-boxes" data-equalizer data-equalizer-mq="medium-up">
         <div class="columns medium-6 collapse split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
-          <div class="row-split">
+          <div class="row-split" itemprop="text">
             <?php if ($tabs): ?>
             <div class="tabs">
               <?php print render($tabs); ?>

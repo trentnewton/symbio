@@ -44,7 +44,7 @@
   </nav>
   <div class="row desktop-top-bar">
     <div class="column top-bar-wrapper">
-      <nav class="top-bar" data-topbar>
+      <nav class="top-bar" data-topbar itemscope itemtype="http://schema.org/SiteNavigationElement">
         <ul class="title-area">
           <li class="name">
             <h1>
@@ -71,7 +71,7 @@
       </nav>
     </div>
   </div>
-  <aside class="left-off-canvas-menu">
+  <aside class="left-off-canvas-menu" role="navigation" itemscope itemtype="http://schema.org/SiteNavigationElement">
     <ul class="off-canvas-list">
       <?php if ($page['mobile_search']): ?>
       <li class="search-input">
@@ -106,17 +106,17 @@
     </ul>
   </aside>
   <?php if(drupal_is_front_page()):?>
-  <section id="banner">
+  <section id="banner" role="banner">
     <div class="row">
       <div class="column">
         <?php if ($page['header']): ?>
           <?php print render($page['header']); ?>
         <?php endif; ?>
         <?php if ($page['slogan']): ?>
-          <h1 data-sr="enter bottom"><?php print render($page['slogan']); ?></h1>
+          <h1 data-sr="enter bottom" itemprop="headline"><?php print render($page['slogan']); ?></h1>
         <?php endif; ?>
         <?php if ($page['home_page_paragraph']): ?>
-          <p data-sr="enter bottom wait 0.5s"><?php print render($page['home_page_paragraph']); ?></p>
+          <p data-sr="enter bottom wait 0.5s" itemprop="description"><?php print render($page['home_page_paragraph']); ?></p>
         <?php endif; ?>
         <?php if ($page['home_page_bottom_header']): ?>
           <h2 data-sr="enter bottom wait 1s"><?php print render($page['home_page_bottom_header']); ?></h2>

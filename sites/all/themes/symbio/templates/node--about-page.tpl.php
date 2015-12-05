@@ -11,12 +11,12 @@
   <?php print render($page['search']); ?>
 </section>
 <?php endif; ?>
-<section class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+<div class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
   <article id="first-section" class="row" data-equalizer>
     <div class="columns medium-6 push-6 about-page second circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter right wait 1s move 50px">
         <header class="major-header">
-          <h2><?php print render($content['field_about_first_section_title']); ?></h2>
+          <h2 itemprop="headline"><?php print render($content['field_about_first_section_title']); ?></h2>
         </header>
         <?php print render($content['field_about_first_section_text']); ?>
       </div>
@@ -32,7 +32,7 @@
     <div class="columns medium-6 about-page third circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter left move 50px">
         <header class="major-header">
-          <h2><?php print render($content['field_about_second_section_title']); ?></h2>
+          <h2 itemprop="headline"><?php print render($content['field_about_second_section_title']); ?></h2>
         </header>
         <?php print render($content['field_about_second_section_text']); ?>
       </div>
@@ -48,7 +48,7 @@
     <div class="columns medium-6 push-6 about-page sixth circles" data-equalizer-watch>
       <div class="text-blurb" data-sr="enter right move 50px">
         <header class="major-header">
-          <h2><?php print render($content['field_about_third_section_title']); ?></h2>
+          <h2 itemprop="headline"><?php print render($content['field_about_third_section_title']); ?></h2>
         </header>
         <?php print render($content['field_about_third_section_text']); ?>
       </div>

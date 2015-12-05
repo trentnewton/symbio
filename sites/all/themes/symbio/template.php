@@ -248,9 +248,9 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['custom_search_types']['#prefix'] = '<div class="small-4 medium-3 columns">';
     $form['custom_search_types']['#attributes']['class'][] = 'postfix';
     $form['custom_search_types']['#suffix'] = '</div></div></div>';
-    $form['actions']['submit']['#prefix'] = '<div class="small-5 medium-2 columns">';
+    $form['actions']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['actions']['submit']['#attributes']['class'][] = 'postfix';
-    $form['actions']['submit']['#suffix'] = '</div></div>';
+    $form['actions']['#suffix'] = '</div></div>';
   }
 
 }

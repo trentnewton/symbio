@@ -25,7 +25,7 @@
             </div>
           </div>
         </article>
-      </section>
+      </div>
       <?php else : ?>
           </div>
         </div>

@@ -4,9 +4,9 @@
       <?php include ($directory."/partials/header.php"); ?>
     <?php if(!drupal_is_front_page()):?>
       <?php include ($directory."/partials/masthead.php"); ?>
-      <section class="regular-page">
+      <section class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
         <div class="row">
-          <div class="column">
+          <div class="column" itemprop="text">
             <?php if ($messages): ?>
             <?php print $messages; ?>
             <?php endif; ?>

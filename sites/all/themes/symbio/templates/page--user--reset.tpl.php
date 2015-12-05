@@ -1,13 +1,13 @@
 <?php include ($directory."/partials/login-header.php"); ?>
 <main id="login-body" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
-  <div class="row">
+  <header class="row">
     <div class="medium-6 small-centered columns">
       <div class="text-center">
-        <h1><?php print $title; ?></h1>
+        <h1 itemprop="headline"><?php print $title; ?></h1>
       </div>
     </div>
-  </div> 
-  <div class="row">
+  </header> 
+  <article class="row">
     <div class="medium-6 small-centered columns login-form-box-wrapper">
       <div class="login-form-box text-center">
         <div class="row">
@@ -22,6 +22,6 @@
         </div>
       </div>
     </div>
-  </div>
+  </article>
 </main>
 <?php include ($directory."/partials/login-footer.php"); ?>

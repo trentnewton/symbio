@@ -97,9 +97,11 @@ xmlrpc.php
 
 # disallow these
 sites/example.sites.php
+sites/all/modules/advanced_text_formatter
 sites/all/modules/blockify
 sites/all/modules/breadcrumb_manager
 sites/all/modules/checklistapi
+sites/all/modules/ckeditor
 sites/all/modules/content_access
 sites/all/modules/context
 sites/all/modules/ctools

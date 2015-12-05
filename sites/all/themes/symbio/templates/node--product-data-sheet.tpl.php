@@ -1,5 +1,5 @@
 <header class="major-header">
-  <h2><?php print render($content['field_pds_category']); ?></h2>
+  <h2 itemprop="headline"><?php print render($content['field_pds_category']); ?></h2>
 </header>
 <table>
   <thead>

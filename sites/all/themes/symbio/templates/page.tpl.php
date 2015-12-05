@@ -14,7 +14,7 @@
       <?php endif; ?>
       <section class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
         <div class="row">
-          <div class="column">
+          <div class="column" itemprop="text">
           <?php if ($messages): ?>
             <?php print $messages; ?>
           <?php endif; ?>

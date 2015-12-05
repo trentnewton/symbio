@@ -123,10 +123,21 @@ $black       : #000000;
 $primary-color: #862633;
 $secondary-color: #001e62;
 $tertiary-color: #ffc72c;
+
+$primary-color-70: #aa6770;
+$secondary-color-70: #4c6191;
+$tertiary-color-70: #ffd86b;
+
+$primary-color-50: #c29299;
+$secondary-color-50: #7f8eb0;
+$tertiary-color-50: #ffe395;
+
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
 // $info-color: #a0d3e8;
+
+$google-maps-bg-colour: #e5e3df;
 
 // rgb versions
 $white-rgb: rgba($white, 0.99);
@@ -875,17 +886,17 @@ $tabbar-header-color: $oil;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-$off-canvas-bg: #4c6191;
+$off-canvas-bg: $secondary-color-70;
 $off-canvas-bg-hover: rgba($secondary-color, 0.2);
 $off-canvas-bg-active: rgba($secondary-color, 0.1);
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: .3rem rem-calc(15);
-$off-canvas-label-color: scale-color(#7f8eb0, $lightness: 65%);
+$off-canvas-label-color: scale-color($secondary-color-50, $lightness: 65%);
 // $off-canvas-label-text-transform: uppercase;
 $off-canvas-label-font-size: 0.8rem;
 // $off-canvas-label-font-weight: $font-weight-bold;
-$off-canvas-label-bg: #7f8eb0;
+$off-canvas-label-bg: $secondary-color-50;
 // $off-canvas-label-border-top: 1px solid scale-color($off-canvas-label-bg, $lightness: 14%);
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
@@ -994,11 +1005,11 @@ $tabbar-menu-icon-color: $secondary-color;
 // $pagination-link-unavailable-bg-active: transparent;
 
 // We use these for currently selected anchor links
-$pagination-link-current-background: #7f8eb0;
+$pagination-link-current-background: $secondary-color-50;
 // $pagination-link-current-font-color: $white;
 // $pagination-link-current-font-weight: $font-weight-bold;
 // $pagination-link-current-cursor: default;
-$pagination-link-current-active-bg: #7f8eb0;
+$pagination-link-current-active-bg: $secondary-color-50;
 
 // 21. Panels
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -1313,15 +1324,15 @@ $reveal-overlay-bg: rgba($black, .4);
 
 // These control the background color for the table and even rows
 // $table-bg: $white;
-$table-even-row-bg: scale-color(#7f8eb0, $lightness: 90%);
+$table-even-row-bg: scale-color($secondary-color-50, $lightness: 90%);
 
 // These control the table cell border style
 // $table-border-style: solid;
 // $table-border-size: 1px;
-$table-border-color: scale-color(#7f8eb0, $lightness: 50%);
+$table-border-color: scale-color($secondary-color-50, $lightness: 50%);
 
 // These control the table head styles
-$table-head-bg: #7f8eb0;
+$table-head-bg: $secondary-color-50;
 $table-head-font-size: 0.8rem;
 $table-head-font-color: $white;
 // $table-head-font-weight: $font-weight-bold;
@@ -1455,7 +1466,7 @@ $topbar-back-link-size: $h5-font-size;
 // Style the top bar dropdown elements
 $topbar-dropdown-bg: transparent;
 $topbar-dropdown-link-color: $topbar-link-color;
-$topbar-dropdown-link-color-hover: #7f8eb0;
+$topbar-dropdown-link-color-hover: $secondary-color-50;
 $topbar-dropdown-link-bg: $topbar-dropdown-bg;
 $topbar-dropdown-link-bg-hover: $topbar-dropdown-bg;
 $topbar-dropdown-link-weight: $font-weight-bold;

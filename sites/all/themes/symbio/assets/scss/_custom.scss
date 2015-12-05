@@ -160,8 +160,6 @@ svg {
 	font-size: $h4-font-size;
 }
 
-// Drupal css
-
 .element-invisible {
 	position: absolute;
 	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
@@ -170,17 +168,11 @@ svg {
 	height: 1px;
 }
 
-body.toolbar-drawer {
-	padding-top: rem-calc(65);
-}
-
 .views-align-center {
 	@extend .text-center;
 }
 
-.container-inline div {
-	display: block;
-}
+// pagination
 
 ul.pager {
 	@extend ul.pagination;
@@ -199,23 +191,37 @@ ul.pager {
 
 }
 
+// Drupal css for admin
+
+body.toolbar-drawer {
+	padding-top: rem-calc(65);
+}
+
+.container-inline {
+	
+	div,
+	label {
+		display: block;
+	}
+
+}
+
 .form-item,
 .form-actions {
 	margin-top: 0;
 	margin-bottom: 0;
 }
 
-p.search-info {
-	margin-bottom: rem-calc(5);
-	font-weight: $font-weight-bold;
+.search-form {
+	margin-bottom: 0;
 }
 
-p.search-snippet {
-	font-style: italic;
-}
+th.active {
 
-.search-result {
-	margin-bottom: rem-calc(30);
+	img {
+		width: initial;
+	}
+
 }
 
 ul.primary {
@@ -277,14 +283,6 @@ ul.primary {
 
 		}
 
-	}
-
-}
-
-th.active {
-
-	img {
-		width: initial;
 	}
 
 }
@@ -1058,7 +1056,7 @@ select {
 	&.first {
 
 		.circles-bg {
-			background-color: #ffe395;
+			background-color: $tertiary-color-50;
 		}
 
 	}
@@ -1067,7 +1065,7 @@ select {
 		flex-direction: row;
 
 		.circles-bg {
-			background-color: #c29299;
+			background-color: $primary-color-50;
 			left: 150%;
 			top: -20%;
 		}
@@ -1077,7 +1075,7 @@ select {
 	&.fifth {
 
 		.circles-bg {
-			background-color: #7f8eb0;
+			background-color: $secondary-color-50;
 		}
 
 	}
@@ -1156,7 +1154,7 @@ select {
 
 }
 
-// search form on results page
+// search results page
 
 .search-form-custom {
 
@@ -1168,6 +1166,19 @@ select {
 			box-shadow: 0 1px 3px 1px rgba($black, 0.2);
 		}
 
+}
+
+p.search-info {
+	margin-bottom: rem-calc(5);
+	font-weight: $font-weight-bold;
+}
+
+p.search-snippet {
+	font-style: italic;
+}
+
+.search-result {
+	margin-bottom: rem-calc(30);
 }
 
 // advanced search results
@@ -1201,7 +1212,7 @@ select {
 	background-color: $iron;
 	@extend .regular-page;
 
-	&:nth-child(even) {
+	&:nth-child(odd) {
 		background-image: none;
 		background-color: $white;
 	}
@@ -1335,7 +1346,7 @@ select {
 // contact
 
 .google-maps-container {
-	background-color: rgb(229,227,223);
+	background-color: $google-maps-bg-colour;
 
 	&.column,
 	&.columns {
@@ -1487,8 +1498,6 @@ select {
 	}
 
 }
-
-
 
 // site map
 
