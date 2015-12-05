@@ -191,6 +191,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
 
     case 'user_pass':
       drupal_set_title(t('Forgot your password?'));
+      $form['#action'] = base_path() . 'user/password';
       $form['name']['#prefix'] ='<div class="column">';
       $form['name']['#attributes']['placeholder'] = t('Username or e-mail address');
       $form['name']['#suffix'] ='</div>';
@@ -208,7 +209,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       drupal_set_title(t('Reset password'));
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<button type="submit" id="edit-submit" name="op"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Log In'),
+        '#prefix' => '<button type="submit" id="edit-submit" name="op">' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
