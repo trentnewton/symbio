@@ -21,5 +21,11 @@ regions[third-category-section] = Third Category Section
 regions[fourth-category-section] = Fourth Category Section
 regions[split-box-left] = Split Box Left
 regions[split-box-right] = Split Box Right
-regions[copyright] = Copyright
 regions[footer] = Footer
+
+regions[navigation]     = Navigation bar
+regions[highlighted]    = Highlighted
+regions[help]           = Help
+regions[bottom]         = Page bottom
+regions[page_top]       = Page top
+regions[page_bottom]    = Page bottom

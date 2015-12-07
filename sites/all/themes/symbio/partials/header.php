@@ -37,7 +37,7 @@
       <a class="left-off-canvas-toggle menu-icon" aria-expanded="false"><span></span></a>
     </div>
     <div class="middle tab-bar-section">
-      <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>">
+      <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
         <svg class="responsive-svg tab-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
       </a>
     </div>
@@ -48,7 +48,7 @@
         <ul class="title-area">
           <li class="name">
             <h1>
-              <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>">
+              <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
                 <svg class="responsive-svg top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
               </a>
             </h1>

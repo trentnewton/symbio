@@ -1,13 +1,9 @@
 <footer id="login-footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="row">
     <div class="column">
-      <p class="copyright">
-      <?php if ($page['copyright']): ?>
-        <?php print render($page['copyright']); ?>
-      <?php endif; ?>
-      </p>
+      <p class="copyright"><?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?> <?php print $site_name ?></p>
       <nav>
-        <a href="<?php print render($front_page); ?>"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>&nbsp;<?php print t('Home'); ?></a>
+        <a href="<?php print render($front_page); ?>" rel="home"><svg class="icon icon-home"><use xlink:href="#icon-home"></use></svg>&nbsp;<?php print t('Home'); ?></a>
         <?php global $user;
         if($user->uid)
         { ?>
