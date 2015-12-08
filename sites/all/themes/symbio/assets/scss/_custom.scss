@@ -231,7 +231,7 @@ ul.primary {
 	line-height: normal;
 	list-style: none;
 	margin: rem-calc(30 0 30);
-	padding: 0 0 0 1em; /* LTR */
+	padding: rem-calc(0 0 0 16); /* LTR */
 	white-space: nowrap;
 
 	li {
@@ -245,7 +245,7 @@ ul.primary {
 			&.active {
 	    	border-style: solid;
 				border-width: 1px;
-	    	margin-right: 0.5em;
+	    	margin-right: rem-calc(8);
 				padding: rem-calc(12 28 12);
 		    border-top-left-radius: $global-radius;
 		    border-top-right-radius: $global-radius;
@@ -1449,7 +1449,7 @@ p.search-snippet {
 
 		a {
 			position: relative;
-			margin-right: rem-calc(10px);
+			margin-right: rem-calc(10);
 
 			&:before {
 				position: absolute;
