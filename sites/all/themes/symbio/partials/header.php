@@ -113,7 +113,7 @@
           <?php print render($page['header']); ?>
         <?php endif; ?>
         <?php if ($page['slogan']): ?>
-          <h1 data-sr="enter bottom" itemprop="headline"><?php print render($page['slogan']); ?></h1>
+          <div data-sr="enter bottom" itemprop="headline"><?php print render($page['slogan']); ?></div>
         <?php endif; ?>
         <?php if ($page['home_page_paragraph']): ?>
           <div data-sr="enter bottom wait 0.5s" itemprop="description"><?php print render($page['home_page_paragraph']); ?></div>
