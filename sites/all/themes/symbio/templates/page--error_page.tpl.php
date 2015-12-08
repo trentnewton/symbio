@@ -17,8 +17,8 @@
             <?php endif; ?>
             <figure><img src="<?php print $base_path; ?><?php print $directory; ?>/assets/img/images/error.jpg" alt="Error"></figure>
             <?php if ($page['content']): ?>
-        <?php print render($page['content']); ?>
-        <?php endif; ?>
+            <?php print render($page['content']); ?>
+            <?php endif; ?>
           </div>
         </div>
       </section>

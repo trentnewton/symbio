@@ -11,25 +11,38 @@
               <?php print render($page['masthead']); ?>
             </div>
             <?php endif; ?>
-        <?php if ($page['content']): ?>
-        <?php print render($page['content']); ?>
-        <?php endif; ?>
-      <?php if ($messages || $tabs) : ?>
-            <div class="m-t-30">
-              <?php print $messages; ?>
-              <?php if ($tabs): ?>
-              <div class="tabs">
-                <?php print render($tabs); ?>
-              </div>
-              <?php endif; ?>
-            </div>
-          </div>
-        </article>
-      </div>
-      <?php else : ?>
+            <nav class="tab-links" data-sr="enter bottom wait 0.5s">
+              <a href="#first-section"><?php print render( $node->field_about_first_section_title["und"][0]["value"] ); ?></a>
+              <a href="#second-section"><?php print render( $node->field_about_second_section_title["und"][0]["value"] ); ?></a>
+              <a href="#third-section"><?php print render( $node->field_about_third_section_title["und"][0]["value"] ); ?></a>
+            </nav>
           </div>
         </div>
       </section>
+      <?php if ($page['search']): ?>
+      <section id="search-box">
+        <?php print render($page['search']); ?>
+      </section>
+      <?php endif; ?>
+      <?php if ($messages || $tabs) : ?>
+      <div class="row">
+        <div class="column">
+          <div class="m-t-30">
+            <?php print $messages; ?>
+            <?php if ($tabs): ?>
+            <div class="tabs">
+              <?php print render($tabs); ?>
+            </div>
+            <?php endif; ?>
+          </div>
+        </div>
+      </div>
+      <?php else : ?>
+      <?php endif; ?>
+      <?php if ($page['content']): ?>
+      <div class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+        <?php print render($page['content']); ?>
+      </div>
       <?php endif; ?>
     <?php endif;?>
     </main>
