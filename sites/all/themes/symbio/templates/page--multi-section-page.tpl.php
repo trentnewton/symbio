@@ -9,18 +9,20 @@
         <?php print render($page['search']); ?>
       </section>
       <?php endif; ?>
-      <?php if ($messages): ?>
-      <section class="regular-page">
-        <div class="row">
-          <div class="column">
-            <?php print $messages; ?>
+      <div class="row">
+        <div class="column">
+          <?php if ($messages || $tabs) : ?>
+          <?php print $messages; ?>
+          <div class="tabs">
+            <?php print render($tabs); ?>
           </div>
+          <?php else : ?>
+          <?php endif; ?>
+          <?php if ($page['content']): ?>
+          <?php print render($page['content']); ?>
+          <?php endif; ?>
         </div>
-      </section>
-      <?php endif; ?>
-      <?php if ($page['content']): ?>
-      <?php print render($page['content']); ?>
-      <?php endif; ?>
+      </div>
       <?php if ($page['first-category-section']): ?>
       <div itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
         <article class="categories">

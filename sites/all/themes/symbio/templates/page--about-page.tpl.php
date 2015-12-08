@@ -27,13 +27,9 @@
       <?php if ($messages || $tabs) : ?>
       <div class="row">
         <div class="column">
-          <div class="m-t-30">
-            <?php print $messages; ?>
-            <?php if ($tabs): ?>
-            <div class="tabs">
-              <?php print render($tabs); ?>
-            </div>
-            <?php endif; ?>
+          <?php print $messages; ?>
+          <div class="tabs">
+            <?php print render($tabs); ?>
           </div>
         </div>
       </div>
@@ -41,7 +37,11 @@
       <?php endif; ?>
       <?php if ($page['content']): ?>
       <div class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
-        <?php print render($page['content']); ?>
+        <div class="row">
+          <div class="column">
+            <?php print render($page['content']); ?>
+          </div>
+        </div>
       </div>
       <?php endif; ?>
     <?php endif;?>
