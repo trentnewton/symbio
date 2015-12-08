@@ -4,7 +4,7 @@
       <div class="small-12 large-5 columns">
         <div class="notice">
           <?php if ($page['notices']): ?>
-            <p><?php print render($page['notices']); ?></p>
+          <?php print render($page['notices']); ?>
           <?php endif; ?>
         </div>
       </div>
@@ -116,10 +116,10 @@
           <h1 data-sr="enter bottom" itemprop="headline"><?php print render($page['slogan']); ?></h1>
         <?php endif; ?>
         <?php if ($page['home_page_paragraph']): ?>
-          <p data-sr="enter bottom wait 0.5s" itemprop="description"><?php print render($page['home_page_paragraph']); ?></p>
+          <div data-sr="enter bottom wait 0.5s" itemprop="description"><?php print render($page['home_page_paragraph']); ?></div>
         <?php endif; ?>
         <?php if ($page['home_page_bottom_header']): ?>
-          <h2 data-sr="enter bottom wait 1s"><?php print render($page['home_page_bottom_header']); ?></h2>
+          <div data-sr="enter bottom wait 1s"><?php print render($page['home_page_bottom_header']); ?></div>
         <?php endif; ?>
       </div>
     </div>
