@@ -46,7 +46,7 @@
     <div class="circles-bg"></div>
   </div>
 </article>
-<?php if ($content['field_about_quote_section_text']): ?>
+<?php if ($content['field_about_quote_section_text']) { ?>
 <article class="row" id="quote">
   <div class="column about-page">
     <div class="text-blurb text-center" data-sr="enter bottom">
@@ -54,5 +54,5 @@
       <?php print render($content['field_about_quote_section_text']); ?>
     </div>
   </div>
-</article>
-<?php endif; ?>
+</article> 
+<?php } else { } ?>
