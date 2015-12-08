@@ -14,7 +14,7 @@ $('.off-canvas-list ul#main-menu-links>li').unwrap();
 
 // add block grid class to site map list
 
-$(".site-map-box-menu>.content>ul.site-map-menu").addClass( "small-block-grid-2" );
+$(".site-map-box-menu>.content>ul.site-map-menu").addClass( "small-block-grid-2 medium-block-grid-3" );
 
 // add h4 tags to page titles on sitemap pages
 
