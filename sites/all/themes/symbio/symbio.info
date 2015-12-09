@@ -23,7 +23,6 @@ regions[split-box-left] = Split Box Left
 regions[split-box-right] = Split Box Right
 regions[footer] = Footer
 
-regions[navigation]     = Navigation bar
 regions[highlighted]    = Highlighted
 regions[help]           = Help
 regions[bottom]         = Page bottom

@@ -19,8 +19,7 @@
             <?php print $messages; ?>
           <?php endif; ?>
           <?php
-          global $user;
-          if (arg(0) == 'user' && $user->uid == arg(1)){ ?>
+          if (arg(0) == 'user' && is_numeric(arg(1)) && (arg(2) == NULL) ){ ?>
             <header class="major-header">
               <h2><?php print $title; ?></h2>
             </header>
