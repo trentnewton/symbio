@@ -105,6 +105,7 @@ sites/all/modules/views/handlers/*
 # disallow these
 sites/example.sites.php
 sites/all/modules/advanced_text_formatter
+sites/all/modules/backup_migrate
 sites/all/modules/blockify
 sites/all/modules/breadcrumb_manager
 sites/all/modules/checklistapi
@@ -136,6 +137,7 @@ sites/all/modules/taxonomy_menu
 sites/all/modules/token
 sites/all/modules/transliteration
 sites/all/modules/tvi
+sites/all/modules/upgrade_status
 sites/all/modules/uuid
 sites/all/modules/webform
 sites/all/modules/webform_ajax
