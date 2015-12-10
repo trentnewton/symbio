@@ -27,6 +27,10 @@ $('.form-item-custom-search-blocks-form-1').find('input:text').attr({type:"searc
 $('.form-item-custom-search-blocks-form-2').find('input:text').attr({type:"search"});
 $('.form-item-keys').find('input:text').attr({type:"search"});
 
+// add svg icon to download link
+
+$('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link');
+
 // animations
 
 $(document).ready(function() {

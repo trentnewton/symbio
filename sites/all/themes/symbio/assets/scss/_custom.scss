@@ -945,7 +945,8 @@ select {
 
 	a {
 
-		&:not([class]) {
+		&:not([class]),
+		&.catalogue-link {
 
 			color: inherit;
 			border-bottom: $tertiary-color 2px solid;
@@ -973,12 +974,23 @@ select {
 	border-bottom: solid 1px $charcoal;
 	margin: rem-calc(0 0 36 0);
 	padding-bottom: rem-calc(8);
+	position: relative;
 
 	&:after {
 		content: '';
 		display: block;
 		border-bottom: solid 1px $charcoal;
 		height: rem-calc(18);
+	}
+
+	.catalogue-link {
+
+		@media #{$medium-up} {
+			position: absolute;
+			right: 0;
+			top: rem-calc(12);
+		}
+		
 	}
 
 }
