@@ -18,7 +18,7 @@
           <?php if ($messages): ?>
             <?php print $messages; ?>
           <?php endif; ?>
-          <?php if (arg(0) == 'user' && is_numeric(arg(1)) && (arg(2) == NULL) ){ ?>
+          <?php if (arg(0) == 'user' && is_numeric(arg(1)) ){ ?>
             <header class="major-header">
               <h2><?php print $title; ?></h2>
             </header>

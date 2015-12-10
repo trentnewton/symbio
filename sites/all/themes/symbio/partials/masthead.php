@@ -7,7 +7,7 @@
       </div>
       <?php endif; ?>
       <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
-    <?php if (arg(0) == 'user' && is_numeric(arg(1)) && (arg(2) == NULL) ){ ?>
+    <?php if (arg(0) == 'user' && is_numeric(arg(1)) ){ ?>
       <?php if ($tabs): ?>
         <?php print render($tabs); ?>
       <?php endif; ?>
