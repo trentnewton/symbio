@@ -1288,6 +1288,7 @@ p.search-snippet {
 .foodservice-hospitality-cat,
 .silhouette-logo {
 	fill: $white;
+	transition: $transition-time;
 }
 
 .prod-cat,
@@ -1515,9 +1516,17 @@ p.search-snippet {
 			rgba($secondary-color, 1) 100%);
 	position: relative;
 	z-index: 97;
-	
-	p {
-		font-family: $header-font-family;
+
+	.footer-logo-link {
+		
+		&:hover {
+
+			.silhouette-logo {
+				fill: $secondary-color-50;
+			}
+
+		}
+
 	}
 
 	.menu {

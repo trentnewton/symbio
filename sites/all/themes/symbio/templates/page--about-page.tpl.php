@@ -3,7 +3,7 @@
     <main id="main-wrapper">
       <?php include ($directory."/partials/header.php"); ?>
     <?php if(!drupal_is_front_page()):?>
-      <section id="masthead">
+      <section id="masthead" role="banner">
         <div class="row">
           <div class="column">
             <?php if ($page['masthead']): ?>
