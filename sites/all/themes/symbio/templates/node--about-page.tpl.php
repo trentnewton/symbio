@@ -46,7 +46,7 @@
     <div class="circles-bg"></div>
   </div>
 </article>
-<?php if ($content['field_about_quote_section_text']) { ?>
+<?php if(strlen($node->field_about_quote_section_text[LANGUAGE_NONE][0]['value'])) { ?>
 <article class="row" id="quote">
   <div class="column about-page">
     <div class="text-blurb text-center" data-sr="enter bottom">
@@ -55,4 +55,4 @@
     </div>
   </div>
 </article> 
-<?php } else { } ?>
+<?php } ?>

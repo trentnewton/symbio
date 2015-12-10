@@ -1522,7 +1522,7 @@ p.search-snippet {
 		&:hover {
 
 			.silhouette-logo {
-				fill: $secondary-color-50;
+				fill: $tertiary-color;
 			}
 
 		}
@@ -1530,7 +1530,6 @@ p.search-snippet {
 	}
 
 	.menu {
-		margin-top: rem-calc(30);
 		text-align: center;
 		margin: 0;
 
