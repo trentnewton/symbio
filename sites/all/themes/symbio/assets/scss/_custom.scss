@@ -192,10 +192,6 @@ ul.pager {
 
 // Drupal css for admin
 
-// body.toolbar-drawer {
-// 	padding-top: rem-calc(65);
-// }
-
 ul.navbar-menu {
 	font-size: inherit;
 }
@@ -227,10 +223,25 @@ th.active {
 
 }
 
+div.tabs {
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem-calc(15);
+		height: 100%;
+		background: linear-gradient(to left, rgba($white, 1) 0%,rgba($white, 0) 100%);
+	}
+
+}
+
 ul.primary {
 	border-bottom: 1px solid $iron;
 	border-collapse: collapse;
-	height: auto;
+	height: rem-calc(44);
 	line-height: normal;
 	list-style: none;
 	margin: rem-calc(30 0 30);
@@ -871,6 +882,25 @@ select {
 
 }
 
+.masthead-nav {
+	position: relative;
+
+	@media #{$small-medium-only} {
+		
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: rem-calc(20);
+			height: 100%;
+			background: linear-gradient(to left, rgba(147,68,77, 1) 0%,rgba(147,68,77, 0) 100%);
+		}
+
+	}
+
+}
+
 .tab-links,
 .breadcrumbs,
 #masthead .menu,
@@ -931,7 +961,7 @@ select {
 	display: inline-block;
 	vertical-align: top;
 
-	@media #{$small-only} {
+	@media #{$small-medium-only} {
 		width: 100%;
 	}
 
