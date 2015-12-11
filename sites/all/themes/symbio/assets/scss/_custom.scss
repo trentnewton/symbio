@@ -444,8 +444,8 @@ ul.primary {
 }
 
 .tab-bar-logo {
-	width: rem-calc(227.689);
-	height: rem-calc(40);
+	max-width: rem-calc(227.689);
+	max-height: rem-calc(40);
 }
 
 .top-bar-logo {
