@@ -6,17 +6,19 @@
         <?php print render($page['masthead']); ?>
       </div>
       <?php endif; ?>
-      <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
-    <?php if (arg(0) == 'user' && is_numeric(arg(1)) ){ ?>
-      <?php if ($tabs): ?>
-        <?php print render($tabs); ?>
-      <?php endif; ?>
-    <?php } else { ?>
-      <?php if ($page['masthead_nav']): ?>
-        <?php print render($page['masthead_nav']); ?>
-      <?php endif; ?>
+      <div class="masthead-nav-container">
+        <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
+        <?php if (arg(0) == 'user' && is_numeric(arg(1)) ){ ?>
+          <?php if ($tabs): ?>
+          <?php print render($tabs); ?>
+          <?php endif; ?>
+        <?php } else { ?>
+          <?php if ($page['masthead_nav']): ?>
+          <?php print render($page['masthead_nav']); ?>
+          <?php endif; ?>
+        <?php } ?>
+        </div>
       </div>
-    <?php } ?>
     </div>
   </div>
 </section>

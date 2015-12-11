@@ -11,12 +11,14 @@
               <?php print render($page['masthead']); ?>
             </div>
             <?php endif; ?>
-            <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
-              <nav class="tab-links">
-                <a href="#first-section"><?php print render( $node->field_about_first_section_title["und"][0]["value"] ); ?></a>
-                <a href="#second-section"><?php print render( $node->field_about_second_section_title["und"][0]["value"] ); ?></a>
-                <a href="#third-section"><?php print render( $node->field_about_third_section_title["und"][0]["value"] ); ?></a>
-              </nav>
+            <div class="masthead-nav-container">
+              <div class="masthead-nav" data-sr="enter bottom wait 0.5s">
+                <nav class="tab-links">
+                  <a href="#first-section"><?php print render( $node->field_about_first_section_title["und"][0]["value"] ); ?></a>
+                  <a href="#second-section"><?php print render( $node->field_about_second_section_title["und"][0]["value"] ); ?></a>
+                  <a href="#third-section"><?php print render( $node->field_about_third_section_title["und"][0]["value"] ); ?></a>
+                </nav>
+              </div>
             </div>
           </div>
         </div>

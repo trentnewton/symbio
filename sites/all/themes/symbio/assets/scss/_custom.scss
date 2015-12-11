@@ -848,6 +848,25 @@ select {
 
 // masthead
 
+.masthead-nav-container {
+	position: relative;
+
+	@media #{$small-medium-only} {
+		
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: rem-calc(20);
+			height: 100%;
+			background: linear-gradient(to left, rgba(135,47,57, 1) 0%,rgba(135,47,57, 0) 100%);
+		}
+
+	}
+
+}
+
 #masthead {
 	background:
 		linear-gradient(to bottom,
@@ -883,22 +902,7 @@ select {
 }
 
 .masthead-nav {
-	position: relative;
-
-	@media #{$small-medium-only} {
-		
-		&:after {
-			content: '';
-			position: absolute;
-			right: 0;
-			top: 0;
-			width: rem-calc(20);
-			height: 100%;
-			background: linear-gradient(to left, rgba(147,68,77, 1) 0%,rgba(147,68,77, 0) 100%);
-		}
-
-	}
-
+	overflow: auto;
 }
 
 .tab-links,
@@ -922,10 +926,10 @@ select {
 #masthead .menu,
 #masthead .tabs.primary {
 	width: 100%;
-	height: rem-calc(47);
+	height: rem-calc(48);
 	padding: rem-calc(12 0 0);
   border: 0;
-  margin: rem-calc(-12 0 0);
+  margin: 0;
 
 	a {
 		color: $white;
@@ -955,15 +959,18 @@ select {
 }
 
 .breadcrumbs {
-	margin-top: rem-calc(-12);
 	border-bottom-left-radius: 0;
 	border-bottom-right-radius: 0;
 	display: inline-block;
 	vertical-align: top;
-
-	@media #{$small-medium-only} {
-		width: 100%;
+	
+	@media #{$large-up} {
+		
 	}
+
+	// @media #{$small-medium-only} {
+	// 	width: 100%;
+	// }
 
 	> * {
 		float: none;
