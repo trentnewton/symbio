@@ -174,11 +174,11 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['pass']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area text-right">' . l(t('Forgot your password?'), 'user/password') . '<button type="submit" id="edit-submit" name="op"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" id="edit-submit" name="op" class="expand"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
-        '#suffix' => '</button></div>',
+        '#suffix' => '</button></div><div class="medium-pull-6 medium-6 columns form-link">' . l(t('Forgot your password?'), 'user/password') . '</div></div></div>',
       );
       break;
 
@@ -197,11 +197,11 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['name']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area text-right"><button type="submit" id="edit-submit" name="op"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" id="edit-submit" name="op" class="expand"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
-        '#suffix' => '</button></div>',
+        '#suffix' => '</button></div><div class="medium-pull-8 medium-4 columns form-link"><a href="' . base_path() . 'user/login"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Login') . '</a></div></div></div>',
       );
       break;
 

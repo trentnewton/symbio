@@ -1469,19 +1469,14 @@ p.search-snippet {
 		margin-bottom: rem-calc(36);
 	}
 
-	.button,
-	button {
-		margin-left: rem-calc(20);
-		margin-bottom: 0;
+}
 
-		@media #{$small-only} {
-			margin-top: rem-calc(20);
-		}
+.form-link {
+	padding-top: rem-calc(12);
+	text-align: right;
 
-	}
-
-	input#edit-submit {
-		margin-left: 0;
+	@media #{$small-only} {
+		text-align: inherit;
 	}
 
 }
