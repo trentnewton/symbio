@@ -163,7 +163,7 @@ $body-font-color: $oil;
 // $last-child-float: $opposite-direction;
 
 // We use these to make sure border radius matches unless we want it different.
-$global-radius: 8px;
+$global-radius: rem-calc(8);
 // $global-rounded: 1000px;
 
 // We use these to control inset shadow shiny edges and depressions.
