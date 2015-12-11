@@ -33,7 +33,6 @@
           </div>
         </div>
       </div>
-      <?php else : ?>
       <?php endif; ?>
       <?php if ($page['content']): ?>
       <div class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">

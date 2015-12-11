@@ -162,7 +162,6 @@ svg {
 
 .element-invisible {
 	position: absolute;
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
 	clip: rect(1px, 1px, 1px, 1px);
 	overflow: hidden;
 	height: 1px;
@@ -193,8 +192,12 @@ ul.pager {
 
 // Drupal css for admin
 
-body.toolbar-drawer {
-	padding-top: rem-calc(65);
+// body.toolbar-drawer {
+// 	padding-top: rem-calc(65);
+// }
+
+ul.navbar-menu {
+	font-size: inherit;
 }
 
 .container-inline {
@@ -246,11 +249,12 @@ ul.primary {
 	    	border-style: solid;
 				border-width: 1px;
 	    	margin-right: rem-calc(8);
-				padding: rem-calc(12 28 12);
+				padding: rem-calc(10 28 12);
 		    border-top-left-radius: $global-radius;
 		    border-top-right-radius: $global-radius;
 		    line-height: 2.6;
 		    color: inherit;
+		    font-weight: $font-weight-normal;
 			}
 
 			&:not([class]) {
@@ -870,7 +874,7 @@ select {
 .tab-links,
 .breadcrumbs,
 #masthead .menu,
-#masthead .tabs.primary {
+.tabs.primary {
 	white-space: nowrap;
 	overflow-x: scroll;
 	position: relative;
@@ -1255,6 +1259,13 @@ p.search-snippet {
 	h3 {
 		margin-top: rem-calc(20);
 		margin-bottom: rem-calc(48);
+
+		@media #{$small-medium-only} {
+			overflow-wrap: break-word;
+		  word-wrap: break-word;
+		  hyphens: auto;
+		}
+
 	}
 
 	a {
