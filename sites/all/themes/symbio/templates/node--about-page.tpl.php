@@ -46,12 +46,12 @@
     <div class="circles-bg"></div>
   </div>
 </article>
-<?php if ($content['field_about_quote_section_text']): ?>
+<?php if(isset($node) && $node->field_about_quote_section_text):?>
 <article class="row" id="quote">
   <div class="column about-page">
     <div class="text-blurb text-center" data-sr="enter bottom">
-      <span class="quote-title"><?php print render($content['field_about_quote_section_title']); ?></span>
-      <?php print render($content['field_about_quote_section_text']); ?>
+      <span class="quote-title"><?php print $node->field_about_quote_section_title['und'][0]['value']; ?></span>
+      <?php print $node->field_about_quote_section_text['und'][0]['value']; ?>
     </div>
   </div>
 </article> 
