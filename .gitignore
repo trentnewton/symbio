@@ -145,6 +145,7 @@ sites/all/modules/transliteration
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
 sites/all/modules/uuid
+sites/all/modules/views_distinct
 sites/all/modules/webform
 sites/all/modules/webform_ajax
 sites/all/modules/xmlsitemap
