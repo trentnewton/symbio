@@ -28,6 +28,7 @@ $exclude = array(
 'misc/jquery.js' => TRUE,
 'misc/jquery.once.js' => TRUE,
 'sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js' => TRUE,
+'sites/all/modules/autoupload/js/autoupload.js' => TRUE,
 'misc/drupal.js' => TRUE, );
 
 $js = array_diff_key($js, $exclude);

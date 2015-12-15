@@ -71,6 +71,7 @@ index.php
 install.php
 update.php
 xmlrpc.php
+/cert
 /includes
 /misc
 /modules
@@ -109,10 +110,11 @@ sites/all/modules/views/handlers/*
 # disallow these
 sites/example.sites.php
 sites/all/modules/advanced_text_formatter
+sites/all/modules/autoupload
 sites/all/modules/backup_migrate
 sites/all/modules/blockify
+sites/all/modules/boost
 sites/all/modules/breadcrumb_manager
-sites/all/modules/checklistapi
 sites/all/modules/ckeditor
 sites/all/modules/content_access
 sites/all/modules/ctools
@@ -121,6 +123,8 @@ sites/all/modules/date
 sites/all/modules/devel
 sites/all/modules/entity
 sites/all/modules/file_entity
+sites/all/modules/find_content
+sites/all/modules/globalredirect
 sites/all/modules/google_analytics
 sites/all/modules/hierarchical_select
 sites/all/modules/jquery_update
@@ -131,17 +135,15 @@ sites/all/modules/menu_attributes
 sites/all/modules/menu_html
 sites/all/modules/menu_token
 sites/all/modules/metatag
+sites/all/modules/module_filter
 sites/all/modules/navbar
 sites/all/modules/pathauto
 sites/all/modules/optimizedb
 sites/all/modules/site_map
-sites/all/modules/site_verify
 sites/all/modules/special_menu_items
-sites/all/modules/strongarm
 sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
 sites/all/modules/token
-sites/all/modules/transliteration
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
 sites/all/modules/uuid
