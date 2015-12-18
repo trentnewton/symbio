@@ -903,6 +903,7 @@ select {
 .masthead-nav {
 	overflow: auto;
 	-ms-overflow-style: -ms-autohiding-scrollbar;
+	height: rem-calc(48);
 }
 
 .tab-links,
@@ -963,6 +964,7 @@ select {
 	border-bottom-right-radius: 0;
 	display: inline-block;
 	vertical-align: top;
+	margin-bottom: rem-calc(-2);
 	
 	@media #{$large-up} {
 		
