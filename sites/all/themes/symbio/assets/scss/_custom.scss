@@ -316,7 +316,7 @@ ul.primary {
 	margin-bottom: -$footer-height;
 
 	&:after {
-		content: "";
+		content: '';
 		display: block;
 	}
 
@@ -965,14 +965,6 @@ select {
 	display: inline-block;
 	vertical-align: top;
 	margin-bottom: rem-calc(-2);
-	
-	@media #{$large-up} {
-		
-	}
-
-	// @media #{$small-medium-only} {
-	// 	width: 100%;
-	// }
 
 	> * {
 		float: none;
