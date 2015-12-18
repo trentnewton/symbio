@@ -901,7 +901,8 @@ select {
 }
 
 .masthead-nav {
-	overflow: hidden;
+	overflow: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
 }
 
 .tab-links,
