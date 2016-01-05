@@ -351,7 +351,7 @@ ul.primary {
 .form-textarea-wrapper {
 
 	textarea {
-		margin: 2.25rem 0px 1rem;
+		margin: rem-calc(36 0 16);
 	}
 
 }
@@ -407,7 +407,7 @@ ul.primary {
 	a {
 
 		&:before {
-			content: "\00A0\00A0\007C\00A0\00A0";
+			content: '\00A0\00A0\007C\00A0\00A0';
 			color: rgba($tertiary-color, 0.7);
 		}
 
@@ -1000,10 +1000,6 @@ form {
 				border-radius: $global-radius 0 0 $global-radius;
 			}
 
-			select {
-
-			}
-
 			.postfix {
 				border-radius: 0 $global-radius $global-radius 0;
 			}
@@ -1221,10 +1217,14 @@ form {
 .breadcrumbs {
 	border-radius: $global-radius $global-radius 0 0;
 	display: inline-block;
-	vertical-align: top;
-	margin-bottom: rem-calc(-2);
+	// vertical-align: top;
+	// margin-bottom: rem-calc(-2);
 	background-color: rgba($white, 0.1);
 	padding: rem-calc(12 30);
+
+	@include breakpoint(small only) {
+		width: 100%;
+	}
 
 	a {
 
@@ -1237,7 +1237,7 @@ form {
 	}
 
 	> :first-child::before {
-    content: " ";
+    content: '';
     margin: 0;
 	}
 
@@ -1246,7 +1246,7 @@ form {
 
 		&::before {
 			color: $base;
-			content: "»";
+			content: '»';
 			margin: rem-calc(0 12);
 			position: relative;
 			top: 1px;
@@ -1469,7 +1469,7 @@ form {
 }
 
 .text-blurb	{
-	background: rgba(scale-color(#7f8eb0, $lightness: 85%), 0.8);
+	background: rgba(scale-color($secondary-color-50, $lightness: 85%), 0.8);
 	border-radius: $global-radius;
 	padding: rem-calc(36);
 	position: relative;
@@ -1885,7 +1885,7 @@ p.search-snippet {
 			&:before {
 				position: absolute;
 				right: rem-calc(-15);
-				content: "\00A0\00A0\007C\00A0";
+				content: '\00A0\00A0\007C\00A0';
 				color: rgba($body-font-color, 0.7);
 			}
 
@@ -1967,7 +1967,7 @@ p.search-snippet {
 			padding: 0;
 
 			&:after {
-				content: "\00A0\00A0\007C\00A0";
+				content: '\00A0\00A0\007C\00A0';
 				color: rgba($anchor-color, 0.7);
 			}
 
