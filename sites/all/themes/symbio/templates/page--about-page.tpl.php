@@ -8,21 +8,19 @@
         <?php include ($directory."/partials/header.php"); ?>
       <?php if(!drupal_is_front_page()):?>
         <section id="masthead" role="banner">
-          <div class="row">
-            <div class="column">
-              <?php if ($page['masthead']): ?>
-              <div class="page-title enter-bottom">
-                <?php print render($page['masthead']); ?>
-              </div>
-              <?php endif; ?>
-              <div class="masthead-nav-container">
-                <div class="masthead-nav enter-bottom-1">
-                  <nav class="tab-links">
-                    <a href="#first-section"><?php print render( $node->field_about_first_section_title["und"][0]["value"] ); ?></a>
-                    <a href="#second-section"><?php print render( $node->field_about_second_section_title["und"][0]["value"] ); ?></a>
-                    <a href="#third-section"><?php print render( $node->field_about_third_section_title["und"][0]["value"] ); ?></a>
-                  </nav>
-                </div>
+          <div class="row column">
+            <?php if ($page['masthead']): ?>
+            <div class="page-title enter-bottom">
+              <?php print render($page['masthead']); ?>
+            </div>
+            <?php endif; ?>
+            <div class="masthead-nav-container">
+              <div class="masthead-nav enter-bottom-1">
+                <nav class="tab-links">
+                  <a href="#first-section"><?php print render( $node->field_about_first_section_title["und"][0]["value"] ); ?></a>
+                  <a href="#second-section"><?php print render( $node->field_about_second_section_title["und"][0]["value"] ); ?></a>
+                  <a href="#third-section"><?php print render( $node->field_about_third_section_title["und"][0]["value"] ); ?></a>
+                </nav>
               </div>
             </div>
           </div>

@@ -20,12 +20,12 @@
 		?>
 		<link rel="stylesheet" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/css/app.css">
 		<?php global $user;
-	  // Check to see if $user has the administrator role.
-	  if (in_array('administrator', array_values($user->roles))) { ?>
-	  <script type="text/javascript" src="<?php global $base_path; print $base_path; ?>sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js"></script>
-	  <script type="text/javascript" src="<?php global $base_path; print $base_path; ?>misc/jquery.once.js"></script>
-	  <script type="text/javascript" src="<?php global $base_path; print $base_path; ?>misc/drupal.js"></script>
-	  <?php } ?>
+		// Check to see if $user has the administrator role.
+		if (in_array('administrator', array_values($user->roles))) { ?>
+		<script type="text/javascript" src="<?php global $base_path; print $base_path; ?>sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js"></script>
+		<script type="text/javascript" src="<?php global $base_path; print $base_path; ?>misc/jquery.once.js"></script>
+		<script type="text/javascript" src="<?php global $base_path; print $base_path; ?>misc/drupal.js"></script>
+		<?php } ?>
 	</head>
 	<body class="<?php print $classes; ?>" <?php print $attributes;?> itemscope itemtype="http://schema.org/WebPage">
 		<?php include ($directory."/partials/svg.php"); ?>

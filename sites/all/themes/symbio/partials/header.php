@@ -73,8 +73,8 @@
       <?php if ($page['header']): ?>
         <?php print render($page['header']); ?>
       <?php endif; ?>
-      <?php if ($page['slogan']): ?>
-        <div class="enter-bottom" itemprop="headline"><?php print render($page['slogan']); ?></div>
+      <?php if ($page['home_page_slogan']): ?>
+        <div class="enter-bottom" itemprop="headline"><?php print render($page['home_page_slogan']); ?></div>
       <?php endif; ?>
       <?php if ($page['home_page_paragraph']): ?>
         <div class="enter-bottom-1" itemprop="description"><?php print render($page['home_page_paragraph']); ?></div>
