@@ -10,15 +10,11 @@
   <article class="row">
     <div class="medium-6 small-centered columns login-form-box-wrapper">
       <div class="login-form-box text-center">
-        <div class="row">
-          <div class="column">
-            <?php print $messages; ?>
-          </div>
+        <div class="row column">
+          <?php print $messages; ?>
         </div>
-        <div class="row">
-          <div class="column">
-            <?php print render($page['content']); ?>
-          </div>
+        <div class="row column">
+          <?php print render($page['content']); ?>
         </div>
       </div>
     </div>

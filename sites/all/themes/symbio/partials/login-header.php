@@ -1,9 +1,7 @@
 <header id="login-header" itemscope itemtype="http://schema.org/WPHeader">
-  <div class="row">
-    <div class="column">
-      <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
-        <svg class="responsive-svg top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
-      </a>
-    </div>
+  <div class="row column">
+    <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
+      <svg class="responsive-svg top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
+    </a>
   </div>
 </header>

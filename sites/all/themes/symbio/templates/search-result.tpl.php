@@ -1,7 +1,7 @@
 <div class="search-result">
-  <h3 class="title">
+  <h4>
     <a href="<?php print $url; ?>"><?php print $title; ?></a>
-  </h3>
+  </h4>
   <div class="search-snippet-info">
   <?php if ($info) : ?>
     <p class="search-info"><?php print $info; ?></p>

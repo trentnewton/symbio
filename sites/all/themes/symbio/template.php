@@ -17,7 +17,15 @@ function symbio_preprocess_html(&$vars) {
 * Implements hook_process_html().
 */
 function symbio_process_html(&$vars) {
-$vars['head_scripts'] = drupal_get_js('head_scripts');
+  $vars['head_scripts'] = drupal_get_js('head_scripts');
+}
+
+// Remove Drupal core css
+
+function symbio_css_alter(&$css) { 
+  unset($css[drupal_get_path('module','system').'/system.theme.css']);
+  unset($css[drupal_get_path('module','system').'/system.messages.css']);
+  unset($css[drupal_get_path('module','search').'/search.css']);
 }
 
 function symbio_js_alter(&$js) {
@@ -29,6 +37,10 @@ $exclude = array(
 'misc/jquery.once.js' => TRUE,
 'sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js' => TRUE,
 'sites/all/modules/autoupload/js/autoupload.js' => TRUE,
+'sites/all/modules/custom_search/js/custom_search.js' => TRUE,
+'sites/all/modules/devel/devel_krumo_path.js' => TRUE,
+'misc/collapse.js' => TRUE,
+'misc/form.js' => TRUE,
 'misc/drupal.js' => TRUE, );
 
 $js = array_diff_key($js, $exclude);
@@ -175,7 +187,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['pass']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" id="edit-submit" name="op" class="expand"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" id="edit-submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
@@ -198,7 +210,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['name']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" id="edit-submit" name="op" class="expand"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" id="edit-submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field

@@ -14,7 +14,7 @@ $('.off-canvas-list ul#main-menu-links>li').unwrap();
 
 // add block grid class to site map list
 
-$(".site-map-box-menu>.content>ul.site-map-menu").addClass( "small-block-grid-2 medium-block-grid-3" );
+$(".site-map-box-menu>.content>ul.site-map-menu").addClass( "row small-up-2 medium-up-3" );
 
 // add h4 tags to page titles on sitemap pages
 
@@ -31,19 +31,70 @@ $('.form-item-keys').find('input:text').attr({type:"search"});
 
 $('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link');
 
+// wrap tables with overflow auto
+
+$('table').wrap('<div class="overflow-auto" />');
+
+$(function() {
+  "use strict";
+
+  // hamburger icon animation
+
+  $('.menu-icon').on('click', function() {
+    $(this).toggleClass('rotate');
+  });
+
+  $('.js-off-canvas-exit').on('click', function() {
+    $('.menu-icon').toggleClass('rotate');
+  });
+
+  // collapsing fieldset
+
+  $('.search-advanced>legend>.fieldset-legend').wrap('<a class="fieldset-title" href="#show" />');
+  $( '<span class="fieldset-legend-arrow"></span>' ).insertBefore( '.fieldset-legend' );
+
+  $('.fieldset-title').on('click', function() {
+    $('.search-advanced').toggleClass('collapsing');
+    $('.fieldset-wrapper').fadeToggle('fast', 'linear');
+    $('.fieldset-legend-arrow').toggleClass('rotated');
+  });
+
+});
+
 // animations
 
-$(document).ready(function() {
-  // scrollreveal plugin!
-  var config = {
-    reset: false,
-    vFactor: 0.1, // requires 10% of an element be visible to trigger animation.
-    // viewport: document.getElementsByClassName('animate'),
-    // viewport: document.getElementsByTagName('p'),
-    mobile: true
-  };
-  window.sr = new scrollReveal( config );
-});
+var enterLeft = {
+  origin: 'left',
+  distance : '50px',
+};
+
+var enterRight = {
+  origin: 'right',
+  distance : '50px',
+};
+
+var enterLeft1 = {
+  delay: 1000,
+  origin: 'left',
+  distance : '50px',
+};
+
+var enterRight1 = {
+  delay: 1000,
+  origin: 'right',
+  distance : '50px',
+};
+
+window.sr = ScrollReveal()
+  .reveal( '.enter-bottom')
+  .reveal( '.enter-bottom-1', { delay: 500 } )
+  .reveal( '.enter-bottom-2', { delay: 1000 } )
+  .reveal( '.enter-bottom-3', { delay: 1500 } )
+  .reveal( '.enter-bottom-4', { delay: 2000 } )
+  .reveal( '.enter-left', enterLeft )
+  .reveal( '.enter-right', enterRight )
+  .reveal( '.enter-left-1', enterLeft1 )
+  .reveal( '.enter-right-1', enterRight1 );
 
 // scroll to sections
 

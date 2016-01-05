@@ -2,7 +2,7 @@
   <h5 class="subheader"><?php print t('Category:'); ?></h5>
   <h4><?php print render($content['field_category']); ?></h4>
 </header>
-<ul class="medium-block-grid-2">
+<ul class="no-bullet">
   <li>
     <article class="row">
       <div class="medium-6 columns">
@@ -16,10 +16,8 @@
         </figure>
       </div>
     </article>
-    <div class="row">
-      <div class="column">
-        <hr>
-      </div>
+    <div class="row column">
+      <hr>
     </div>
   </li>
 </ul>
