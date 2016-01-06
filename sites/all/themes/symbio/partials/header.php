@@ -42,30 +42,28 @@
     <div class="title-bar-right">
     </div>
   </div>
-  <div class="row desktop-top-bar">
-    <div class="column top-bar-wrapper">
-      <nav class="top-bar" itemscope itemtype="http://schema.org/SiteNavigationElement">
-        <div class="top-bar-left">
-          <a href="<?php print render($front_page); ?>" class="top-bar-logo-wrapper responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
-            <svg class="top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
-          </a>
-        </div>
-        <div class="top-bar-right">
-          <?php if ($main_menu): ?>
-            <div id="main-menu" class="navigation">
-              <?php print theme('links__system_main_menu', array(
-                'links' => $main_menu,
-                'attributes' => array(
-                  'id' => 'main-menu-links',
-                  'class' => 'dropdown menu',
-                  'data-dropdown-menu' => '',
-                ),
-              )); ?>
-            </div> <!-- /#main-menu -->
-          <?php endif; ?>
-        </div>
-      </nav>
-    </div>
+  <div class="row column desktop-top-bar">
+    <nav class="top-bar" itemscope itemtype="http://schema.org/SiteNavigationElement">
+      <div class="top-bar-left">
+        <a href="<?php print render($front_page); ?>" class="top-bar-logo-wrapper responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
+          <svg class="top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
+        </a>
+      </div>
+      <div class="top-bar-right">
+        <?php if ($main_menu): ?>
+          <div id="main-menu" class="navigation">
+            <?php print theme('links__system_main_menu', array(
+              'links' => $main_menu,
+              'attributes' => array(
+                'id' => 'main-menu-links',
+                'class' => 'dropdown menu',
+                'data-dropdown-menu' => '',
+              ),
+            )); ?>
+          </div> <!-- /#main-menu -->
+        <?php endif; ?>
+      </div>
+    </nav>
   </div>
   <?php if(drupal_is_front_page()):?>
   <section id="banner" role="banner">

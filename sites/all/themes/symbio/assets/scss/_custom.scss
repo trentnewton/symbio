@@ -38,6 +38,13 @@
 	-webkit-overflow-scrolling: touch;
 }
 
+@mixin see-thru-border {
+	padding-top: ($grid-column-gutter-medium / 2);
+	padding-bottom: ($grid-column-gutter-medium / 2);
+	background: rgba($white, 0.2);
+	border-radius: ($global-radius * 1.25);
+}
+
 // main styles / reset
 
 body,
@@ -536,6 +543,7 @@ th.active {
 
 .desktop-top-bar {
 	display: block;
+	@include see-thru-border;
 
 	@include breakpoint(medium down) {
 		display: none;
@@ -547,13 +555,6 @@ th.active {
 .title-bar {
 	position: relative;
 	z-index: 99;
-}
-
-.top-bar-wrapper {
-	padding-top: ($grid-column-gutter-medium / 2);
-	padding-bottom: ($grid-column-gutter-medium / 2);
-	background: rgba($white, 0.2);
-	border-radius: ($global-radius * 1.25);
 }
 
 .top-bar {
@@ -1804,7 +1805,7 @@ p.search-snippet {
 // login
 
 .login-form-box-wrapper {
-	@extend .top-bar-wrapper;
+	@include see-thru-border;
 }
 
 #login-body,
