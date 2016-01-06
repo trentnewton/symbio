@@ -3789,13 +3789,13 @@
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/dist\/foundation.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/scrollreveal\/dist\/scrollreveal.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/scrollreveal\/dist\/scrollreveal.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/dist\/foundation.js",
 			"position": 2,
 			"type": 0
 			}
