@@ -285,7 +285,7 @@ th.active {
 
 }
 
-ul.primary {
+.primary {
 	border-bottom: 1px solid $iron;
 	border-collapse: collapse;
 	height: rem-calc(44);
@@ -293,37 +293,9 @@ ul.primary {
 	list-style: none;
 	margin: rem-calc(30 0 30);
 	padding: rem-calc(0 0 0 16); /* LTR */
-	white-space: nowrap;
 
 	li {
 		display: inline;
-
-		a {
-			background: linear-gradient(to bottom, $snow 0%, $iron 100%);
-	    border-color: $iron;
-
-	    &:not([class]),
-			&.active {
-	    	border-style: solid;
-				border-width: 1px;
-	    	margin-right: rem-calc(8);
-				padding: rem-calc(10 28 12);
-		    border-top-left-radius: $global-radius;
-		    border-top-right-radius: $global-radius;
-		    line-height: 2.6;
-		    color: inherit;
-			}
-
-			&:not([class]) {
-				border-bottom: $tertiary-color 2px solid;
-
-				&:hover {
-					background: linear-gradient(to bottom, $smoke 0%, $iron 100%);
-				}
-
-			}
-
-		}
 
 		&.active {
 
@@ -340,6 +312,33 @@ ul.primary {
 
 				}
 
+			}
+
+		}
+
+	}
+
+	a {
+		background: linear-gradient(to bottom, $snow 0%, $iron 100%);
+    border-color: $iron;
+
+    &:not([class]),
+		&.active {
+    	border-style: solid;
+			border-width: 1px;
+    	margin-right: rem-calc(8);
+			padding: rem-calc(10 28 12);
+	    border-top-left-radius: $global-radius;
+	    border-top-right-radius: $global-radius;
+	    line-height: 2.6;
+	    color: inherit;
+		}
+
+		&:not([class]) {
+			border-bottom: $tertiary-color 2px solid;
+
+			&:hover {
+				background: linear-gradient(to bottom, $smoke 0%, $iron 100%);
 			}
 
 		}
@@ -402,6 +401,7 @@ ul.primary {
 	@include breakpoint(medium down) {
 		padding-top: 0;
 		padding-bottom: 0;
+		margin-bottom: 0;
 	}
 
 	a {
@@ -411,10 +411,6 @@ ul.primary {
 			color: rgba($tertiary-color, 0.7);
 		}
 
-	}
-
-	@include breakpoint(medium down) {
-		margin-bottom: 0;
 	}
 
 }

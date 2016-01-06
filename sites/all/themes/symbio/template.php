@@ -25,6 +25,7 @@ function symbio_process_html(&$vars) {
 function symbio_css_alter(&$css) { 
   unset($css[drupal_get_path('module','system').'/system.theme.css']);
   unset($css[drupal_get_path('module','system').'/system.messages.css']);
+  unset($css[drupal_get_path('module','system').'/system.menus.css']);
   unset($css[drupal_get_path('module','search').'/search.css']);
 }
 
@@ -32,7 +33,10 @@ function symbio_js_alter(&$js) {
  
   // Remove Drupal core js
 
-  unset($js['settings']);
+  global $user;
+  if (!in_array('administrator', $user->roles)) {
+    unset($js['settings']);
+  }
  
   $exclude = array(
   'misc/jquery.js' => TRUE,
@@ -189,7 +193,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['pass']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" id="edit-submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
@@ -212,7 +216,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['name']['#suffix'] ='</div>';
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" id="edit-submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
+        '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
@@ -224,7 +228,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       drupal_set_title(t('Reset password'));
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<button type="submit" id="edit-submit" name="op">' . t('Log In'),
+        '#prefix' => '<button type="submit" name="op">' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
         '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
@@ -247,7 +251,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['keys']['#suffix'] = '</div>';
     $form['basic']['submit'] = array
     (
-      '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" id="edit-submit" name="op" class="postfix">' . t('Go'),
+      '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" name="op" class="postfix">' . t('Go'),
       '#type' => 'submit',
       '#value' => '',
       '#attributes' => array('style' => array( 'display: none' )), // hide the input field
@@ -271,7 +275,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['actions']['submit'] = array
     (
-      '#prefix' => '<button type="submit" id="edit-submit" name="op" class="postfix">' . t('Go'),
+      '#prefix' => '<button type="submit" name="op" class="postfix">' . t('Go'),
       '#type' => 'submit',
       '#value' => '',
       '#attributes' => array('style' => array( 'display: none' )), // hide the input field
