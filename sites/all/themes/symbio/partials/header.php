@@ -1,14 +1,14 @@
 <header id="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="top-info">
     <div class="row">
-      <div class="small-12 large-5 columns">
+      <div class="large-5 columns">
         <div class="notice">
           <?php if ($page['notices']): ?>
           <?php print render($page['notices']); ?>
           <?php endif; ?>
         </div>
       </div>
-      <div class="small-12 large-7 columns">
+      <div class="large-7 columns">
         <nav class="right-top-info-links">
         <?php
           global $user;
