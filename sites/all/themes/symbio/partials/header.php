@@ -37,7 +37,7 @@
       <button class="menu-icon" type="button" data-open="offCanvas"></button>
     </div>
     <a href="<?php print render($front_page); ?>" class="responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
-      <svg class="title-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
+      <svg class="title-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet"><use xlink:href="#logo"/></svg>
     </a>
     <div class="title-bar-right">
     </div>
@@ -46,7 +46,7 @@
     <nav class="top-bar" itemscope itemtype="http://schema.org/SiteNavigationElement">
       <div class="top-bar-left">
         <a href="<?php print render($front_page); ?>" class="top-bar-logo-wrapper responsive-svg-container" title="<?php print t('Home'); ?>" rel="home">
-          <svg class="top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet" viewBox="0 0 680.2 119.5"><use xlink:href="#logo"/></svg>
+          <svg class="top-bar-logo" aria-labelledby="logo" preserveAspectRatio="xMinYMin meet"><use xlink:href="#logo"/></svg>
         </a>
       </div>
       <div class="top-bar-right">
