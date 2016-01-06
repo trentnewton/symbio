@@ -1374,8 +1374,9 @@ form {
 
 .circles {
 
-	@include breakpoint(small down) {
+	@include breakpoint(small only) {
 		position: relative;
+		height: auto !important;
 	}
 
 	&.first,

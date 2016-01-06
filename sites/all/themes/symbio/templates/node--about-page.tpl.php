@@ -1,4 +1,4 @@
-<article id="first-section" class="row" data-equalizer>
+<article id="first-section" class="row" data-equalizer data-equalizer-mq="medium">
   <div class="columns medium-6 medium-push-6 about-page second circles" data-equalizer-watch>
     <div class="text-blurb enter-right-1">
       <header class="major-header">
@@ -14,7 +14,7 @@
     <div class="circles-bg"></div>
   </div>
 </article>
-<article id="second-section" class="row" data-equalizer>
+<article id="second-section" class="row" data-equalizer data-equalizer-mq="medium">
   <div class="columns medium-6 about-page third circles" data-equalizer-watch>
     <div class="text-blurb enter-left">
       <header class="major-header">
@@ -30,7 +30,7 @@
     <div class="circles-bg"></div>
   </div>
 </article>
-<article id="third-section" class="row" data-equalizer>
+<article id="third-section" class="row" data-equalizer data-equalizer-mq="medium">
   <div class="columns medium-6 medium-push-6 about-page sixth circles" data-equalizer-watch>
     <div class="text-blurb enter-right">
       <header class="major-header">
