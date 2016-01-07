@@ -138,11 +138,11 @@ function symbio_preprocess_page(&$vars, $hook) {
   }
 
   drupal_add_js(drupal_get_path('theme', 'symbio') .'/assets/js/min/app-min.js', array(
-  'type' => 'file',
-  'requires_jquery' => TRUE,
-  'group' => JS_LIBRARY,
-  'every_page' => TRUE,
-  'weight' => 4,
+    'type' => 'file',
+    'requires_jquery' => TRUE,
+    'group' => JS_LIBRARY,
+    'every_page' => TRUE,
+    'weight' => 4,
   ));
 
 }
@@ -218,7 +218,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
         '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
-        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
         '#suffix' => '</button></div><div class="medium-pull-6 medium-6 columns form-link">' . l(t('Forgot your password?'), 'user/password') . '</div></div></div>',
       );
       break;
@@ -241,7 +241,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
         '#prefix' => '<div class="column submit-area"><div class="row"><div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
         '#type' => 'submit',
         '#value' => '',
-        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
         '#suffix' => '</button></div><div class="medium-pull-8 medium-4 columns form-link"><a href="' . base_path() . 'user/login"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Login') . '</a></div></div></div>',
       );
       break;
@@ -253,7 +253,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
         '#prefix' => '<button type="submit" name="op">' . t('Log In'),
         '#type' => 'submit',
         '#value' => '',
-        '#attributes' => array( 'style' => array( 'display: none' )), // hide the input field
+        '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
         '#suffix' => '</button>',
       );
       break;
@@ -276,7 +276,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" name="op" class="postfix">' . t('Go'),
       '#type' => 'submit',
       '#value' => '',
-      '#attributes' => array('style' => array( 'display: none' )), // hide the input field
+      '#attributes' => array('class' => array( 'hide' )), // hide the input field
       '#suffix' => '</button></div>',
     );
   }
@@ -300,7 +300,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       '#prefix' => '<button type="submit" name="op" class="postfix">' . t('Go'),
       '#type' => 'submit',
       '#value' => '',
-      '#attributes' => array('style' => array( 'display: none' )), // hide the input field
+      '#attributes' => array('class' => array( 'hide' )), // hide the input field
       '#suffix' => '</button>',
     );
     $form['actions']['#suffix'] = '</div></div>';
