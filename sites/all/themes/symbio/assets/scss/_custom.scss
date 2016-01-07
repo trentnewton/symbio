@@ -310,11 +310,11 @@ th.active {
 
 				&.active {
 					color: inherit;
-					background: linear-gradient(to bottom, $white 0%, $gainsboro 100%);
+					background-image: linear-gradient(to bottom, $white 0%, $smoke 50%, $gainsboro 100%);
 					border-color: $gainsboro;
 
 					&:hover {
-						background: linear-gradient(to bottom, $white-smoke 0%, $gainsboro 100%);
+						background-position: 0 100%;
 					}
 
 				}
@@ -326,7 +326,10 @@ th.active {
 	}
 
 	a {
-		background: linear-gradient(to bottom, $snow 0%, $iron 100%);
+		background-image: linear-gradient(to bottom, $snow 0%, $gainsboro 50%, $iron 100%);
+		background-size: auto 200%;
+		background-position: 0 0;
+		transition: background-position $transition-time;
     border-color: $iron;
 
     &:not([class]),
@@ -344,8 +347,9 @@ th.active {
 		&:not([class]) {
 			border-bottom: $tertiary-color 2px solid;
 
-			&:hover {
-				background: linear-gradient(to bottom, $smoke 0%, $iron 100%);
+			&:hover,
+			&:focus {
+				background-position: 0 100%;
 			}
 
 		}
@@ -833,13 +837,6 @@ button,
 
 }
 
-input[type="submit"] {
-	@extend button;
-	border: none;
-	line-height: 0.5;
-	transition: background-position $transition-time;
-}
-
 input:not([type="submit"]),
 textarea,
 select {
@@ -900,6 +897,13 @@ input {
 			display: none;
 		}
 
+	}
+
+	&[type="submit"] {
+		@extend button;
+		border: none;
+		line-height: 0.5;
+		transition: background-position $transition-time;
 	}
 
 }
@@ -1279,7 +1283,7 @@ form {
 			border-bottom: $tertiary-color 2px solid;
 
 			&:hover {
-				background: $tertiary-color;
+				background-color: $tertiary-color;
 			}
 
 		}
