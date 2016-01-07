@@ -99,17 +99,6 @@
 		"outputPathIsSetByUser": 0,
 		"processed": 0
 		},
-	"\/assets\/js\/ajax.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/ajax.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/ajax-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/assets\/js\/app.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -121,12 +110,12 @@
 		"outputStyle": 2,
 		"syntaxCheckerStyle": 1
 		},
-	"\/assets\/js\/drupal.js": {
+	"\/assets\/js\/initiate.js": {
 		"fileType": 64,
 		"ignore": 1,
-		"ignoreWasSetByUser": 1,
-		"inputAbbreviatedPath": "\/assets\/js\/drupal.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/drupal-min.js",
+		"ignoreWasSetByUser": 0,
+		"inputAbbreviatedPath": "\/assets\/js\/initiate.js",
+		"outputAbbreviatedPath": "\/assets\/js\/min\/initiate-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -138,17 +127,6 @@
 		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/js\/min\/app-min.js",
 		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/app-min-min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
-	"\/assets\/js\/min\/drupal-min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/assets\/js\/min\/drupal-min.js",
-		"outputAbbreviatedPath": "\/assets\/js\/min\/min\/drupal-min-min.js",
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
@@ -3838,55 +3816,55 @@
 	"\/assets\/js\/app.js": [
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.core.js",
+			"linkedFileAbbreviatedPath": "\/assets\/js\/initiate.js",
 			"position": 0,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.equalizer.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.core.js",
 			"position": 1,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.offcanvas.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.equalizer.js",
 			"position": 2,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.mediaQuery.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.offcanvas.js",
 			"position": 3,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.motion.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.mediaQuery.js",
 			"position": 4,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.timerAndImageLoader.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.motion.js",
 			"position": 5,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.triggers.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.timerAndImageLoader.js",
 			"position": 6,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/bower_components\/scrollreveal\/dist\/scrollreveal.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/foundation-sites\/js\/foundation.util.triggers.js",
 			"position": 7,
 			"type": 0
 			},
 		{
 			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/drupal.js",
+			"linkedFileAbbreviatedPath": "\/bower_components\/scrollreveal\/dist\/scrollreveal.js",
 			"position": 8,
 			"type": 0
 			},
@@ -3894,12 +3872,6 @@
 			"followForSyntaxChecking": 1,
 			"linkedFileAbbreviatedPath": "\/bower_components\/jquery-form\/jquery.form.js",
 			"position": 9,
-			"type": 1
-			},
-		{
-			"followForSyntaxChecking": 1,
-			"linkedFileAbbreviatedPath": "\/assets\/js\/ajax.js",
-			"position": 10,
 			"type": 1
 			}
 		]

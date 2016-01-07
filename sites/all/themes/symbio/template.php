@@ -50,14 +50,14 @@ function symbio_js_alter(&$js) {
   'sites/all/modules/custom_search/js/custom_search.js' => TRUE,
   'sites/all/modules/devel/devel_krumo_path.js' => TRUE,
   'sites/all/modules/webform/js/webform.js' => TRUE,
-  'misc/ajax.js' => TRUE,
+  // 'misc/ajax.js' => TRUE,
   'misc/jquery.js' => TRUE,
   // 'misc/jquery.once.js' => TRUE,
   'misc/textarea.js' => TRUE,
   'misc/collapse.js' => TRUE,
   'misc/form.js' => TRUE,
   'misc/progress.js' => TRUE,
-  'misc/drupal.js' => TRUE,
+  // 'misc/drupal.js' => TRUE,
   );
 
   $js = array_diff_key($js, $exclude);

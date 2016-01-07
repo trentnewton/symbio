@@ -1,42 +1,43 @@
-$(document).foundation();
+(function($) {
 
-// wrap li's around links in mobile navigation
-
-$('.off-canvas-list>a').wrap('<li />');
-
-// wrap a's around current pagination numbers
-
-$('li.pager-current').wrapInner('<a />');
-
-// unwrap ul from mobile navigation
-
-$('.off-canvas-list ul#main-menu-links>li').unwrap();
-
-// add block grid class to site map list
-
-$(".site-map-box-menu>.content>ul.site-map-menu").addClass( "row small-up-2 medium-up-3" );
-
-// add h4 tags to page titles on sitemap pages
-
-$('.site-map-box-menu>.content>ul.site-map-menu>li>a').wrap('<h4 />');
-
-// change input type to search
-
-$('.form-item-search-block-form').find('input:text').attr({type:"search"});
-$('.form-item-custom-search-blocks-form-1').find('input:text').attr({type:"search"});
-$('.form-item-custom-search-blocks-form-2').find('input:text').attr({type:"search"});
-$('.form-item-keys').find('input:text').attr({type:"search"});
-
-// add svg icon to download link
-
-$('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link');
-
-// wrap tables with overflow auto
-
-$('table').wrap('<div class="overflow-auto" />');
-
-$(function() {
   "use strict";
+
+  $(document).foundation();
+
+  // wrap li's around links in mobile navigation
+
+  $('.off-canvas-list>a').wrap('<li />');
+
+  // wrap a's around current pagination numbers
+
+  $('li.pager-current').wrapInner('<a />');
+
+  // unwrap ul from mobile navigation
+
+  $('.off-canvas-list ul#main-menu-links>li').unwrap();
+
+  // add block grid class to site map list
+
+  $(".site-map-box-menu>.content>ul.site-map-menu").addClass( "row small-up-2 medium-up-3" );
+
+  // add h4 tags to page titles on sitemap pages
+
+  $('.site-map-box-menu>.content>ul.site-map-menu>li>a').wrap('<h4 />');
+
+  // change input type to search
+
+  $('.form-item-search-block-form').find('input:text').attr({type:"search"});
+  $('.form-item-custom-search-blocks-form-1').find('input:text').attr({type:"search"});
+  $('.form-item-custom-search-blocks-form-2').find('input:text').attr({type:"search"});
+  $('.form-item-keys').find('input:text').attr({type:"search"});
+
+  // add svg icon to download link
+
+  $('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link');
+
+  // wrap tables with overflow auto
+
+  $('table').wrap('<div class="overflow-auto" />');
 
   // hamburger icon animation
 
@@ -59,7 +60,7 @@ $(function() {
     $('.fieldset-legend-arrow').toggleClass('rotated');
   });
 
-});
+})(jQuery);
 
 // animations
 
@@ -98,7 +99,7 @@ window.sr = ScrollReveal()
 
 // scroll to sections
 
-$(function() {
+(function($) {
   $('a[href*=#]:not([href=#])').click(function() {
     if (location.pathname.replace(/^\//,'') === this.pathname.replace(/^\//,'') && location.hostname === this.hostname) {
       var target = $(this.hash);
@@ -111,6 +112,6 @@ $(function() {
       }
     }
   });
-});
+})(jQuery);
 
 document.addEventListener("touchstart", function(){}, true);
