@@ -313,7 +313,8 @@ th.active {
 					background-image: linear-gradient(to bottom, $white 0%, $smoke 50%, $gainsboro 100%);
 					border-color: $gainsboro;
 
-					&:hover {
+					&:hover,
+					&:focus {
 						background-position: 0 100%;
 					}
 
