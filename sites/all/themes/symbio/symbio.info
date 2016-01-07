@@ -1,9 +1,6 @@
 name = Symbio
 description = Theme for symbio.com.au
 core = 7.x
-
-scripts[] = assets/js/min/app-min.js
-
 regions[notices] = Notices
 regions[desktop_search] = Desktop Search
 regions[mobile_search] = Mobile Search

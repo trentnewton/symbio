@@ -33,21 +33,32 @@ function symbio_js_alter(&$js) {
  
   // Remove Drupal core js
 
-  global $user;
-  if (!in_array('administrator', $user->roles)) {
-    unset($js['settings']);
-  }
+  // global $user;
+  // if (!in_array('administrator', $user->roles)) {
+  //   unset($js['settings']);
+  // }
+
+  // unset($js['settings']);
  
   $exclude = array(
-  'misc/jquery.js' => TRUE,
-  'misc/jquery.once.js' => TRUE,
-  'sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js' => TRUE,
+  // 'sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js' => TRUE,
+  // 'sites/all/modules/jquery_update/replace/jquery/2.1/jquery.min.js' => TRUE
+  'sites/all/modules/jquery_update/js/jquery_update.js' => TRUE,
+  'sites/all/modules/jquery_update/replace/jquery.form/3/jquery.form.min.js' => TRUE,
+  'sites/all/modules/jquery_update/replace/ui/external/jquery.cookie.js' => TRUE,
   'sites/all/modules/autoupload/js/autoupload.js' => TRUE,
   'sites/all/modules/custom_search/js/custom_search.js' => TRUE,
   'sites/all/modules/devel/devel_krumo_path.js' => TRUE,
+  'sites/all/modules/webform/js/webform.js' => TRUE,
+  'misc/ajax.js' => TRUE,
+  'misc/jquery.js' => TRUE,
+  // 'misc/jquery.once.js' => TRUE,
+  'misc/textarea.js' => TRUE,
   'misc/collapse.js' => TRUE,
   'misc/form.js' => TRUE,
-  'misc/drupal.js' => TRUE, );
+  'misc/progress.js' => TRUE,
+  'misc/drupal.js' => TRUE,
+  );
 
   $js = array_diff_key($js, $exclude);
 
@@ -115,14 +126,25 @@ $link = $variables['links'];
 // adding content type template overide
 
 function symbio_preprocess_page(&$vars, $hook) {
+
   if (isset($vars['node']->type)) {
     // If the content type's machine name is "my_machine_name" the file
     // name will be "page--my-machine-name.tpl.php".
     $vars['theme_hook_suggestions'][] = 'page__' . $vars['node']->type;
   }
+
   if (drupal_is_front_page()) {
     unset($vars['page']['content']['system_main']['default_message']); //will remove message "no front page content is created"
   }
+
+  drupal_add_js(drupal_get_path('theme', 'symbio') .'/assets/js/min/app-min.js', array(
+  'type' => 'file',
+  'requires_jquery' => TRUE,
+  'group' => JS_LIBRARY,
+  'every_page' => TRUE,
+  'weight' => 4,
+  ));
+
 }
 
 // styling and formatting of forms
