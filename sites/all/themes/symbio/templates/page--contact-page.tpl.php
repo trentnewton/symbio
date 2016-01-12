@@ -34,6 +34,7 @@
           <?php if ($page['split-box-right']): ?>
             <?php print render($page['split-box-right']); ?>
           <?php endif; ?>
+          <div class="google-maps-overlay"></div>
           </div>
         </section>
       <?php endif;?>

@@ -51,6 +51,12 @@
     $('.menu-icon').toggleClass('rotate');
   });
 
+  // hide maps overlay when clicked
+
+  $('.google-maps-overlay').on('click', function() {
+    $(this).toggleClass('hide');
+  });
+
   // collapsing fieldset
 
   $('.search-advanced>legend>.fieldset-legend').wrap('<a class="fieldset-title" href="#show" />');
