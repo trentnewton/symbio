@@ -330,7 +330,7 @@ th.active {
 		background-image: linear-gradient(to bottom, $snow 0%, $gainsboro 50%, $iron 100%);
 		background-size: auto 200%;
 		background-position: 0 0;
-		transition: background-position $transition-time;
+		transition: all $transition-time;
     border-color: $iron;
 
     &:not([class]),
