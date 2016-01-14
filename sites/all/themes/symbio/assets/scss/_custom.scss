@@ -47,16 +47,6 @@
 
 // main styles / reset
 
-body,
-input,
-textarea,
-a.text-preview,
-a:link.text-preview,
-a:hover.text-preview {
-	@extend .antialiased;
-	text-size-adjust: 100%;
-}
-
 a,
 a:link,
 a h1,
