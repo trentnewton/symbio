@@ -10,6 +10,10 @@ function symbio_icons_token_info() {
     'description' => t('A token type for icons.'),
   );
   // Define any new tokens.
+  $info['tokens']['icon']['logo'] = array(
+    'name' => t('Site Logo'),
+    'description' => t('Displays the site logo'),
+  );
   $info['tokens']['icon']['icon-phone'] = array(
     'name' => t('Phone Icon'),
     'description' => t('A phone icon'),
@@ -68,6 +72,10 @@ function symbio_icons_tokens($type, $tokens, array $data = array(), array $optio
     foreach ($tokens as $name => $original) {
       // Find our custom tokens by name.
       switch ($name) {
+        case 'logo':
+          // Give our token it's value!
+          $replacements[$original] =  '<img src="' . theme_get_setting('logo') . '" alt="' . variable_get('site_name') . '">';
+          break;
         case 'icon-phone':
           // Give our token it's value!
           $replacements[$original] = '<svg class="icon icon-phone"><use xlink:href="#icon-phone"></use></svg>';
