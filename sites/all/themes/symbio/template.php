@@ -280,14 +280,20 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       break;
   }
 
+  if ($form_id == 'custom_search_blocks_form_1') {
+    $form['custom_search_blocks_form_1']['#theme_wrappers'] = array();
+  }
+
   if ($form_id == 'custom_search_blocks_form_2') {
     $form['#attributes']['class'][] = 'expanding-search';
+    $form['custom_search_blocks_form_2']['#theme_wrappers'] = array();
     $form['custom_search_blocks_form_2']['#prefix'] = '<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
     $form['custom_search_blocks_form_2']['#attributes']['class'][] = 'expanding-search-input';
   }
 
   if ($form_id == 'search_form') {
     $form['#attributes']['class'][] = 'search-form-custom';
+    $form['basic']['keys']['#theme_wrappers'] = array();
     $form['basic']['keys']['#prefix'] = '<div class="row"><div class="small-7 medium-10 columns">';
     $form['basic']['keys']['#attributes']['placeholder'] = t('Search');
     $form['basic']['keys']['#attributes']['class'][] = 'radius';
@@ -310,11 +316,14 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       }
     }
     $form['#attributes']['class'][] = 'search-form-custom';
+    $form['search_block_form']['#theme_wrappers'] = array();
     $form['search_block_form']['#prefix'] = '<div class="row"><div class="small-7 medium-10 columns"><div class="row collapse postfix-radius"><div class="small-8 medium-9 columns">';
     $form['search_block_form']['#suffix'] = '</div>';
+    $form['custom_search_types']['#theme_wrappers'] = array();
     $form['custom_search_types']['#prefix'] = '<div class="small-4 medium-3 columns">';
     $form['custom_search_types']['#attributes']['class'][] = 'postfix';
     $form['custom_search_types']['#suffix'] = '</div></div></div>';
+    $form['actions']['#theme_wrappers'] = array();
     $form['actions']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['actions']['submit'] = array
     (

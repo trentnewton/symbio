@@ -28,10 +28,7 @@
 
   // change input type to search
 
-  $('.form-item-search-block-form').find('input:text').attr({type:"search"});
-  $('.form-item-custom-search-blocks-form-1').find('input:text').attr({type:"search"});
-  $('.form-item-custom-search-blocks-form-2').find('input:text').attr({type:"search"});
-  $('.form-item-keys').find('input:text').attr({type:"search"});
+  $('.search-form').find('input:text').attr({type:"search"});
 
   // add svg icon to download link
 
