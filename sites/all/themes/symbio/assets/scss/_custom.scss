@@ -96,20 +96,21 @@ table {
 	@include scroll;
 	width: 100%;
 	border: $table-border;
+	border-radius: 0;
 	border-collapse: separate;
 }
 
-th {
+// th {
 
-	&:first-child {
-		border-radius: $global-radius 0 0 0;
-	}
+// 	&:first-child {
+// 		border-radius: $global-radius 0 0 0;
+// 	}
 
-	&:last-child {
-		border-radius: 0 $global-radius 0 0;
-	}
+// 	&:last-child {
+// 		border-radius: 0 $global-radius 0 0;
+// 	}
 
-}
+// }
 
 thead,
 tfoot {
@@ -355,7 +356,7 @@ th.active {
 }
 
 .block-region {
-	color: $black;
+	color: $body-font-color;
 }
 
 .view-content {
@@ -555,7 +556,7 @@ th.active {
 	text-shadow: -1px -1px 0 rgba($white, 0.4);
 	box-shadow:
 		0 0 0 1px rgba($white, 0.4) inset,
-		0 2px 1px 0 rgba($black, 0.15) inset;
+		0 2px 1px 0 rgba($black, 0.2) inset;
 }
 
 .top-bar-logo-wrapper {
@@ -760,8 +761,8 @@ th.active {
 	label {
 		background: $secondary-color-50;
 		border-bottom: medium none;
-		border-top: 1px solid scale-color($secondary-color-50, $lightness: 14%);
-		color: scale-color($secondary-color-50, $lightness: 65%);
+		border-top: 1px solid $secondary-color-25;
+		color: $secondary-color-25;
 		display: block;
 		font-size: rem-calc(12);
 		font-weight: $global-weight-bold;
@@ -771,18 +772,18 @@ th.active {
 	}
 
 	a {
-		border-bottom: 1px solid scale-color($offcanvas-background, $lightness: -35%);
+		border-bottom: 1px solid $secondary-color-darker-70;
 		color: $white;
 		display: block;
 		padding: rem-calc(10, 15);
-		transition: background 300ms ease 0s;
+		transition: background $transition-time ease 0s;
 
 		&:hover {
 			background: rgba($secondary-color, 0.2);
 		}
 
 		&.active {
-			color: scale-color($secondary-color-50, $lightness: 65%);
+			color: $secondary-color-25;
 			background: rgba($secondary-color, 0.2);
 		}
 
@@ -806,12 +807,12 @@ button,
 	text-transform: uppercase;
 	font-weight: $global-weight-bold;
 	text-shadow: 0 1px 1px rgba($black, 0.5);
-	background-image: linear-gradient($button-background, (scale-color($button-background, $lightness: -30%)));
+	background-image: linear-gradient($button-background, $button-background-hover);
 	background-size: auto 200%;
 	background-position: 0 0;
 	transition: background-position $transition-time;
 	box-shadow: 0 1px 3px 1px rgba($black, 0.2);
-	border-color: scale-color($button-background, $lightness: -20%);
+	border-color: $tertiary-color-70;
 
 	&:hover,
 	&:focus {
@@ -1101,7 +1102,7 @@ form {
 			top: 0;
 			width: rem-calc(20);
 			height: 100%;
-			background: linear-gradient(to left, rgba(135,47,57, 1) 0%,rgba(135,47,57, 0) 100%);
+			background: linear-gradient(to left, rgba($primary-color, 1) 0%,rgba($primary-color, 0) 100%);
 		}
 
 	}
@@ -1111,7 +1112,7 @@ form {
 #masthead {
 	background:
 		linear-gradient(to bottom,
-			rgba(scale-color($primary-color, $lightness: 20%, $saturation: -50%), 1) 0%,
+			rgba($primary-color-70, 1) 0%,
 			rgba($primary-color, 1) 100%);
 	text-align: center;
 	color: $white;
@@ -1176,9 +1177,7 @@ form {
 
 	a {
 		color: $white;
-		padding: rem-calc(15 30);
-		background: rgba($white, 0.1);
-		border-radius: $global-radius $global-radius 0 0;
+		padding: rem-calc(16 30);
 		line-height: 1.5;
 		border: 0;
     margin: 0;
@@ -1186,7 +1185,7 @@ form {
 		
 		&:hover,
 		&.active {
-			background: rgba($white, 0.2);
+			background-color: rgba($white, 0.2);
 		}
 
 	}
@@ -1201,12 +1200,16 @@ form {
 
 }
 
+.tab-links a,
+#masthead .menu a,
+#masthead .tabs.primary a,
 .breadcrumbs {
 	border-radius: $global-radius $global-radius 0 0;
-	display: inline-block;
-	// vertical-align: top;
-	// margin-bottom: rem-calc(-2);
 	background-color: rgba($white, 0.1);
+}
+
+.breadcrumbs {
+	display: inline-block;
 	padding: rem-calc(12 30);
 
 	@include breakpoint(small only) {
@@ -1457,7 +1460,7 @@ form {
 }
 
 .text-blurb	{
-	background: rgba(scale-color($secondary-color-50, $lightness: 85%), 0.8);
+	background: rgba($secondary-color-5, 0.8);
 	border-radius: $global-radius;
 	padding: rem-calc(36);
 	position: relative;

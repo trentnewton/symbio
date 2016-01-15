@@ -101,6 +101,18 @@ $primary-color-50: #c29299;
 $secondary-color-50: #7f8eb0;
 $tertiary-color-50: #ffe395;
 
+$primary-color-darker-70: #5e1b24;
+$secondary-color-darker-70: #001545;
+$tertiary-color-darker-70: #b38c1f;
+
+$primary-color-darker-50: #43131a;
+$secondary-color-darker-50: #000f31;
+$tertiary-color-darker-50: #b38c1f;
+
+$secondary-color-25: #bfc7d8;
+
+$secondary-color-5: #f2f4f7;
+
 $google-maps-bg-colour: #e5e3df;
 
 // rgb versions
@@ -189,7 +201,7 @@ $code-background: $gainsboro;
 $code-border: 1px solid $iron;
 $code-padding: rem-calc(2 5 1);
 $anchor-color: $tertiary-color;
-$anchor-color-hover: scale-color($anchor-color, $lightness: -30%);
+$anchor-color-hover: $tertiary-color-darker-70;
 $anchor-color-rgb: rgba($anchor-color, 0.99);
 $anchor-color-hover-rgb: rgba($anchor-color-hover, 0.99);
 $anchor-text-decoration: none;
@@ -224,7 +236,7 @@ $abbr-underline: 1px dotted $black;
 $lead-font-size: $global-font-size * 1.25;
 $lead-lineheight: 1.6;
 $subheader-lineheight: 1.4;
-$subheader-color: scale-color($charcoal, $lightness: 35%);
+$subheader-color: $secondary-color-50;
 $subheader-font-weight: $global-weight-normal;
 $subheader-margin-top: 0.2rem;
 $subheader-margin-bottom: 0.5rem;
@@ -287,10 +299,10 @@ $breadcrumbs-item-slash: true;
 $button-padding: rem-calc(16 32 17);
 $button-margin: 0 0 $global-margin 0;
 $button-fill: solid;
-$button-background: $tertiary-color;
-$button-background-hover: scale-color($button-background, $lightness: -15%);
+$button-background: $anchor-color;
+$button-background-hover: $anchor-color-hover;
 $button-color: $white;
-$button-color-alt: $black;
+$button-color-alt: $body-font-color;
 $button-radius: $global-radius;
 $button-sizes: (
   tiny: 0.6rem,
@@ -450,7 +462,7 @@ $offcanvas-zindex: -1;
 $offcanvas-transition-length: $transition-time;
 $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
-$offcanvas-exit-background: rgba($white, 0.25);
+$offcanvas-exit-background: rgba($white, 0.2);
 $maincontent-class: 'off-canvas-content';
 $maincontent-shadow: 0 0 10px rgba($black, 0.5);
 
@@ -478,7 +490,7 @@ $orbit-control-zindex: 10;
 
 $pagination-font-size: rem-calc(14);
 $pagination-margin-bottom: $global-margin;
-$pagination-item-color: $black;
+$pagination-item-color: $body-font-color;
 $pagination-item-padding: rem-calc(3 10);
 $pagination-item-spacing: rem-calc(1);
 $pagination-radius: $global-radius;
@@ -486,7 +498,7 @@ $pagination-item-background-hover: $gainsboro;
 $pagination-item-background-current: $primary-color;
 $pagination-item-color-current: foreground($pagination-item-background-current);
 $pagination-item-color-disabled: $iron;
-$pagination-ellipsis-color: $black;
+$pagination-ellipsis-color: $body-font-color;
 $pagination-mobile-items: false;
 $pagination-arrows: true;
 
@@ -547,17 +559,17 @@ $switch-paddle-transition: all 0.25s ease-out;
 
 $table-background: $white;
 $table-color-scale: 5%;
-$table-border: 1px solid scale-color($secondary-color-50, $lightness: 50%);
+$table-border: 1px solid $secondary-color-50;
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 // $table-row-hover: darken($table-background, $table-hover-scale);
 $table-row-hover: $white-smoke;
 // $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
 $table-row-stripe-hover: $smoke;
-$table-striped-background: scale-color($secondary-color-50, $lightness: 90%);
+$table-striped-background: $secondary-color-5;
 $table-stripe: even;
 $table-head-background: $secondary-color-50;
-$table-foot-background: smart-scale($table-background, $table-color-scale);
+$table-foot-background: $secondary-color-25;
 $table-head-font-color: $white;
 $show-header-for-stacked: false;
 
