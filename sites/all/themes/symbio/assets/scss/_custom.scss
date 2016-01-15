@@ -389,6 +389,48 @@ th.active {
 	height: $footer-height;
 }
 
+// logo svg classes
+
+.primary-colour {
+	fill: $primary-color;
+}
+
+.secondary-colour {
+	fill: $secondary-color;
+}
+
+.tertiary-colour {
+	fill: $tertiary-color;
+}
+
+.black {
+	fill: $black;
+}
+
+.white {
+	fill: $white;
+}
+
+.primary-colour-stop {
+	stop-color: $primary-color;
+}
+
+.secondary-colour-stop {
+	stop-color: $secondary-color;
+}
+
+.tertiary-colour-stop {
+	stop-color: $tertiary-color;
+}
+
+.black-stop {
+	stop-color: $black;
+}
+
+.white-stop {
+	stop-color: $white;
+}
+
 // top bar / header
 
 .top-info {
