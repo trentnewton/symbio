@@ -725,7 +725,7 @@ th.active {
 .title-bar {
 	box-shadow:
 		0 0 1px 0 rgba($black, 0.5) inset,
-		0 1px 6px 0 rgba($black, 0.4);
+		0 1px 6px 0 rgba($black, 0.5);
 	text-align: center;
 	display: none;
 
@@ -1154,7 +1154,7 @@ form {
 			rgba($primary-color, 1) 100%);
 	text-align: center;
 	color: $white;
-	box-shadow: 0 7px 18px -10px rgba($black, 0.7);
+	box-shadow: 0 7px 18px -10px rgba($black, 0.5);
 	position: relative;
 	z-index: 98;
 
@@ -1687,7 +1687,6 @@ p.search-snippet {
 .view-product-data-sheets-main,
 .view-id-product_ranges {
 	text-align: center;
-	color: $tuatara;
 
 	p {
 		font-size: header-size(medium, h4);
@@ -1930,7 +1929,7 @@ p.search-snippet {
 				position: absolute;
 				right: rem-calc(-15);
 				content: '\00A0\00A0\007C\00A0';
-				color: rgba($body-font-color, 0.7);
+				color: $base;
 			}
 
 			&:last-child {
