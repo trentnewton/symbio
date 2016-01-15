@@ -201,6 +201,34 @@ function symbio_form($variables) {
   return '<form' . drupal_attributes($element['#attributes']) . '>' . $element['#children'] . '</form>';
 }
 
+// format fieldset
+
+function symbio_fieldset(&$variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id'));
+  _form_set_class($element, array('form-wrapper'));
+
+  $output = '<fieldset' . drupal_attributes($element['#attributes']) . '>';
+  if (!empty($element['#title'])) {
+    // Always wrap fieldset legends in a SPAN for CSS positioning.
+    $output .= '<legend><a class="fieldset-title" href="#show"><span class="fieldset-legend-arrow"></span><span class="fieldset-legend">' . $element['#title'] . '</span></a></legend>';
+  }
+
+  $element['#wrapper-attributes']['class'][] = 'fieldset-wrapper';
+
+  $output .= '<div' . drupal_attributes($element['#wrapper-attributes']) . '">';
+  if (!empty($element['#description'])) {
+    $output .= '<div class="fieldset-description">' . $element['#description'] . '</div>';
+  }
+  $output .= $element['#children'];
+  if (isset($element['#value'])) {
+    $output .= $element['#value'];
+  }
+  $output .= '</div>';
+  $output .= "</fieldset>\n";
+  return $output;
+}
+
 /**
  * Implementation of hook_form_alter().
  *

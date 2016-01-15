@@ -201,10 +201,7 @@ svg {
 }
 
 .element-invisible {
-	position: absolute;
-	clip: rect(1px, 1px, 1px, 1px);
-	overflow: hidden;
-	height: 1px;
+	@include element-invisible;
 }
 
 .views-align-center {
@@ -1596,7 +1593,7 @@ p.search-snippet {
   }
 
   .fieldset-wrapper {
-  	transition: ($transition-time / 2) ease-in-out;
+  	transition: ($transition-time * 2) ease-in-out;
   	opacity: 1;
 
 		&.fade {
@@ -1606,7 +1603,7 @@ p.search-snippet {
   }
 
 	.criterion {
-		@extend .row;
+		@include grid-row;
 
 		label {
 			display: block;
@@ -1618,12 +1615,8 @@ p.search-snippet {
 
 		}
 
-		.form-type-textfield {
-			@extend .small-12, .medium-4, .columns, 
-		}
-
 		.form-type-checkboxes {
-			@extend .column;
+			@include grid-column;
 		
 			.form-checkboxes {
 				display: inline-flex;

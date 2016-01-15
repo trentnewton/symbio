@@ -56,12 +56,9 @@
 
   // collapsing fieldset
 
-  $('.search-advanced>legend>.fieldset-legend').wrap('<a class="fieldset-title" href="#show" />');
-  $('<span class="fieldset-legend-arrow"></span>').insertBefore('.fieldset-legend');
-
   $('.fieldset-title').on('click', function() {
     $('.search-advanced').toggleClass('collapsing');
-    $('.fieldset-wrapper').fadeToggle('fast', 'linear');
+    $('.fieldset-wrapper').toggleClass('fade');
     $('.fieldset-legend-arrow').toggleClass('rotated');
   });
 
