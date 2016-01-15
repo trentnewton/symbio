@@ -50,11 +50,6 @@ $global-lineheight: 1.5;
 $success-color: #3adb76;
 $warning-color: #ffae00;
 $alert-color: #ec5840;
-// $light-gray: #e6e6e6;
-// $medium-gray: #cacaca;
-// $dark-gray: #8a8a8a;
-// $black: #0a0a0a;
-// $white: #fefefe;
 
 $white       : #FFFFFF;
 $ghost       : #FAFAFA;
@@ -75,6 +70,12 @@ $tuatara     : #444444;
 $oil         : #333333;
 // $jet         : #222222;
 $black       : #000000;
+
+$light-gray: $silver;
+$medium-gray: $iron;
+$dark-gray: $jumbo;
+// $black: #0a0a0a;
+// $white: #fefefe;
 
 $body-background: $white;
 $body-font-color: $oil;
@@ -549,8 +550,10 @@ $table-color-scale: 5%;
 $table-border: 1px solid scale-color($secondary-color-50, $lightness: 50%);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
-$table-row-hover: darken($table-background, $table-hover-scale);
-$table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
+// $table-row-hover: darken($table-background, $table-hover-scale);
+$table-row-hover: $white-smoke;
+// $table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
+$table-row-stripe-hover: $smoke;
 $table-striped-background: scale-color($secondary-color-50, $lightness: 90%);
 $table-stripe: even;
 $table-head-background: $secondary-color-50;
