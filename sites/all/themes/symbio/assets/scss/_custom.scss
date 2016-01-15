@@ -300,7 +300,7 @@ th.active {
 
 				&.active {
 					color: inherit;
-					background-image: linear-gradient(to bottom, $white 0%, $smoke 50%, $gainsboro 100%);
+					background-image: linear-gradient(to bottom, $white 0%, $white-smoke 50%, $gainsboro 100%);
 					border-color: $gainsboro;
 
 					&:hover,
@@ -317,7 +317,7 @@ th.active {
 	}
 
 	a {
-		background-image: linear-gradient(to bottom, $snow 0%, $gainsboro 50%, $iron 100%);
+		background-image: linear-gradient(to bottom, $white-smoke 0%, $gainsboro 50%, $iron 100%);
 		background-size: auto 200%;
 		background-position: 0 0;
 		transition: all $transition-time;
@@ -716,7 +716,7 @@ th.active {
 }
 
 .title-bar-left {
-	border-right: solid 1px scale-color($snow, $lightness: -30%);
+	border-right: solid 1px $base;
 }
 
 .title-bar-right {
