@@ -631,7 +631,7 @@ th.active {
 		&:hover {
 			
 			> a {
-				background: rgba(0, 30, 98, 0.2)
+				background: $topbar-link-bg-hover;
 			}
 
 		}
