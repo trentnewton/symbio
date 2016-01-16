@@ -108,6 +108,7 @@ input.expanding-search-input {
 		&::-webkit-search-cancel-button {
 			margin-right: rem-calc(7);
 			display: block;
+			background-size: rem-calc(17);
 		}
 
 	}

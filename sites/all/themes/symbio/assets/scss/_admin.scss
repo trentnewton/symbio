@@ -89,18 +89,18 @@ th.active {
 		background-size: auto 200%;
 		background-position: 0 0;
 		transition: all $transition-time;
-    border-color: $iron;
+    	border-color: $iron;
 
-    &:not([class]),
+    	&:not([class]),
 		&.active {
-    	border-style: solid;
+    		border-style: solid;
 			border-width: 1px;
-    	margin-right: rem-calc(8);
+    		margin-right: rem-calc(8);
 			padding: rem-calc(10 28 12);
-	    border-top-left-radius: $global-radius;
-	    border-top-right-radius: $global-radius;
-	    line-height: 2.6;
-	    color: inherit;
+		    border-top-left-radius: $global-radius;
+		    border-top-right-radius: $global-radius;
+		    line-height: 2.6;
+		    color: inherit;
 		}
 
 		&:not([class]) {
