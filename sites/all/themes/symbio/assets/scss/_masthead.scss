@@ -4,7 +4,7 @@
 	position: relative;
 
 	@include breakpoint(medium down) {
-		
+
 		&:after {
 			content: '';
 			position: absolute;
@@ -156,7 +156,7 @@
 	> .current {
     	color: $white;
     	cursor: default;
-		
+
 		&:hover {
 			color: $white;
 			text-decoration: none;

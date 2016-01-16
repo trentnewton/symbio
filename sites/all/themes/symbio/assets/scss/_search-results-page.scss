@@ -40,7 +40,7 @@ p.search-snippet {
     height: 1em;
 
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
-			
+
 			.fieldset-title {
 				position: relative;
 				top: rem-calc(-11);
@@ -104,7 +104,7 @@ p.search-snippet {
 
 		.form-type-checkboxes {
 			@include grid-column;
-		
+
 			.form-checkboxes {
 				display: inline-flex;
 			}
