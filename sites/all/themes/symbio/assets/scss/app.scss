@@ -1,6 +1,6 @@
 @charset 'utf-8';
 
-@import "webfonts";
+@import 'webfonts';
 @import 'settings';
 @import 'foundation';
 // @import 'motion-ui';
@@ -44,21 +44,21 @@
 // @include motion-ui-transitions;
 // @include motion-ui-animations;
 
-@import "mixins";
-@import "main-styles";
-@import "forms";
-@import "svg";
-@import "pagination";
-@import "admin";
-@import "main-wrapper";
-@import "header";
-@import "masthead";
-@import "search-box";
-@import "page";
-@import "footer";
-@import "front-page";
-@import "about-us-page";
-@import "contact-page";
-@import "search-results-page";
-@import "site-map-page";
-@import "login-page";
+@import 'mixins';
+@import 'main-styles';
+@import 'forms';
+@import 'svg';
+@import 'pagination';
+@import 'admin';
+@import 'main-wrapper';
+@import 'header';
+@import 'masthead';
+@import 'search-box';
+@import 'page';
+@import 'footer';
+@import 'front-page';
+@import 'about-us-page';
+@import 'contact-page';
+@import 'search-results-page';
+@import 'site-map-page';
+@import 'login-page';
