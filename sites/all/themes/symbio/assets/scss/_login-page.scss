@@ -11,10 +11,11 @@
 
 		&:not([class]) {
 
-			color: $body-font-color;
+			color: inherit;
 			border-bottom: $tertiary-color 2px solid;
 
 			&:hover {
+				color: $body-font-color;
 				background: $tertiary-color;
 			}
 

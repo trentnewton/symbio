@@ -117,6 +117,33 @@ th.active {
 
 }
 
+#form-messages,
+.messages {
+
+	&.error {
+		color: $alert-color;
+	}
+
+	&.success,
+	&.status {
+		color: $success-color;
+	}
+
+}
+
+.messages {
+	margin-bottom: $paragraph-margin-bottom;
+
+	ul {
+		@extend .no-bullet;
+	}
+
+	li {
+		display: inline-block;
+	}
+
+}
+
 .form-textarea-wrapper {
 
 	textarea {
@@ -127,12 +154,4 @@ th.active {
 
 .block-region {
 	color: $body-font-color;
-}
-
-.view-content {
-
-	> ul {
-		@extend .no-bullet;
-	}
-
 }

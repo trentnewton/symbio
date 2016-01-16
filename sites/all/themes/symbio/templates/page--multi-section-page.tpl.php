@@ -13,18 +13,17 @@
           <?php print render($page['search']); ?>
         </section>
         <?php endif; ?>
-        <div class="row column">
-          <?php if ($messages || $tabs) : ?>
-          <?php print $messages; ?>
-          <div class="tabs-wrapper">
-            <?php print render($tabs); ?>
+        <?php if ($messages || $tabs || $page['content']) : ?>
+        <section class="regular-page">
+          <div class="row column">
+            <?php print $messages; ?>
+            <div class="tabs-wrapper">
+              <?php print render($tabs); ?>
+            </div>
+            <?php print render($page['content']); ?>
           </div>
-          <?php else : ?>
-          <?php endif; ?>
-          <?php if ($page['content']): ?>
-          <?php print render($page['content']); ?>
-          <?php endif; ?>
-        </div>
+        </section>
+        <?php endif; ?>
         <?php if ($page['first-category-section']): ?>
         <div itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <article class="categories">

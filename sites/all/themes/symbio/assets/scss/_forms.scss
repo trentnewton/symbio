@@ -111,33 +111,6 @@ input {
 
 }
 
-#form-messages,
-.messages {
-
-	&.error {
-		color: $alert-color;
-	}
-
-	&.success,
-	&.status {
-		color: $success-color;
-	}
-
-}
-
-.messages {
-	margin-bottom: $paragraph-margin-bottom;
-
-	ul {
-		@extend .no-bullet;
-	}
-
-	li {
-		display: inline-block;
-	}
-
-}
-
 .error {
 
 	input,

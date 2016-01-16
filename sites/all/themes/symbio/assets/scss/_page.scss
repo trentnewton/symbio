@@ -12,6 +12,7 @@
 			border-bottom: $tertiary-color 2px solid;
 
 			&:hover {
+				color: $body-font-color;
 				background-color: $tertiary-color;
 			}
 
@@ -190,6 +191,14 @@
 	span {
 		text-align: center;
 		width: 100%;
+	}
+
+}
+
+.view-content {
+
+	> ul {
+		@extend .no-bullet;
 	}
 
 }

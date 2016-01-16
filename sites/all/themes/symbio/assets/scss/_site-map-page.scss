@@ -3,7 +3,7 @@
 .site-map-box-menu > .content > ul.site-map-menu {
 
 	> li {
-		@include grid-column;
+		@extend .column;
 		list-style: none;
 		padding-bottom: rem-calc(30);
 	}
