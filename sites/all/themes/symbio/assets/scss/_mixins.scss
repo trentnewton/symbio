@@ -1,0 +1,46 @@
+// get header sass map
+
+@function header-size($breakpoint, $size) {
+  @return rem-calc(map-get(map-get($header-sizes, $breakpoint), $size) * 1px);
+}
+
+// mixins
+
+@mixin small-portrait {
+  @media screen and (min-width: -zf-bp-to-em($small)) and (max-width: -zf-bp-to-em($medium - 1px)) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin small-landscape {
+  @media screen and (min-width: -zf-bp-to-em($small)) and (max-width: -zf-bp-to-em($medium - 1px)) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin medium-portrait {
+  @media screen and (min-width: -zf-bp-to-em($medium)) and (max-width: -zf-bp-to-em($large - 1px)) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin medium-landscape {
+  @media screen and (min-width: -zf-bp-to-em($medium)) and (max-width: -zf-bp-to-em($large - 1px)) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin scroll {
+	white-space: nowrap;
+	overflow-x: scroll;
+	position: relative;
+	-ms-overflow-style: none;
+	-webkit-overflow-scrolling: touch;
+}
+
+@mixin see-thru-border {
+	padding-top: ($grid-column-gutter-medium / 2);
+	padding-bottom: ($grid-column-gutter-medium / 2);
+	background: rgba($white, 0.2);
+	border-radius: ($global-radius * 1.25);
+}

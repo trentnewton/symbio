@@ -1,0 +1,158 @@
+// main styles / reset
+
+a,
+a:link,
+a h1,
+a h2,
+a h3,
+a h4,
+a h5,
+select {
+	transition: $transition-time;
+}
+
+::selection {
+	background: $tertiary-color;
+	color: $white;
+}
+
+figure {
+	margin: 0;
+}
+
+iframe {
+	border: 0;
+}
+
+p {
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+}
+
+a,
+input,
+select,
+textarea,
+button {
+
+	&:focus {
+		outline: none;
+	}
+
+}
+
+table {
+	@include scroll;
+	width: 100%;
+	border: $table-border;
+	border-radius: 0;
+	border-collapse: separate;
+}
+
+// th {
+
+// 	&:first-child {
+// 		border-radius: $global-radius 0 0 0;
+// 	}
+
+// 	&:last-child {
+// 		border-radius: 0 $global-radius 0 0;
+// 	}
+
+// }
+
+thead,
+tfoot {
+	font-size: rem-calc(12);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	text-transform: uppercase;
+}
+
+address {
+	font-style: normal;
+	margin-bottom: $paragraph-margin-bottom;
+}
+
+svg {
+	vertical-align: middle;
+}
+
+.h-center {
+	position: relative;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
+.v-center {
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.overflow-auto {
+	overflow: auto;
+	-ms-overflow-style: -ms-autohiding-scrollbar;
+}
+
+.m-t-30 {
+	margin-top: rem-calc(30);
+}
+
+.responsive-svg-container {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+.responsive-svg {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.icons {
+	color: $tertiary-color;
+	margin-right: 0.5em;
+}
+
+.old-browser-notice {
+	text-align: center;
+	font-weight: $global-weight-bold;
+	padding-top: $paragraph-margin-bottom;
+	padding-bottom: $paragraph-margin-bottom;
+	background-color: $white;
+}
+
+.visual-hide {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+.text-large {
+	font-size: header-size(medium, h4);
+}
+
+.element-invisible {
+	@include element-invisible;
+}
+
+.views-align-center {
+	@extend .text-center;
+}

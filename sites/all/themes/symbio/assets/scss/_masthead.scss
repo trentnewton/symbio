@@ -1,0 +1,167 @@
+// masthead
+
+.masthead-nav-container {
+	position: relative;
+
+	@include breakpoint(medium down) {
+		
+		&:after {
+			content: '';
+			position: absolute;
+			right: 0;
+			top: 0;
+			width: rem-calc(20);
+			height: 100%;
+			background: linear-gradient(to left, rgba($primary-color, 1) 0%,rgba($primary-color, 0) 100%);
+		}
+
+	}
+
+}
+
+#masthead {
+	background:
+		linear-gradient(to bottom,
+			rgba($primary-color-70, 1) 0%,
+			rgba($primary-color, 1) 100%);
+	text-align: center;
+	color: $white;
+	box-shadow: 0 7px 18px -10px rgba($black, 0.6);
+	position: relative;
+	z-index: 98;
+
+	h1 {
+		color: inherit;
+		text-shadow: 0 1px 4px rgba($black, 0.6);
+		margin: rem-calc(36 -12 36 0);
+		letter-spacing: rem-calc(12);
+	}
+
+	.menu,
+	#masthead .tabs.primary {
+		list-style-type: none;
+		margin: 0;
+		text-align: center;
+
+		li {
+			display: inline;
+			margin: 0;
+			padding: 0;
+		}
+
+	}
+
+}
+
+.masthead-nav {
+	@extend overflow-auto;
+	height: rem-calc(48);
+}
+
+.tab-links,
+.breadcrumbs,
+#masthead .menu,
+.tabs.primary {
+	
+	@include scroll;
+
+	> * {
+		position: relative;
+		font-weight: $global-weight-bold;
+	}
+
+}
+
+.tab-links,
+#masthead .menu,
+#masthead .tabs.primary {
+	width: 100%;
+	height: rem-calc(48);
+	padding: rem-calc(12 0 0);
+	border: 0;
+  	margin: 0;
+
+  li {
+  	vertical-align: baseline;
+  }
+
+	a {
+		color: $white;
+		padding: rem-calc(16 30);
+		line-height: 1.5;
+		border: 0;
+    	margin: 0;
+    	display: inline;
+		
+		&:hover,
+		&.active {
+			background: rgba($white, 0.2);
+		}
+
+	}
+
+	@include breakpoint(small only) {
+
+		a {
+			padding: rem-calc(15);
+		}
+
+	}
+
+}
+
+.tab-links a,
+#masthead .menu a,
+#masthead .tabs.primary a,
+.breadcrumbs {
+	border-radius: $global-radius $global-radius 0 0;
+	background: rgba($white, 0.1);
+}
+
+.breadcrumbs {
+	display: inline-block;
+	padding: rem-calc(12 30);
+
+	@include breakpoint(small only) {
+		width: 100%;
+	}
+
+	a {
+
+		&:hover,
+		&:focus {
+			text-decoration: none;
+			color: $anchor-color-hover;
+		}
+
+	}
+
+	> :first-child::before {
+    	content: '';
+    	margin: 0;
+	}
+
+	> a {
+
+		&::before {
+			color: $base;
+			content: '»';
+			margin: rem-calc(0 12);
+			position: relative;
+			top: 1px;
+		}
+
+	}
+
+	> .current {
+    	color: $white;
+    	cursor: default;
+		
+		&:hover {
+			color: $white;
+			text-decoration: none;
+		}
+
+	}
+
+}

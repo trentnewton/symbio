@@ -1,0 +1,73 @@
+// front page
+
+#banner {
+	padding: rem-calc(144 0 96);
+	text-transform: uppercase;
+	text-align: center;
+	color: $gainsboro;
+
+	@include breakpoint(medium down) {
+		padding: rem-calc(72 0 36);
+	}
+
+	h1,
+	h2 {
+		color: inherit;
+	}
+
+	h1 {
+		border: solid 1px $gainsboro;
+		border-left: 0;
+		border-right: 0;
+		margin: rem-calc(0 0 36 0);
+
+		&:before,
+		&:after {
+			content: '';
+			display: block;
+			border-color: $gainsboro;
+		}
+
+		&:before {
+			border-top: solid 1px;
+			margin: rem-calc(10 0 20 0);
+		}
+
+		&:after {
+			border-bottom: solid 1px;
+			margin: rem-calc(20 0 10 0);
+		}
+
+	}
+
+	p {
+		font-size: header-size(medium, h3);
+		text-transform: uppercase;
+		font-family: $header-font-family;
+		margin-top: rem-calc(144);
+		margin-bottom: rem-calc(144);
+		font-weight: $global-weight-bold;
+		
+		@include breakpoint(small only) {
+			margin-top: rem-calc(72);
+			margin-bottom: rem-calc(72);
+		}
+
+	}
+
+	h2 {
+		margin-top: rem-calc(30);
+		border-top: solid 1px $gainsboro;
+		padding-top: rem-calc(8);
+
+		&:before {
+			content: '';
+			display: block;
+			border-top: solid 1px $gainsboro;
+			height: rem-calc(8);
+			padding-top: rem-calc(30);
+		}
+
+	}
+
+}

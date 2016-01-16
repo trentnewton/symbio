@@ -1,0 +1,67 @@
+// split sections
+
+.split-boxes {
+	@include clearfix();
+}
+
+.row-split {
+	max-width: ($global-width / 2 - $grid-column-gutter-medium);
+	width: 100%;
+
+	@include breakpoint(small only) {
+		max-width: $global-width;
+	}
+
+}
+
+.split-box-left {
+
+	.row-split {
+		float: right;
+	}
+
+}
+
+.split-box-right {
+
+	.row-split {
+		float: left;
+	}
+
+}
+
+// contact
+
+.google-maps-container {
+	background-color: $google-maps-bg-colour;
+	position: relative;
+
+	&.column,
+	&.columns {
+		padding: 0;
+	}
+
+	iframe {
+		height: 100%;
+		width: 100%;
+
+		@include breakpoint(small only) {
+			height: rem-calc(300);
+		}		
+
+	}
+
+  @include breakpoint(small only) {
+      height: auto !important;
+  }
+
+}
+
+.google-maps-overlay {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	cursor: pointer;
+}

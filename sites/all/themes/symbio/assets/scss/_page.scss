@@ -1,0 +1,201 @@
+// regular pages
+
+.regular-page {
+	padding-top: rem-calc(72);
+	padding-bottom: rem-calc(72);
+
+	a {
+
+		&:not([class]),
+		&.catalogue-link {
+			color: inherit;
+			border-bottom: $tertiary-color 2px solid;
+
+			&:hover {
+				background-color: $tertiary-color;
+			}
+
+		}
+
+	}
+
+	img {
+		border-radius: $global-radius;
+		width: 100%;
+	}
+
+	figure {
+		color: $white;
+		margin-bottom: rem-calc(36);
+	}
+
+}
+
+.major-header {
+	border-bottom: solid 1px $charcoal;
+	margin: rem-calc(0 0 36 0);
+	padding-bottom: rem-calc(8);
+	position: relative;
+
+	&:after {
+		content: '';
+		display: block;
+		border-bottom: solid 1px $charcoal;
+		height: rem-calc(18);
+	}
+
+	.catalogue-link {
+
+		@include breakpoint(medium up) {
+			position: absolute;
+			right: 0;
+			top: rem-calc(12);
+		}
+		
+	}
+
+}
+
+// category styles
+
+.categories {
+	background-image: url("#{$asset-path}/img/images/grey-bg.png");
+	background-color: $iron;
+	@extend .regular-page;
+
+	&:nth-child(odd) {
+		background-image: none;
+		background-color: $white;
+	}
+
+}
+
+.categories,
+.view-safety-data-sheets-main,
+.view-product-data-sheets-main,
+.view-id-product_ranges {
+	text-align: center;
+
+	p {
+		font-size: header-size(medium, h4);
+		text-transform: uppercase;
+		font-family: $header-font-family;
+		font-weight: $global-weight-bold;
+		margin-top: rem-calc(30);
+		margin-bottom: rem-calc(48);
+	}
+
+	h3 {
+		margin-top: rem-calc(20);
+		margin-bottom: rem-calc(48);
+
+		@include breakpoint(medium down) {
+			overflow-wrap: break-word;
+			word-wrap: break-word;
+			hyphens: auto;
+		}
+
+	}
+
+	a {
+
+		h3 {
+			color: $anchor-color-hover;
+		}
+
+		&:hover {
+
+			h3 {
+				color: $anchor-color;
+			}
+		
+			.cat-overlay {
+				opacity: 1;
+			}
+
+		}
+
+	}
+
+}
+
+.laundry-cat,
+.industrial-cat,
+.education-cat,
+.transport-cat,
+.healthcare-cat,
+.food-processing-cat,
+.cleaning-maintenance-cat,
+.foodservice-hospitality-cat,
+.silhouette-logo {
+	fill: currentColor;
+}
+
+.prod-cat,
+.brand-cat {
+	background: $secondary-color;
+	border-radius: $global-radius;
+	position: relative;
+}
+
+.brand-cat {
+	padding: rem-calc(36);
+
+	svg {
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			width: rem-calc(224);
+		 	height: rem-calc(192);
+		}
+
+	}
+
+}
+
+.prod-cat {
+	padding: rem-calc(10);
+
+	svg {
+
+		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+			width: rem-calc(224);
+		 	height: rem-calc(224);
+		}
+
+	}
+
+}
+
+.cat-overlay {
+	background: rgba($tertiary-color, 0.8);
+	color: $secondary-color;
+	font-size: header-size(medium, h5);
+	font-weight: $global-weight-bold;
+	opacity: 0;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	transition: $transition-time;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	border-radius: inherit;
+
+  	&:hover {
+  		opacity: 1;
+  	}
+
+	span {
+		text-align: center;
+		width: 100%;
+	}
+
+}
+
+// downloads
+
+.download {
+	font-size: header-size(medium, h4);
+}

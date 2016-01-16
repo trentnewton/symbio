@@ -1,0 +1,81 @@
+// footer
+
+#footer {
+	color: $white;
+	text-align: center;
+	padding: rem-calc(36 0);
+	background:
+		radial-gradient(
+			ellipse at center,
+			rgba(scale-color($secondary-color, $lightness: 5%, $saturation: -10%), 1) 0%,
+			rgba($secondary-color, 1) 100%);
+	position: relative;
+	z-index: 97;
+
+	.footer-logo-link {
+		color: inherit;
+		
+		&:hover {
+			color: $anchor-color;
+		}
+
+	}
+
+	.menu {
+		text-align: center;
+		margin: 0;
+
+		> li:not(.menu-text) > a {
+			padding: 0;
+			display: initial;
+		}
+
+		.leaf {
+			display: inline-block;
+			margin: 0;
+			padding: 0;
+
+			a {
+
+				&:after {
+					content: '\00A0\00A0\007C\00A0';
+					color: rgba($anchor-color, 0.7);
+				}
+
+			}
+
+			&:last-child {
+
+				a {
+
+					&:after {
+						content: '';
+					}
+
+				}
+
+			}
+
+		}
+
+		.active {
+			color: $anchor-color;
+
+			&:hover {
+				color: $anchor-color-hover;
+			}
+
+		}
+
+	}
+
+	.copyright {
+		margin-top: rem-calc(20);
+	}
+
+}
+
+.footer-logo {
+	width: rem-calc(84);
+	height: rem-calc(84);
+}

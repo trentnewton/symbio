@@ -1,0 +1,127 @@
+// about us page
+
+.about-page-container {
+	overflow: hidden;
+}
+
+.about-page {
+	padding-top: rem-calc(144);
+	padding-bottom: rem-calc(144);
+
+	@include breakpoint(medium down) {
+		padding-top: rem-calc(72);
+		padding-bottom: rem-calc(72);
+	}
+
+}
+
+.circles {
+
+	@include breakpoint(small only) {
+		position: relative;
+		height: auto !important;
+	}
+
+	&.first,
+	&.fifth,
+	&.fourth {
+		display: flex;
+		align-items: center;
+
+		@include breakpoint(small only) {
+			display: block;
+		}
+
+	}
+
+	&.first,
+	&.fifth {
+		flex-direction: row-reverse;
+		
+		.circles-bg {
+			left: -50%;
+			top: -50%;
+		}
+
+	}
+
+	&.first {
+		z-index: 4;
+
+		.circles-bg {
+			background-color: $tertiary-color-50;
+		}
+
+	}
+
+	&.second {
+		z-index: 5;
+	}
+
+	&.third {
+		z-index: 3;
+	}
+
+	&.fourth {
+		z-index: 1;
+		flex-direction: row;
+		position: relative;
+
+		.circles-bg {
+			background-color: $primary-color-50;
+			left: 150%;
+			top: -20%;
+		}
+
+	}
+
+	&.fifth {
+		z-index: 0;
+
+		.circles-bg {
+			background-color: $secondary-color-50;
+		}
+
+	}
+
+	&.sixth {
+		z-index: 1;
+	}
+
+	img {
+		border-radius: $global-radius;
+		width: rem-calc(500);
+
+		@include breakpoint(medium down) {
+			width: 100%;
+		}
+
+	}
+
+}
+
+.circles-bg {
+	height: 170%;
+	width: 200%;
+	position: absolute;
+	z-index: -99;
+	transform: translate(-50%);
+	border-radius: 50%;
+}
+
+.text-blurb	{
+	background: rgba($secondary-color-5, 0.8);
+	border-radius: $global-radius;
+	padding: rem-calc(36);
+	position: relative;
+	z-index: 99;
+}
+
+.quote-title {
+	color: $primary-color;
+	font-style: italic;
+	text-transform: lowercase;
+	font-size: header-size(medium, h3);
+	display: block;
+	margin-bottom: rem-calc(20);
+}

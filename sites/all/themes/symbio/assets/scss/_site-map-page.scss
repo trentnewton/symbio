@@ -1,0 +1,11 @@
+// site map
+
+.site-map-box-menu > .content > ul.site-map-menu {
+
+	> li {
+		@include grid-column;
+		list-style: none;
+		padding-bottom: rem-calc(30);
+	}
+
+}

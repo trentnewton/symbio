@@ -464,7 +464,7 @@ $offcanvas-transition-timing: ease;
 $offcanvas-fixed-reveal: true;
 $offcanvas-exit-background: rgba($white, 0.2);
 $maincontent-class: 'off-canvas-content';
-$maincontent-shadow: 0 0 10px rgba($black, 0.5);
+$maincontent-shadow: 0 0 10px rgba($black, 0.6);
 
 // added variables
 
@@ -479,9 +479,9 @@ $orbit-bullet-diameter: 1.2rem;
 $orbit-bullet-margin: 0.1rem;
 $orbit-bullet-margin-top: 0.8rem;
 $orbit-bullet-margin-bottom: 0.8rem;
-$orbit-caption-background: rgba($black, 0.5);
+$orbit-caption-background: rgba($black, 0.6);
 $orbit-caption-padding: 1rem;
-$orbit-control-background-hover: rgba($black, 0.5);
+$orbit-control-background-hover: rgba($black, 0.6);
 $orbit-control-padding: 1rem;
 $orbit-control-zindex: 10;
 

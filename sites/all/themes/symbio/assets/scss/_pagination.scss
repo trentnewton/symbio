@@ -1,0 +1,18 @@
+// pagination
+
+ul.pager {
+	@extend ul.pagination;
+
+	li {
+
+		&.pager-current {
+			@extend li.current;
+		}
+
+		a {
+			background: $white-smoke;
+		}
+
+	}
+
+}

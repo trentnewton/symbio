@@ -1,0 +1,138 @@
+// Drupal css for admin
+
+ul.navbar-menu {
+	font-size: inherit;
+}
+
+.container-inline {
+	
+	div,
+	label {
+		display: inherit;
+	}
+
+}
+
+.form-item,
+.form-actions {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.search-form {
+	margin-bottom: 0;
+}
+
+.grippie {
+	@extend .hide;
+}
+
+th.active {
+
+	img {
+		width: initial;
+	}
+
+}
+
+.tabs-wrapper {
+	position: relative;
+
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem-calc(15);
+		height: 100%;
+		background: linear-gradient(to left, rgba($white, 1) 0%,rgba($white, 0) 100%);
+	}
+
+}
+
+.tabs.primary {
+	border-bottom: 1px solid $iron;
+	border-collapse: collapse;
+	height: rem-calc(44);
+	line-height: normal;
+	list-style: none;
+	margin: rem-calc(30 0 30);
+	padding: rem-calc(0 0 0 16); /* LTR */
+
+	li {
+		display: inline;
+
+		&.active {
+
+			a {
+
+				&.active {
+					color: inherit;
+					background-image: linear-gradient(to bottom, $white 0%, $white-smoke 50%, $gainsboro 100%);
+					border-color: $gainsboro;
+
+					&:hover,
+					&:focus {
+						background-position: 0 100%;
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+	a {
+		background-image: linear-gradient(to bottom, $white-smoke 0%, $gainsboro 50%, $iron 100%);
+		background-size: auto 200%;
+		background-position: 0 0;
+		transition: all $transition-time;
+    border-color: $iron;
+
+    &:not([class]),
+		&.active {
+    	border-style: solid;
+			border-width: 1px;
+    	margin-right: rem-calc(8);
+			padding: rem-calc(10 28 12);
+	    border-top-left-radius: $global-radius;
+	    border-top-right-radius: $global-radius;
+	    line-height: 2.6;
+	    color: inherit;
+		}
+
+		&:not([class]) {
+			border-bottom: $tertiary-color 2px solid;
+
+			&:hover,
+			&:focus {
+				background-position: 0 100%;
+			}
+
+		}
+
+	}
+
+}
+
+.form-textarea-wrapper {
+
+	textarea {
+		margin: rem-calc(36 0 16);
+	}
+
+}
+
+.block-region {
+	color: $body-font-color;
+}
+
+.view-content {
+
+	> ul {
+		@extend .no-bullet;
+	}
+
+}
