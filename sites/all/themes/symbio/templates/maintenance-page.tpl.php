@@ -26,12 +26,8 @@
     <?php include ($directory."/partials/login-header.php"); ?>
     <main id="login-body" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
       <?php if ($title): ?>
-      <header class="row">
-        <div class="medium-6 small-centered columns">
-          <div class="text-center">
-            <h1 itemprop="headline"><?php print $title; ?></h1>
-          </div>
-        </div>
+      <header class="row column text-center">
+        <h1 itemprop="headline"><?php print $title; ?></h1>
       </header>
       <?php endif; ?>
       <article class="row">
@@ -42,9 +38,9 @@
               <?php print $messages; ?>
               <?php endif; ?>
               <?php if ($help): ?>
-                <div id="help">
-                  <?php print $help; ?>
-                </div>
+              <div id="help">
+                <?php print $help; ?>
+              </div>
               <?php endif; ?>
             </div>
             <div class="row column">
