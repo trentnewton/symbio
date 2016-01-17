@@ -89,7 +89,6 @@ $global-radius: rem-calc(8);
 $global-text-direction: ltr;
 
 // We use these as default colors throughout
-
 $primary-color: #862633;
 $secondary-color: #001e62;
 $tertiary-color: #ffc72c;
@@ -639,7 +638,7 @@ $topbar-input-width: 200px;
 
 // added variables
 
-$topbar-link-bg-hover: rgba($topbar-link-color, 0.25);
+$topbar-link-bg-hover: rgba($topbar-link-color, 0.2);
 $topbar-link-bg-active: rgba($topbar-link-color, 0.1);
 $topbar-link-bg-active-hover: $topbar-link-bg-hover;
 $topbar-dropdown-link-color-hover: $secondary-color-50;
