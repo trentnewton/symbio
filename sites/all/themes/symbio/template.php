@@ -392,3 +392,12 @@ function _symbio_insert_after_first_element(&$a, $element) {
     }
   }
 }
+
+// custom pager
+
+function phptemplate_preprocess_custom_pager(&$vars) {
+  // if we're at the end, the nav_array item for this (eg first) is NULL;
+  // no need to compare it to current index.
+  $vars['first'] = empty($vars['nav_array']['first']) ? '' : l('first', 'node/' . $vars['nav_array']['first']);
+  $vars['last'] = empty($vars['nav_array']['last']) ? '' : l('last', 'node/' . $vars['nav_array']['last']);
+}
