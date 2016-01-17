@@ -7,6 +7,7 @@
 ul.pager {
 	@include horizontal-center;
 	font-weight: $global-weight-bold;
+	margin-left: 0;
 
     > li {
 		display: inline;
