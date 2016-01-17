@@ -327,7 +327,8 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['submit'] = array
     (
       '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" name="op" class="postfix">' . t('Go') . '</button></div>',
-      '#type' => 'hidden',
+      '#type' => 'submit',
+      '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
     );
   }
 
@@ -351,7 +352,8 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['submit'] = array
     (
       '#prefix' => '<button type="submit" name="op" class="postfix">' . t('Go') . '</button>',
-      '#type' => 'hidden',
+      '#type' => 'submit',
+      '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
     );
     $form['actions']['#suffix'] = '</div></div>';
   }

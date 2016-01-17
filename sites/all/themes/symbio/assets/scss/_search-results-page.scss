@@ -33,11 +33,11 @@ p.search-snippet {
 	padding: $fieldset-padding;
 	transition: $transition-time ease-in-out;
 
-  &.collapsing {
-    border-bottom: 1px solid transparent;
-    border-left: 1px solid transparent;
-    border-right: 1px solid transparent;
-    height: 1em;
+	&.collapsing {
+	    border-bottom: 1px solid transparent;
+	    border-left: 1px solid transparent;
+	    border-right: 1px solid transparent;
+	    height: 1em;
 
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
@@ -48,18 +48,18 @@ p.search-snippet {
 
 		}
 
-  }
+	}
 
-  legend {
-  	padding: $legend-padding;
-  	font-weight: $global-weight-bold;
-  	margin: rem-calc(0 -3);
-  }
+	legend {
+		padding: $legend-padding;
+		font-weight: $global-weight-bold;
+		margin: rem-calc(0 -3);
+	}
 
-  .fieldset-legend-arrow {
-  	@include css-triangle(6px, $primary-color, down);
-  		display: inline-block;
-  		position: relative;
+	.fieldset-legend-arrow {
+		@include css-triangle(6px, $primary-color, down);
+		display: inline-block;
+		position: relative;
 		top: rem-calc(4);
 
 		&.rotated {
@@ -68,26 +68,26 @@ p.search-snippet {
 			left: rem-calc(4);
 		}
 
-  }
+	}
 
-  &.collapsible {
+	&.collapsible {
 
-  	.fieldset-legend {
-	  	padding-left: rem-calc(4);
-	  	display: inline;
-	  }
+		.fieldset-legend {
+	  		padding-left: rem-calc(4);
+	  		display: inline;
+	 	}
 
-  }
+	}
 
-  .fieldset-wrapper {
-  	transition: ($transition-time * 2) ease-in-out;
-  	opacity: 1;
+	.fieldset-wrapper {
+		transition: ($transition-time * 2) ease-in-out;
+		opacity: 1;
 
 		&.fade {
 			opacity: 0;
 		}
 
-  }
+	}
 
 	.criterion {
 		@include grid-row;
