@@ -2,7 +2,7 @@
 
 .top-info {
 	margin-bottom: rem-calc(48);
-	background: rgba($secondary-color, 0.3);
+	background: rgba($secondary-color, 0.25);
 	padding-top: rem-calc(5);
 	padding-bottom: rem-calc(5);
 	color: $white;
@@ -393,12 +393,12 @@ input.expanding-search-input {
 		transition: background $transition-time ease 0s;
 
 		&:hover {
-			background: rgba($secondary-color, 0.2);
+			background: rgba($secondary-color, 0.25);
 		}
 
 		&.active {
 			color: $secondary-color-25;
-			background: rgba($secondary-color, 0.2);
+			background: rgba($secondary-color, 0.25);
 		}
 
 	}

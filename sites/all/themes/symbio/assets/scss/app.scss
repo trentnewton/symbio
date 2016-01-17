@@ -2,10 +2,12 @@
 
 @import 'webfonts';
 @import 'settings';
+@import 'global';
+@include foundation-global-styles;
 @import 'foundation';
 // @import 'motion-ui';
 
-@include foundation-global-styles;
+// @include foundation-global-styles;
 @include foundation-grid;
 @include foundation-typography;
 @include foundation-button;

@@ -89,6 +89,7 @@ $global-radius: rem-calc(8);
 $global-text-direction: ltr;
 
 // We use these as default colors throughout
+
 $primary-color: #862633;
 $secondary-color: #001e62;
 $tertiary-color: #ffc72c;
@@ -220,11 +221,11 @@ $list-nested-side-margin: 1.25rem;
 $defnlist-margin-bottom: 1rem;
 $defnlist-term-weight: $global-weight-bold;
 $defnlist-term-margin-bottom: 0.3rem;
-$blockquote-color: $jumbo;
+$blockquote-color: $aluminum;
 $blockquote-padding: rem-calc(9 20 0 19);
 $blockquote-border: 1px solid $iron;
 $cite-font-size: rem-calc(13);
-$cite-color: $jumbo;
+$cite-color: $aluminum;
 $keystroke-font: $font-family-monospace;
 $keystroke-color: $black;
 $keystroke-background: $gainsboro;
@@ -638,7 +639,7 @@ $topbar-input-width: 200px;
 
 // added variables
 
-$topbar-link-bg-hover: rgba($topbar-link-color, 0.2);
+$topbar-link-bg-hover: rgba($topbar-link-color, 0.25);
 $topbar-link-bg-active: rgba($topbar-link-color, 0.1);
 $topbar-link-bg-active-hover: $topbar-link-bg-hover;
 $topbar-dropdown-link-color-hover: $secondary-color-50;
