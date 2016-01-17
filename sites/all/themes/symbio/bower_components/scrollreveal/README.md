@@ -7,7 +7,7 @@
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 
-- 2.9KB minified and Gzipped
+- 2.8KB minified and Gzipped
 - No dependencies
 - From the ![heart](http://i.imgur.com/oXJmdtz.gif) of [@jlmakes](https://jlmak.es)
 
@@ -20,7 +20,7 @@
 The simplest method is to copy paste this snippet just before your closing `</body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.0.6/scrollreveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.0.9/scrollreveal.min.js"></script>
 ```
 
 But you can also:
@@ -70,47 +70,72 @@ sr.reveal( '.foo', { duration: 200 } );
 
 #### 2.2. The Starting Defaults
 ```js
-// Animation
+// Configuration
+// -------------
+// This object signature can be passed directly to the ScrollReveal
+// constructor, or as the second argument of the reveal() method.
+
+//            'bottom', 'left', 'top', 'right'
 origin      : 'bottom',
+
+//            Can be any valid CSS distance, e.g.
+//            '5rem', '10%', '20vw', etc.
 distance    : '20px',
+
+//            Time in milliseconds.
 duration    : 500,
 delay       : 0,
-rotate      : { x: 0, y: 0, z: 0 },
+
+//            Starting angles in degrees, will transition from these
+//            values to 0 in all axes.
+rotate      : { x : 0, y : 0, z : 0 },
+
+//            Starting opacity value, will transition from this value to
+//            the elements computed opacity.
 opacity     : 0,
+
+//            Starting scale value, will transition from this value to 1
 scale       : 0.9,
+
+//            Accepts any valid CSS easing, e.g.
+//            'ease', 'ease-in-out', 'linear', etc.
 easing      : 'cubic-bezier( 0.6, 0.2, 0.1, 1 )',
 
-// Options
+//            When null, `<html>` is assumed to be the reveal container.
+//            You can pass a DOM node as a custom container, e.g.
+//            document.querySelector('.fooContainer');
 container   : null,
+
+//            true/false to control reveal animations on mobile.
 mobile      : true,
+
+//            true:  reveals occur every time elements become visible
+//            false: reveals occur once as elements become visible
 reset       : false,
+
+//            'always' — delay for all reveal animations
+//            'once'   — delay only the first time reveals occur
+//            'onload' - delay only for animations triggered by first load
 useDelay    : 'always',
-viewFactor  : 0.20,
-viewOffset  : { top: 0, right: 0, bottom: 0, left: 0 },
-afterReveal : function( domEl ) {},
-afterReset  : function( domEl ) {}
+
+//            Change when an element is considered in the viewport.
+//            The default value of 0.20 means 20% of an element must be
+//            visible for its reveal to occur.
+viewFactor  : 0.2,
+
+//            Pixel values that alter the container boundaries. e.g.
+//            Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
+//            --
+//            Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
+viewOffset  : { top : 0, right : 0, bottom : 0, left : 0 },
+
+//            Callbacks that fire for each completed element reveal, and
+//            if `config.reset = true`, for each completed element reset.
+//            When creating your callbacks, remember they are passed the
+//            element’s DOM node that triggered it as the first argument.
+afterReveal : function( domEl ){},
+afterReset  : function( domEl ){}
 ```
-
-#### 2.3. Configuration Details
-
-key | type | values | notes
-----|------|---------|-------
-origin | `string` | `'top'`<br/>`'right'`<br/>`'bottom'`<br/>`'left'`
-distance | `string` | `'20px'`<br/>`'10vw'`<br/>`'5%'` | Any valid CSS unit will work.
-duration | `number` | `500` | Time in milliseconds.
-delay | `number` | `0` | Time in milliseconds.
-rotate | `object`/`number` | `{ x: 0, y: 0, z: 0 }` | Starting angle in degrees.
-opacity | `number` | `0` | Starting opacity.
-scale | `number` | `0.9` | Starting scale.
-easing | `string` | `'ease'`<br/>`'ease-in'`<br/>`'ease-out'`<br/>`'ease-in-out'`<br/>`'cubic-bezier()'` | Any valid CSS easing will work.
-container | `node` | `document.getElementById('foo')`
-mobile | `boolean` | `true` / `false` | Toggle animations on mobile
-reset | `boolean` | `true` / `false` | Elements reveal either once, or reset to reveal each time they are within viewport/container bounds.
-useDelay | `string` | `'always'`<br/>`'once'`<br/>`'onload'` | Control when elements use animation delay.
-viewFactor | `number` | `0.20` | e.g. 20% of an element must be within viewport/container bounds before it reveals.
-viewOffset | `object`/`number` | `{ top: 48, bottom: 24 }` | Increase viewport/container bounds in pixels. ([See Diagram](https://scrollrevealjs.org/assets/viewoffset-diagram.png))
-afterReveal | `function` | `function( domEl ) {}` | Fires after reveal animations.
-afterReset | `function` | `function( domEl ) {}` | Fires after reset animations.
 
 ## 3. Advanced
 
@@ -253,20 +278,21 @@ The ideal solution is to **set your reveal elements visibility to hidden** in th
 _Continuing our example from 4.1._
 ```html
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <script>
-      // If JavaScript is enabled, add '.js-enabled' to <html> element
-      document.documentElement.classList.add('js-enabled');
+      // Change <html> classes if JavaScript is enabled
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
     </script>
     <style>
       /* Ensure elements load hidden before ScrollReveal runs */
-      .js-enabled .fooReveal { visibility: hidden; }
+      .js .fooReveal { visibility: hidden; }
     </style>
   </head>
   <body>
 
-      <!-- All the things... -->
+    <!-- All the things... -->
 
     <script src="js/scrollreveal.min.js"></script>
     <script>
@@ -285,13 +311,15 @@ ScrollReveal supports 3d rotation out of the box, but you may want to emphasize 
 _Continuing our example from 4.2._
 ```html
 <!DOCTYPE html>
-<html>
+<html class="no-js">
   <head>
     <script>
-      document.documentElement.classList.add('js-enabled');
+      // Change <html> classes if JavaScript is enabled
+      document.documentElement.classList.remove('no-js');
+      document.documentElement.classList.add('js');
     </script>
     <style>
-      .js-enabled .fooReveal { visibility: hidden; }
+      .js .fooReveal { visibility: hidden; }
       .fooContainer { perspective: 800px; }
     </style>
   </head>
@@ -316,27 +344,32 @@ _Continuing our example from 4.2._
 
 Open source under the [MIT License](http://img.shields.io/badge/License-MIT-1a2434.svg). ©2014–2016 Julian Lloyd.
 
-#### 5.1. Issues and Reporting Bugs
+#### 5.1. Browser Compatibility
+
+ScrollReveal works on any JavaScript enabled browser that supports both [CSS Transform](http://caniuse.com/#search=transform) and [CSS Transition](http://caniuse.com/#search=transitions). This includes Internet Explorer 10, and most modern desktop and mobile browsers.
+
+#### 5.2. Issues and Reporting Bugs
 
 **Please search existing issues, before creating a new one;** every issue is labeled and attended carefully. If you open a duplicate issue, it will be closed immediately.
 
-If you cannot find your issue/bug in a previous ticket, please include details such as your browser, any other 3rd party JavaScript libraries you are using, and ideally a code sample demonstrating the problem. (Try [JSBin](http://jsbin.com/?html,css,js,output))
+If you cannot find your issue/bug in a previous ticket, please include details such as your browser, any other 3rd party JavaScript libraries you are using, and ideally a code sample demonstrating the problem. (Try [JSBin](http://jsbin.com/ladutil/edit?html,output))
 
-#### 5.2. Contributing
+#### 5.3. Contributing
 
 Feeling inspired? Please contribute! Optimizations, compatibility and bug fixes are greatly preferred over new features, but don’t be shy. One thing sorely missing from ScrollReveal right now is a test suite.
 
-
-#### 5.3. Showcase
+#### 5.4. Showcase
 
 Here are some cool sites using ScrollReveal:
 
-- [www.sequoiacap.com/](https://www.sequoiacap.com)
-- [www.ispg.co/](http://www.ispg.co/)
+- [Sequoia Capital](https://www.sequoiacap.com)
+- [Andrius Petravic](http://petravic.us/)
+- [ISPG Co.](http://www.ispg.co/)
+- [White Rabit Express](https://www.whiterabbitexpress.com/)
 
 Want to see your page here? Please send me your work (or of others) using ScrollReveal on Twitter ([@jlmakes](https://twitter.com/jlmakes))
 
-#### 5.4. Special Thanks
+#### 5.5. Special Thanks
 
 ScrollReveal was inspired by the talented [Manoela Ilic](https://twitter.com/crnacura) and her [cbpScroller.js](http://tympanus.net/codrops/2013/07/18/on-scroll-effect-layout/).
 
