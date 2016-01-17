@@ -3,7 +3,7 @@
   <header class="row column text-center">
     <h1 itemprop="headline"><?php print $title; ?></h1>
   </header>
-  <section class="row">
+  <div class="row">
     <div class="medium-6 small-centered columns login-form-box-wrapper">
       <div class="login-form-box text-center">
         <div class="row column">
@@ -14,6 +14,6 @@
         </div>
       </div>
     </div>
-  </section>
+  </div>
 </main>
 <?php include ($directory."/partials/login-footer.php"); ?>
