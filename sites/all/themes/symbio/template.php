@@ -261,11 +261,10 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['#theme_wrappers'] = array();
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In'),
+        '#prefix' => '<div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In') . '</button></div>',
         '#type' => 'submit',
-        '#value' => '',
         '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
-        '#suffix' => '</button></div><div class="medium-pull-6 medium-6 columns form-link">' . l(t('Forgot your password?'), 'user/password') . '</div>',
+        '#suffix' => '<div class="medium-pull-6 medium-6 columns form-link">' . l(t('Forgot your password?'), 'user/password') . '</div>',
       );
       break;
 
@@ -286,11 +285,10 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['#theme_wrappers'] = array();
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password'),
+        '#prefix' => '<div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password') . '</button></div>',
         '#type' => 'submit',
-        '#value' => '',
         '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
-        '#suffix' => '</button></div><div class="medium-pull-8 medium-4 columns form-link"><a href="' . base_path() . 'user/login"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Login') . '</a></div>',
+        '#suffix' => '<div class="medium-pull-8 medium-4 columns form-link"><a href="' . base_path() . 'user/login"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Login') . '</a></div>',
       );
       break;
 
@@ -299,17 +297,16 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['#theme_wrappers'] = array();
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<button type="submit" name="op">' . t('Log In'),
+        '#prefix' => '<button type="submit" name="op">' . t('Log In') . '</button>',
         '#type' => 'submit',
-        '#value' => '',
         '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
-        '#suffix' => '</button>',
       );
       break;
   }
 
   if ($form_id == 'custom_search_blocks_form_1') {
     $form['custom_search_blocks_form_1']['#theme_wrappers'] = array();
+    $form['actions']['#theme_wrappers'] = array();
   }
 
   if ($form_id == 'custom_search_blocks_form_2') {
@@ -317,6 +314,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['custom_search_blocks_form_2']['#theme_wrappers'] = array();
     $form['custom_search_blocks_form_2']['#prefix'] = '<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
     $form['custom_search_blocks_form_2']['#attributes']['class'][] = 'expanding-search-input';
+    $form['actions']['#theme_wrappers'] = array();
   }
 
   if ($form_id == 'search_form') {
@@ -328,11 +326,8 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['basic']['keys']['#suffix'] = '</div>';
     $form['basic']['submit'] = array
     (
-      '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" name="op" class="postfix">' . t('Go'),
-      '#type' => 'submit',
-      '#value' => '',
-      '#attributes' => array('class' => array( 'hide' )), // hide the input field
-      '#suffix' => '</button></div>',
+      '#prefix' => '<div class="small-5 medium-2 columns"><button type="submit" name="op" class="postfix">' . t('Go') . '</button></div>',
+      '#type' => 'hidden',
     );
   }
 
@@ -355,11 +350,8 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
     $form['actions']['#prefix'] = '<div class="small-5 medium-2 columns">';
     $form['actions']['submit'] = array
     (
-      '#prefix' => '<button type="submit" name="op" class="postfix">' . t('Go'),
-      '#type' => 'submit',
-      '#value' => '',
-      '#attributes' => array('class' => array( 'hide' )), // hide the input field
-      '#suffix' => '</button>',
+      '#prefix' => '<button type="submit" name="op" class="postfix">' . t('Go') . '</button>',
+      '#type' => 'hidden',
     );
     $form['actions']['#suffix'] = '</div></div>';
   }
