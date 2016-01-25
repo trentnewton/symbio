@@ -1,6 +1,6 @@
 // pagination
 
-.item-list {
+div.item-list {
 	margin-top: rem-calc(30);
 	margin-bottom: $pagination-margin-bottom;
 	@extend .overflow-auto;
