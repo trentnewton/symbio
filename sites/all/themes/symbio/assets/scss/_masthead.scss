@@ -54,14 +54,15 @@
 }
 
 .masthead-nav {
-	@extend overflow-auto;
+	@extend .overflow-auto;
 	height: rem-calc(48);
 }
 
 .tab-links,
 .breadcrumbs,
 #masthead .menu,
-.tabs.primary {
+.tabs.primary,
+ul.pager {
 	
 	@include scroll;
 
@@ -81,9 +82,9 @@
 	border: 0;
   	margin: 0;
 
-  li {
-  	vertical-align: baseline;
-  }
+	li {
+		vertical-align: baseline;
+	}
 
 	a {
 		color: $white;
@@ -121,6 +122,7 @@
 .breadcrumbs {
 	display: inline-block;
 	padding: rem-calc(12 30);
+	margin: 0;
 
 	@include breakpoint(small only) {
 		width: 100%;

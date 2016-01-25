@@ -14,6 +14,8 @@
 
   $('li.pager-current').wrapInner('<a />');
 
+  $('li.pager-ellipsis').wrapInner('<a />');
+
   // unwrap ul from mobile navigation
 
   $('.off-canvas-list ul#main-menu-links>li').unwrap();

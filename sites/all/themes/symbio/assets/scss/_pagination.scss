@@ -1,37 +1,46 @@
 // pagination
 
 .item-list {
+	margin-top: rem-calc(30);
 	margin-bottom: $pagination-margin-bottom;
+	@extend .overflow-auto;
+	position: relative;
+	display: flex;
+
+	&:after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: rem-calc(15);
+		height: 100%;
+		background: linear-gradient(to left, rgba($white, 1) 0%,rgba($white, 0) 100%);
+	}
+
 }
 
 ul.pager {
-	@include horizontal-center;
-	font-weight: $global-weight-bold;
-	margin-left: 0;
+	@extend .menu;
+	transform: translateX(-50%);
+	left: 50%;
 
-    > li {
-		display: inline;
+	> li {
 
-        > a {
-			position: relative;
-			float: left;
-			line-height: 1.4375;
+		> a {
 			border: 1px solid $iron;
-			padding: $pagination-item-padding;
-			margin-left: rem-calc(-1);
+			border-bottom: $anchor-color 2px solid;
 			background: linear-gradient(to bottom, $white-smoke 0%, $gainsboro 50%, $iron 100%);
 			background-size: auto 200%;
 			background-position: 0 0;
 			transition: all $transition-time;
-			border-bottom: $anchor-color 2px solid;
-			border-radius: 0;
+			margin-left: rem-calc(-1);
 
-            &:hover,
-            &:focus {
+			&:hover,
+	        &:focus {
 				background-position: 0 100%;
-            }
+	        }
 
-        }
+		}
 
         &:first-child {
 
@@ -52,24 +61,29 @@ ul.pager {
             
         }
 
-        &:first-child,
-        &:last-child {
-        	display: inline;
-        }
+	}
+
+	> .pager-ellipsis,
+    > .pager-current {
+
+		a,
+		a:hover,
+		a:focus {
+			cursor: default;
+			background-position: 0 0;
+		}
+
 
     }
 
     > .pager-current {
-    	padding: 0;
 
         a,
         a:hover,
         a:focus {
 			z-index: 2;
 			background: linear-gradient(to bottom, $white 0%, $white-smoke 50%, $gainsboro 100%);
-			background-position: 0 0;
 			border-color: $iron;
-			cursor: default;
         }
 
     }
