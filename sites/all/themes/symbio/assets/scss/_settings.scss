@@ -359,7 +359,7 @@ $drilldown-background: $white;
 
 $dropdown-padding: 1rem;
 $dropdown-border: 1px solid $iron;
-$dropdown-font-size: 16rem;
+$dropdown-font-size: 1rem;
 $dropdown-width: 300px;
 $dropdown-radius: $global-radius;
 $dropdown-sizes: (
@@ -619,6 +619,8 @@ $titlebar-height: rem-calc(60);
 // 34. Tooltip
 // -----------
 
+$has-tip-font-weight: $global-weight-bold;
+$has-tip-border-bottom: dotted 1px $dark-gray;
 $tooltip-background-color: $black;
 $tooltip-color: $white;
 $tooltip-padding: 0.75rem;
@@ -633,12 +635,12 @@ $tooltip-radius: $global-radius;
 
 $topbar-padding: 0;
 $topbar-background: $titlebar-background;
-$topbar-link-color: $secondary-color;
+$topbar-title-spacing: 1rem;
 $topbar-input-width: 200px;
 
 // added variables
 
-$topbar-link-bg-hover: rgba($topbar-link-color, 0.2);
-$topbar-link-bg-active: rgba($topbar-link-color, 0.1);
+$topbar-link-bg-hover: rgba($secondary-color, 0.2);
+$topbar-link-bg-active: rgba($secondary-color, 0.1);
 $topbar-link-bg-active-hover: $topbar-link-bg-hover;
 $topbar-dropdown-link-color-hover: $secondary-color-50;

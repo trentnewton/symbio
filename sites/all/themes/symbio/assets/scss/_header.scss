@@ -192,13 +192,13 @@ input.expanding-search-input {
 	li {
 
 		> a {
+			color: $secondary-color;
 			font-weight: bold;
 			line-height: rem-calc(80);
 			padding: rem-calc(0 20);
 
 			&.active,
 			&.active-trail {
-				color: $topbar-link-color;
 				background: $topbar-link-bg-active;
 			}
 
@@ -411,4 +411,9 @@ input.expanding-search-input {
 
 .js-off-canvas-exit {
 	z-index: 999;
+
+	&.is-visible {
+		display: block;
+	}
+
 }
