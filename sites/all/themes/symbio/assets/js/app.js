@@ -1,6 +1,6 @@
 (function($) {
 
-  "use strict";
+  'use strict';
 
   // initiate foundation
 
@@ -22,7 +22,7 @@
 
   // add block grid class to site map list
 
-  $(".site-map-box-menu>.content>ul.site-map-menu").addClass( "row small-up-2 medium-up-3" );
+  $('.site-map-box-menu>.content>ul.site-map-menu').addClass( 'row small-up-2 medium-up-3' );
 
   // add h4 tags to page titles on site map page
 

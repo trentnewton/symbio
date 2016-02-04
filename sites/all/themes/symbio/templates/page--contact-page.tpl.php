@@ -14,7 +14,7 @@
         </section>
         <?php endif; ?>
         <section class="split-boxes" data-equalizer data-equalizer-mq="medium">
-          <div class="columns medium-6 collapse split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+          <div class="columns medium-6 split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
             <div class="row-split" itemprop="text">
               <?php if (in_array('administrator', array_values($user->roles))) {
                 print $messages;
@@ -33,7 +33,7 @@
               <?php endif; ?>
             </div>
           </div>
-          <div class="column medium-6 collapse split-box-right google-maps-container" data-equalizer-watch>
+          <div class="column medium-6 split-box-right google-maps-container" data-equalizer-watch>
           <?php if ($page['split-box-right']): ?>
             <?php print render($page['split-box-right']); ?>
           <?php endif; ?>

@@ -10,7 +10,7 @@
   "homepage": "http://foundation.zurb.com",
   "dependencies": {
     "foundation-sites": "~6.1.2",
-    "motion-ui": "~1.1.0",
+    "motion-ui": "~1.2.0",
     "scrollreveal": "~3.0.9",
     "jquery-form": "~3.46.0",
     "jquery-once": "~2.1.1"
@@ -22,5 +22,8 @@
     "test",
     "tests"
   ],
-  "private": true
+  "private": true,
+  "resolutions": {
+    "motion-ui": "~1.2.0"
+  }
 }

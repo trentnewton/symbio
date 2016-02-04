@@ -1,7 +1,16 @@
 // login
 
-.login-form-box-wrapper {
-	@include see-thru-border;
+#login-header,
+#login-footer {
+	background: $white;
+	padding-top: rem-calc(36);
+	padding-bottom: rem-calc(36);
+}
+
+#login-header,
+#login-body,
+#login-footer {
+	@extend .text-center;
 }
 
 #login-body,
@@ -41,12 +50,19 @@
 
 }
 
-.form-link {
-	padding-top: rem-calc(12);
-	text-align: right;
+.login-form-box-wrapper {
+	@include see-thru-border;
+}
 
-	@include breakpoint(small only) {
-		text-align: inherit;
+.login-form-box,
+.webform-client-form {
+
+	.form-item {
+
+		label {
+			@extend .hide;
+		}
+
 	}
 
 }
@@ -59,12 +75,14 @@
 	z-index: 1;
 }
 
-#login-header,
-#login-footer {
-	background: $white;
-	padding-top: rem-calc(36);
-	padding-bottom: rem-calc(36);
-	text-align: center;
+.form-link {
+	padding-top: rem-calc(12);
+	text-align: right;
+
+	@include breakpoint(small only) {
+		text-align: inherit;
+	}
+
 }
 
 #login-footer {
@@ -92,19 +110,6 @@
 
 			}
 
-		}
-
-	}
-
-}
-
-.login-form-box,
-.webform-client-form {
-
-	.form-item {
-
-		label {
-			@extend .hide;
 		}
 
 	}

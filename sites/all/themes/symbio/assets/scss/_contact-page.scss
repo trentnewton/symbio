@@ -51,9 +51,9 @@
 
 	}
 
-  @include breakpoint(small only) {
-      height: auto !important;
-  }
+	@include breakpoint(small only) {
+		height: auto !important;
+	}
 
 }
 
