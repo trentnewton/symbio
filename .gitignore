@@ -136,8 +136,10 @@ sites/all/modules/menu_html
 sites/all/modules/menu_token
 sites/all/modules/metatag
 sites/all/modules/module_filter
+sites/all/modules/multiform
 sites/all/modules/navbar
 sites/all/modules/pathauto
+sites/all/modules/plupload
 sites/all/modules/optimizedb
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
