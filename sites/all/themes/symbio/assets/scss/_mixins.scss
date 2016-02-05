@@ -7,25 +7,25 @@
 // mixins
 
 @mixin small-portrait {
-  @media screen and (min-width: -zf-bp-to-em($small)) and (max-width: -zf-bp-to-em($medium - 1px)) and (orientation: portrait) {
+  @media screen and #{breakpoint(small down)} and #{breakpoint(portrait)} {
     @content;
   }
 }
 
 @mixin small-landscape {
-  @media screen and (min-width: -zf-bp-to-em($small)) and (max-width: -zf-bp-to-em($medium - 1px)) and (orientation: landscape) {
+  @media screen and #{breakpoint(small down)} and #{breakpoint(landscape)} {
     @content;
   }
 }
 
 @mixin medium-portrait {
-  @media screen and (min-width: -zf-bp-to-em($medium)) and (max-width: -zf-bp-to-em($large - 1px)) and (orientation: portrait) {
+  @media screen and #{breakpoint(medium only)} and #{breakpoint(portrait)} {
     @content;
   }
 }
 
 @mixin medium-landscape {
-  @media screen and (min-width: -zf-bp-to-em($medium)) and (max-width: -zf-bp-to-em($large - 1px)) and (orientation: landscape) {
+  @media screen and #{breakpoint(medium only)} and #{breakpoint(landscape)} {
     @content;
   }
 }
