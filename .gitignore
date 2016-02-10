@@ -16,7 +16,8 @@ Thumbs.db
 
 # ignore ini files
 
-*.ini 
+*.ini
+php5.ini
  
 # ignore log files and databases
 *.log
