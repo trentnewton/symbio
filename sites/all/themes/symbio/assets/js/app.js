@@ -54,6 +54,7 @@
 
   $('.google-maps-overlay').on('click', function() {
     $(this).toggleClass('hide');
+    return false;
   });
 
   // collapsing fieldset
@@ -62,6 +63,7 @@
     $('.search-advanced').toggleClass('collapsing');
     $('.fieldset-wrapper').toggleClass('fade');
     $('.fieldset-legend-arrow').toggleClass('rotated');
+    return false;
   });
 
   // scroll to sections
