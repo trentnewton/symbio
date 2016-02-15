@@ -19,6 +19,11 @@ p.search-info {
 
 p.search-snippet {
 	@extend em;
+
+	strong {
+		color: $primary-color;
+	}
+
 }
 
 .search-result {

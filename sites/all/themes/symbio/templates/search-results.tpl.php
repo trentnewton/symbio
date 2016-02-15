@@ -1,5 +1,7 @@
 <?php if ($search_results) : ?>
-  <h2><?php print t('Search results');?></h2>
+  <header class="major-header">
+    <h2><?php print t('Search results');?></h2>
+  </header>
   <?php if (isset($filter) && $filter != '' && $filter_position == 'above') : ?>
     <div class="custom-search-filter">
       <?php print $filter; ?>
