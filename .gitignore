@@ -146,6 +146,7 @@ sites/all/modules/site_map
 sites/all/modules/special_menu_items
 sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
+sites/all/modules/termstatus
 sites/all/modules/token
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
