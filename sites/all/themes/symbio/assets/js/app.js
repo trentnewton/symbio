@@ -4,7 +4,11 @@
 
   // initiate foundation
 
-  $(document).foundation();
+  $(window).bind('load', function() {
+
+    $(document).foundation();
+
+  });
 
   // wrap li's around links in mobile navigation
 
