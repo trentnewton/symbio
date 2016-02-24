@@ -116,6 +116,7 @@ sites/all/modules/backup_migrate
 sites/all/modules/blockify
 sites/all/modules/boost
 sites/all/modules/breadcrumb_manager
+sites/all/modules/captcha
 sites/all/modules/ckeditor
 sites/all/modules/content_access
 sites/all/modules/ctools
@@ -139,9 +140,10 @@ sites/all/modules/metatag
 sites/all/modules/module_filter
 sites/all/modules/multiform
 sites/all/modules/navbar
+sites/all/modules/optimizedb
 sites/all/modules/pathauto
 sites/all/modules/plupload
-sites/all/modules/optimizedb
+sites/all/modules/recaptcha
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
 sites/all/modules/taxonomy_access
