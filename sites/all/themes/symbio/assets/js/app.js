@@ -2,11 +2,24 @@
 
   'use strict';
 
-  // initiate foundation
-
   $(window).bind('load', function() {
 
+    // initiate foundation
+
     $(document).foundation();
+
+    // hamburger icon animation
+
+    $('.menu-icon').on('click', function() {
+      $(this).toggleClass('rotate');
+    });
+
+    $('.js-off-canvas-exit').on('click', function() {
+      $('.menu-icon').toggleClass('rotate');
+    });
+
+    // $('[aria-expanded="true"]').addClass( 'rotate' );
+    // $('[aria-expanded="false"]').removeClass( 'rotate' );
 
   });
 
@@ -43,16 +56,6 @@
   // wrap tables with overflow auto
 
   $('table').wrap('<div class="overflow-auto" />');
-
-  // hamburger icon animation
-
-  $('.menu-icon').on('click', function() {
-    $(this).toggleClass('rotate');
-  });
-
-  $('.js-off-canvas-exit').on('click', function() {
-    $('.menu-icon').toggleClass('rotate');
-  });
 
   // hide maps overlay when clicked
 
