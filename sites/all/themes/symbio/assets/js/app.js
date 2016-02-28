@@ -18,9 +18,21 @@
       $('.menu-icon').toggleClass('rotate');
     });
 
-    // $('[aria-expanded="true"]').addClass( 'rotate' );
-    // $('[aria-expanded="false"]').removeClass( 'rotate' );
+  });
 
+  // add throbber when button is clicked
+
+  var buttonSubmit = $('#button-submit').clone();
+
+  $(buttonSubmit).submit(function () {
+    $(this).replaceWith('<div class="ajax-progress"><div class="throbber"></div></div>');
+    if(valid)
+      return true;
+    else
+      {
+        $(this).replaceWith(buttonSubmit);  
+        return false;
+      }
   });
 
   // wrap li's around links in mobile navigation

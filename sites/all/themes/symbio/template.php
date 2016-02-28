@@ -261,7 +261,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['#theme_wrappers'] = array();
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In') . '</button></div>',
+        '#prefix' => '<div class="medium-push-6 medium-6 columns"><button type="submit" name="op" class="button expanded" id="button-submit" runat="server" onClick="buttonSubmit_Click"><svg class="icon icon-lock"><use xlink:href="#icon-lock"></use></svg>&nbsp;' . t('Log In') . '</button></div>',
         '#type' => 'submit',
         '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
         '#suffix' => '<div class="medium-pull-6 medium-6 columns form-link">' . l(t('Forgot your password?'), 'user/password') . '</div>',
@@ -285,7 +285,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
       $form['actions']['#theme_wrappers'] = array();
       $form['actions']['submit'] = array
       (
-        '#prefix' => '<div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password') . '</button></div>',
+        '#prefix' => '<div class="medium-push-4 medium-8 columns"><button type="submit" name="op" class="button expanded" id="button-submit" runat="server" onClick="buttonSubmit_Click"><svg class="icon icon-mail"><use xlink:href="#icon-mail"></use></svg>&nbsp;' . t('Email New Password') . '</button></div>',
         '#type' => 'submit',
         '#attributes' => array( 'class' => array( 'hide' )), // hide the input field
         '#suffix' => '<div class="medium-pull-8 medium-4 columns form-link"><a href="' . base_path() . 'user/login"><svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg>&nbsp;' . t('Login') . '</a></div>',
