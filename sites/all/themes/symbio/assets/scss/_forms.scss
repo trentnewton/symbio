@@ -106,7 +106,6 @@ input {
 	&[type="submit"] {
 		@extend button;
 		line-height: 0.5;
-		transition: background-position $transition-time;
 	}
 
 }
