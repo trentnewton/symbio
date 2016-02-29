@@ -15,7 +15,8 @@
 	.footer-logo-link {
 		color: inherit;
 		
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $anchor-color;
 		}
 
@@ -61,7 +62,8 @@
 		.active {
 			color: $anchor-color;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				color: $anchor-color-hover;
 			}
 

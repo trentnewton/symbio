@@ -23,7 +23,8 @@
 			color: inherit;
 			border-bottom: $tertiary-color 2px solid;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				color: $body-font-color;
 				background: $tertiary-color;
 			}

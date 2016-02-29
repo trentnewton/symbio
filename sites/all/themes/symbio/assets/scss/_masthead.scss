@@ -97,6 +97,7 @@ ul.pager {
     	display: inline;
 		
 		&:hover,
+		&:focus,
 		&.active {
 			background: rgba($white, 0.2);
 		}
@@ -161,7 +162,8 @@ ul.pager {
     	color: $white;
     	cursor: default;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			color: $white;
 			text-decoration: none;
 		}

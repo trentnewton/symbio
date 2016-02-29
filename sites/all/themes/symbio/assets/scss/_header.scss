@@ -66,7 +66,8 @@
 		top: rem-calc(2);
 	}
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: $anchor-color-hover;
 	}
 
@@ -181,7 +182,8 @@ input.expanding-search-input {
 	border-top-left-radius: $global-radius;
 	border-bottom-left-radius: $global-radius;
 	
-	&:hover {
+	&:hover,
+	&:focus {
 		background: $topbar-link-bg-hover;
 	}
 
@@ -204,7 +206,8 @@ input.expanding-search-input {
 
 		}
 
-		&:hover {
+		&:hover,
+		&:focus {
 			
 			> a {
 				background: $topbar-link-bg-hover;
@@ -350,7 +353,8 @@ input.expanding-search-input {
 	margin: 0;
 	border: none;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		background: transparent;
 	}
 	
@@ -393,7 +397,8 @@ input.expanding-search-input {
 		padding: rem-calc(10, 15);
 		transition: background $transition-time ease 0s;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			background: rgba($secondary-color, 0.2);
 		}
 
