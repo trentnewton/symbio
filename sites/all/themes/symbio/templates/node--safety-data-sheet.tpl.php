@@ -1,3 +1,9 @@
+<?php global $user;
+  // Check to see if $user has the administrator role.
+  if (in_array('administrator', array_values($user->roles))) { ?>
+    <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+    <?php print render($title_suffix); ?>
+<?php } ?>
 <header class="major-header">
   <h5 class="subheader"><?php print t('Category:'); ?></h5>
   <h4><?php print render($content['field_sds_category']); ?></h4>
@@ -22,3 +28,8 @@
     </tr>
   </tbody>
 </table>
+<?php global $user;
+  // Check to see if $user has the administrator role.
+  if (in_array('administrator', array_values($user->roles))) { ?>
+    </div>
+<?php } ?>

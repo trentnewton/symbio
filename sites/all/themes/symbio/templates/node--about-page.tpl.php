@@ -1,3 +1,9 @@
+<?php global $user;
+  // Check to see if $user has the administrator role.
+  if (in_array('administrator', array_values($user->roles))) { ?>
+    <div id="node-<?php print $node->nid; ?>" class="<?php print $classes; ?>"<?php print $attributes; ?>>
+    <?php print render($title_suffix); ?>
+<?php } ?>
 <article id="first-section" class="row" data-equalizer data-equalizer-mq="medium">
   <div class="columns medium-6 medium-push-6 about-page second circles" data-equalizer-watch>
     <div class="text-blurb enter-right-1">
@@ -54,5 +60,10 @@
       <?php print $node->field_about_quote_section_text['und'][0]['value']; ?>
     </div>
   </div>
-</article> 
+</article>
 <?php endif; ?>
+<?php global $user;
+  // Check to see if $user has the administrator role.
+  if (in_array('administrator', array_values($user->roles))) { ?>
+    </div>
+<?php } ?>
