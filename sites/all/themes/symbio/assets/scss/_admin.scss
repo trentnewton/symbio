@@ -156,3 +156,16 @@ th.active {
 .block-region {
 	color: $body-font-color;
 }
+
+ul.contextual-links a:not([class]) {
+	border-bottom: 0;
+
+	&:before {
+		content: '';
+	}
+
+}
+
+a.contextual-links-trigger {
+	transition: none;
+}
