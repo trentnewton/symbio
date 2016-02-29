@@ -31,11 +31,12 @@
 }
 
 @mixin scroll {
-	white-space: nowrap;
-	overflow-x: scroll;
-	position: relative;
-	-ms-overflow-style: none;
-	-webkit-overflow-scrolling: touch;
+  white-space: nowrap;
+  overflow-x: scroll;
+  overflow-y: visible;
+  position: relative;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
 }
 
 @mixin see-thru-border {
