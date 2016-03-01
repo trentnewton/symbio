@@ -25,7 +25,7 @@
         </section>
         <?php endif; ?>
         <?php if ($page['first-category-section']): ?>
-        <div itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+        <div id="main-content" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <article class="categories">
             <div class="row column" itemprop="text">
               <?php print render($page['first-category-section']); ?>

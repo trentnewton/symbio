@@ -41,7 +41,7 @@
         </section>
         <?php endif; ?>
         <?php if ($page['content']): ?>
-        <div class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+        <div id="main-content" class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <div class="row column">
             <?php print render($page['content']); ?>
           </div>

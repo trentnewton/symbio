@@ -30,7 +30,7 @@
         <h1 itemprop="headline"><?php print $title; ?></h1>
       </header>
       <?php endif; ?>
-      <article class="row">
+      <article id="main-content" class="row">
         <div class="medium-6 small-centered columns login-form-box-wrapper">
           <div class="login-form-box">
             <div class="row column">

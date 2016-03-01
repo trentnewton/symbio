@@ -16,7 +16,7 @@
           <?php print render($page['search']); ?>
         </section>
         <?php endif; ?>
-        <section class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+        <section id="main-content" class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <div class="row column" itemprop="text">
           <?php if ($messages): ?>
             <?php print $messages; ?>

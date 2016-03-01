@@ -8,7 +8,7 @@
         <?php include ($directory."/partials/header.php"); ?>
       <?php if(!drupal_is_front_page()):?>
         <?php include ($directory."/partials/masthead.php"); ?>
-        <section class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+        <section id="main-content" class="regular-page" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <div class="row column" itemprop="text">
             <?php if ($messages): ?>
             <?php print $messages; ?>

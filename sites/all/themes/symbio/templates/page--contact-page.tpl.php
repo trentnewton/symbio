@@ -14,7 +14,7 @@
         </section>
         <?php endif; ?>
         <section class="split-boxes" data-equalizer data-equalizeOn="medium">
-          <article class="columns medium-6 split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+          <article id="main-content" class="columns medium-6 split-box-left regular-page" data-equalizer-watch itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
             <div class="row-split" itemprop="text">
               <?php if (in_array('administrator', array_values($user->roles))) {
                 print $messages;
