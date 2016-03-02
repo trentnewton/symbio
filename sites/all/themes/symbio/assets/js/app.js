@@ -36,7 +36,7 @@
 
   // add block grid class to site map list
 
-  $('.site-map-box-menu>.content>ul.site-map-menu').addClass( 'row small-up-2 medium-up-3' );
+  $('.site-map-box-menu>.content>ul.site-map-menu').addClass('row small-up-2 medium-up-3');
 
   // add column to li on block grid on site map page
 
