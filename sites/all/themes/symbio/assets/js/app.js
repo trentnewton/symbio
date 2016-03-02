@@ -20,21 +20,6 @@
 
   });
 
-  // add throbber when button is clicked
-
-  var buttonSubmit = $('#button-submit').clone();
-
-  $(buttonSubmit).submit(function () {
-    $(this).replaceWith('<div class="ajax-progress"><div class="throbber"></div></div>');
-    if(valid)
-      return true;
-    else
-      {
-        $(this).replaceWith(buttonSubmit);  
-        return false;
-      }
-  });
-
   // wrap li's around links in mobile navigation
 
   $('.off-canvas-list>a').wrap('<li />');
@@ -52,6 +37,10 @@
   // add block grid class to site map list
 
   $('.site-map-box-menu>.content>ul.site-map-menu').addClass( 'row small-up-2 medium-up-3' );
+
+  // add column to li on block grid on site map page
+
+  $('.site-map-box-menu>.content>ul.site-map-menu>li').addClass('column');
 
   // add h4 tags to page titles on site map page
 

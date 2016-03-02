@@ -3,7 +3,6 @@
 .site-map-box-menu > .content > ul.site-map-menu {
 
 	> li {
-		@extend .column;
 		list-style: none;
 		padding-bottom: rem-calc(30);
 	}
