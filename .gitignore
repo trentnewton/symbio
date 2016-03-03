@@ -124,12 +124,14 @@ sites/all/modules/ctools
 sites/all/modules/custom_search
 sites/all/modules/date
 sites/all/modules/devel
+sites/all/modules/elements
 sites/all/modules/entity
 sites/all/modules/file_entity
 sites/all/modules/find_content
 sites/all/modules/globalredirect
 sites/all/modules/google_analytics
 sites/all/modules/hierarchical_select
+sites/all/modules/html5_tools
 sites/all/modules/jquery_update
 sites/all/modules/libraries
 sites/all/modules/link
