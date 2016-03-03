@@ -1,6 +1,7 @@
 name = Symbio
 description = Theme for symbio.com.au
 core = 7.x
+stylesheets[all][] = assets/css/app.css
 regions[notices] = Notices
 regions[desktop_search] = Desktop Search
 regions[mobile_search] = Mobile Search
