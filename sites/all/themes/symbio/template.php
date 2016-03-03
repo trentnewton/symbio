@@ -305,12 +305,19 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
   }
 
   if ($form_id == 'custom_search_blocks_form_1') {
+    $form['custom_search_blocks_form_1'] = array(
+      '#type' => 'searchfield',
+      '#attributes' => array( 'placeholder' => array( t('Search') )),
+    );
     $form['custom_search_blocks_form_1']['#theme_wrappers'] = array();
     $form['actions']['#theme_wrappers'] = array();
   }
 
   if ($form_id == 'custom_search_blocks_form_2') {
     $form['#attributes']['class'][] = 'expanding-search';
+    $form['custom_search_blocks_form_2'] = array(
+      '#type' => 'searchfield',
+    );
     $form['custom_search_blocks_form_2']['#theme_wrappers'] = array();
     $form['custom_search_blocks_form_2']['#prefix'] = '<svg class="icon icon-search"><use xlink:href="#icon-search"></use></svg>';
     $form['custom_search_blocks_form_2']['#attributes']['class'][] = 'expanding-search-input';
