@@ -127,6 +127,7 @@ sites/all/modules/custom_search
 sites/all/modules/date
 sites/all/modules/devel
 sites/all/modules/elements
+sites/all/modules/email
 sites/all/modules/entity
 sites/all/modules/file_entity
 sites/all/modules/globalredirect
@@ -153,6 +154,7 @@ sites/all/modules/site_map
 sites/all/modules/special_menu_items
 sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
+sites/all/modules/telephone
 sites/all/modules/termstatus
 sites/all/modules/token
 sites/all/modules/tvi
