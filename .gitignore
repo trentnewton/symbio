@@ -110,10 +110,12 @@ sites/all/modules/views/handlers/*
 
 # disallow these
 sites/example.sites.php
+sites/all/modules/admin_views
 sites/all/modules/advanced_text_formatter
 sites/all/modules/autoupload
 sites/all/modules/backports
 sites/all/modules/backup_migrate
+sites/all/modules/bean
 sites/all/modules/blockify
 sites/all/modules/boost
 sites/all/modules/breadcrumb_manager
@@ -127,11 +129,10 @@ sites/all/modules/devel
 sites/all/modules/elements
 sites/all/modules/entity
 sites/all/modules/file_entity
-sites/all/modules/find_content
 sites/all/modules/globalredirect
 sites/all/modules/google_analytics
-sites/all/modules/hierarchical_select
 sites/all/modules/html5_tools
+sites/all/modules/instantfilter
 sites/all/modules/jquery_update
 sites/all/modules/libraries
 sites/all/modules/link
@@ -140,7 +141,7 @@ sites/all/modules/menu_attributes
 sites/all/modules/menu_html
 sites/all/modules/menu_token
 sites/all/modules/metatag
-sites/all/modules/module_filter
+sites/all/modules/multiblock
 sites/all/modules/multiform
 sites/all/modules/navbar
 sites/all/modules/optimizedb
@@ -157,6 +158,7 @@ sites/all/modules/token
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
 sites/all/modules/uuid
+sites/all/modules/views_bulk_operations
 sites/all/modules/views_distinct
 sites/all/modules/webform
 sites/all/modules/webform_ajax
