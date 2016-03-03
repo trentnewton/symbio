@@ -18,6 +18,7 @@
 		    print $styles;
 		  }
 		?>
+	<link rel="stylesheet" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/assets/css/app.css">
 	</head>
 	<body class="<?php print $classes; ?>" <?php print $attributes;?> itemscope itemtype="http://schema.org/WebPage">
 		<?php include ($directory."/partials/svg.php"); ?>
