@@ -14,15 +14,13 @@
         </section>
         <?php endif; ?>
         <?php if ($messages || $tabs || $page['content']) : ?>
-        <section class="regular-page">
-          <div class="row column">
-            <?php print $messages; ?>
-            <div class="tabs-wrapper">
-              <?php print render($tabs); ?>
-            </div>
-            <?php print render($page['content']); ?>
+        <div class="row column">
+          <?php print $messages; ?>
+          <div class="tabs-wrapper">
+            <?php print render($tabs); ?>
           </div>
-        </section>
+          <?php print render($page['content']); ?>
+        </div>
         <?php endif; ?>
         <?php if ($page['first-category-section']): ?>
         <div id="main-content" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">

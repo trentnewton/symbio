@@ -31,14 +31,12 @@
         </section>
         <?php endif; ?>
         <?php if ($messages || $tabs) : ?>
-        <section class="regular-page">
-          <div class="row column">
-            <?php print $messages; ?>
-            <div class="tabs-wrapper">
-              <?php print render($tabs); ?>
-            </div>
+        <div class="row column">
+          <?php print $messages; ?>
+          <div class="tabs-wrapper">
+            <?php print render($tabs); ?>
           </div>
-        </section>
+        </div>
         <?php endif; ?>
         <?php if ($page['content']): ?>
         <div id="main-content" class="about-page-container" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
