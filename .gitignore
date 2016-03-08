@@ -150,6 +150,8 @@ sites/all/modules/optimizedb
 sites/all/modules/pathauto
 sites/all/modules/plupload
 sites/all/modules/recaptcha
+sites/all/modules/search_api
+sites/all/modules/search_api_spellcheck
 sites/all/modules/simplified_menu_admin
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
