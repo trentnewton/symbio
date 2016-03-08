@@ -211,3 +211,97 @@
 .download {
 	font-size: header-size(medium, h4);
 }
+
+// user profile page
+
+.profile {
+	margin: rem-calc(30 0);
+}
+
+.page-user,
+.profile {
+
+	h3 {
+		border-bottom: 1px solid $medium-gray;
+	}
+
+}
+
+.page-user {
+
+	.view-safety-data-sheets-main,
+	.view-product-data-sheets-main {
+		text-align: left;
+	}
+
+}
+
+// User profile page
+
+.page-user-edit {
+
+	.form-item {
+		@extend .m-b-30;
+	}
+
+	legend {
+		@extend .hide;
+	}
+
+}
+
+input.password-confirm,
+input.password-field {
+	width: 50%;
+}
+
+.password-strength,
+div.password-confirm {
+	float: right;
+	width: 46%;
+	margin-top: rem-calc(20);
+}
+
+.password-strength-title,
+.password-strength-text,
+div.password-confirm {
+	font-size: $form-label-font-size;
+}
+
+div.password-confirm {
+
+	span {
+		font-weight: $global-weight-bold;
+	}
+
+}
+
+.password-strength-text {
+	float: right;
+	font-weight: $global-weight-bold;
+}
+
+.password-strength {
+
+	.password-indicator {
+		background-color: $iron;
+		height: 0.3em;
+		width: 100%;
+
+		.indicator {
+			height: 100%;
+			width: 0%;
+			background-color: $success-color;
+		}
+
+	}
+
+}
+
+div.form-item div.password-suggestions {
+	padding: rem-calc(20 20 0);
+	border: 1px solid $primary-color;
+	color: $primary-color;
+	margin: rem-calc(30 0);
+	font-size: $form-label-font-size;
+}

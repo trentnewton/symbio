@@ -119,6 +119,10 @@ input {
 
 }
 
+.form-required {
+	color: $alert-color;
+}
+
 input,
 textarea {
 
@@ -145,6 +149,7 @@ select {
 	cursor: pointer;
 	color: $body-font-color;
 
+	&,
 	&.postfix {
 		border-width: 0;
 	}

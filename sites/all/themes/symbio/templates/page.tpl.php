@@ -25,6 +25,10 @@
             <header class="major-header">
               <h2><?php print $title; ?></h2>
             </header>
+            <?php if ($page['user-profile-data']): ?>
+            <h3><?php print t('My Data'); ?></h3>
+            <?php print render($page['user-profile-data']); ?>
+            <?php endif; ?>
           <?php } else { ?>
             <?php if ($tabs): ?>
             <div class="tabs-wrapper">

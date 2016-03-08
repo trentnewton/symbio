@@ -12,6 +12,7 @@ regions[masthead] = Masthead
 regions[masthead_nav] = Masthead Navigation
 regions[search] = Search
 regions[content] = Content
+regions[user-profile-data] = User Profile Data
 regions[first-category-section] = First Category Section
 regions[secondary-category-section] = Secondary Category Section
 regions[third-category-section] = Third Category Section

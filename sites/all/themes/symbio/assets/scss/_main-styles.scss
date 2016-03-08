@@ -108,6 +108,10 @@ svg {
 	margin-top: rem-calc(30);
 }
 
+.m-b-30 {
+	margin-bottom: rem-calc(30);
+}
+
 .responsive-svg-container {
 	width: 100%;
 	height: auto;
@@ -159,4 +163,12 @@ svg {
 
 .block {
 	height: 100%;
+}
+
+.ok {
+	color: $success-color;
+}
+
+.error {
+	color: $alert-color;
 }
