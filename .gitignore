@@ -131,7 +131,6 @@ sites/all/modules/elements
 sites/all/modules/email
 sites/all/modules/entity
 sites/all/modules/file_entity
-sites/all/modules/globalredirect
 sites/all/modules/google_analytics
 sites/all/modules/html5_tools
 sites/all/modules/instantfilter
@@ -150,6 +149,7 @@ sites/all/modules/optimizedb
 sites/all/modules/pathauto
 sites/all/modules/plupload
 sites/all/modules/recaptcha
+sites/all/modules/redirect
 sites/all/modules/search_api
 sites/all/modules/search_api_spellcheck
 sites/all/modules/simplified_menu_admin
