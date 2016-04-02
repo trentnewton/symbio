@@ -30,7 +30,7 @@ function symbio_css_alter(&$css) {
 }
 
 function symbio_js_alter(&$js) {
- 
+
   // Remove Drupal core js
 
   // global $user;
@@ -39,7 +39,7 @@ function symbio_js_alter(&$js) {
   // }
 
   // unset($js['settings']);
- 
+
   $exclude = array(
   // 'sites/all/modules/jquery_update/replace/jquery/1.10/jquery.min.js' => TRUE,
   // 'sites/all/modules/jquery_update/replace/jquery/2.1/jquery.min.js' => TRUE
@@ -157,7 +157,7 @@ function symbio_init() {
   global $user;
 
   if (!$user->uid) {
-    // We need to collect where they were going in the first place because they may get annoyed if 
+    // We need to collect where they were going in the first place because they may get annoyed if
     // they don't get there after logging in :).
     $destination = '';
     if (isset($_GET['destination'])) {
@@ -174,7 +174,7 @@ function symbio_init() {
         drupal_goto('user/login', array('query' => $destination));
       }
     }
-  
+
     // Make sure that anon users cannot go to just /user but directly to the login form.
     if (arg(0) == 'user' && !arg(1) && php_sapi_name() !== 'cli') {
       if (isset($destination)) {
@@ -270,7 +270,7 @@ function symbio_form_alter(&$form, &$form_state, $form_id) {
 
     case 'user_register_form':
       drupal_set_title(t('Register'));
-      
+
       // The registration form behaves differently...
       $form['account']['name']['#attributes']['autofocus'] = 'autofocus';
       break;
@@ -380,8 +380,8 @@ function symbio_theme_registry_alter(&$theme_registry) {
 
   $hooks = array('page');
   foreach ($hooks as $h) {
-    if (!isset($theme_registry[$h]['theme paths'])) { 
-      $theme_registry[$h]['theme paths'] = array(); 
+    if (!isset($theme_registry[$h]['theme paths'])) {
+      $theme_registry[$h]['theme paths'] = array();
     }
 
     _symbio_insert_after_first_element($theme_registry[$h]['theme paths'], $mod_path);
@@ -389,13 +389,13 @@ function symbio_theme_registry_alter(&$theme_registry) {
 }
 
 function _symbio_insert_after_first_element(&$a, $element) {
-  if (is_array($a)) { 
-    $first_element = array_shift($a); 
-    if ($first_element) { 
-      array_unshift($a, $first_element, $element); 
-    } 
-    else { 
-      array_unshift($a, $element); 
+  if (is_array($a)) {
+    $first_element = array_shift($a);
+    if ($first_element) {
+      array_unshift($a, $first_element, $element);
+    }
+    else {
+      array_unshift($a, $element);
     }
   }
 }

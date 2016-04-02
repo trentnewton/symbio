@@ -30,7 +30,7 @@
 	@include breakpoint(medium down) {
 		float: none;
 	}
-	
+
 	p {
 		margin-bottom: 0;
 
@@ -181,7 +181,7 @@ input.expanding-search-input {
 	line-height: rem-calc(80);
 	border-top-left-radius: $global-radius;
 	border-bottom-left-radius: $global-radius;
-	
+
 	&:hover,
 	&:focus {
 		background: $topbar-link-bg-hover;
@@ -208,7 +208,7 @@ input.expanding-search-input {
 
 		&:hover,
 		&:focus {
-			
+
 			> a {
 				background: $topbar-link-bg-hover;
 			}
@@ -357,7 +357,7 @@ input.expanding-search-input {
 	&:focus {
 		background: transparent;
 	}
-	
+
 	&.rotate {
 		transform: translateY(-12px) rotate(90deg);
 	}

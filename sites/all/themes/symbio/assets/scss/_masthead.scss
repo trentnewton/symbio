@@ -65,7 +65,7 @@
 #masthead .menu,
 .tabs.primary,
 ul.pager {
-	
+
 	@include scroll;
 
 	> * {
@@ -95,7 +95,7 @@ ul.pager {
 		border: 0;
     	margin: 0;
     	display: inline;
-		
+
 		&:hover,
 		&:focus,
 		&.active {

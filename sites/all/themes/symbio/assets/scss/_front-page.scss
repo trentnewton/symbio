@@ -47,7 +47,7 @@
 		margin-top: rem-calc(144);
 		margin-bottom: rem-calc(144);
 		font-weight: $global-weight-bold;
-		
+
 		@include breakpoint(small only) {
 			margin-top: rem-calc(72);
 			margin-bottom: rem-calc(72);
