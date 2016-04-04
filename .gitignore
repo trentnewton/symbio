@@ -26,6 +26,7 @@ php5.ini
 # ignore log files and databases
 *.log
 *.sql
+*.mysql
 *.sqlite
 
 # ignore compiled files
