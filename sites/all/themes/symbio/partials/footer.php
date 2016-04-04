@@ -1,4 +1,4 @@
-<footer id="footer" itemscope itemtype="http://schema.org/WPFooter">
+<footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="row column">
     <a class="footer-logo-link" href="<?php print render($front_page); ?>" title="<?php print t('Home'); ?>" rel="home">
       <svg class="footer-logo" aria-labelledby="silhouette-symbio-logo" preserveAspectRatio="xMinYMin meet"><use xlink:href="#silhouette-symbio-logo"/></svg>

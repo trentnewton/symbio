@@ -1,9 +1,9 @@
 <?php include ($directory."/partials/login-header.php"); ?>
-<main id="login-body" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+<main id="main-content" class="login-body" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
   <header class="row column">
     <h1 itemprop="headline"><?php print $title; ?></h1>
   </header>
-  <div id="main-content" class="row">
+  <div class="row">
     <div class="medium-6 small-centered columns login-form-box-wrapper">
       <div class="login-form-box">
         <div class="row column">

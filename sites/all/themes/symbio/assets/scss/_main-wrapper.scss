@@ -1,6 +1,6 @@
 // main wrapper
 
-#main-wrapper {
+.main-wrapper {
 	min-height: 100vh;
 	margin-bottom: -$footer-height;
 
@@ -11,7 +11,7 @@
 
 }
 
-#footer,
-#main-wrapper:after {
+.footer,
+.main-wrapper:after {
 	height: $footer-height;
 }

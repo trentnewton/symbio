@@ -1,4 +1,4 @@
-<header id="header" itemscope itemtype="http://schema.org/WPHeader">
+<header class="header" itemscope itemtype="http://schema.org/WPHeader">
   <div class="top-info">
     <div class="row">
       <div class="large-5 columns">
@@ -51,7 +51,7 @@
       </div>
       <div class="top-bar-right">
         <?php if ($main_menu): ?>
-          <div id="main-menu" class="navigation">
+          <div class="navigation main-menu">
             <?php print theme('links__system_main_menu', array(
               'links' => $main_menu,
               'attributes' => array(
@@ -60,13 +60,13 @@
                 'data-dropdown-menu' => '',
               ),
             )); ?>
-          </div> <!-- /#main-menu -->
+          </div>
         <?php endif; ?>
       </div>
     </nav>
   </div>
   <?php if(drupal_is_front_page()):?>
-  <section id="banner" role="banner">
+  <section id="main-content" class="banner" role="banner">
     <div class="row column">
       <?php if ($page['header']): ?>
         <?php print render($page['header']); ?>

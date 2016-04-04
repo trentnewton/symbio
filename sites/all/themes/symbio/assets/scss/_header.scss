@@ -135,7 +135,7 @@ input.expanding-search-input {
 	height: rem-calc(50);
 }
 
-#header {
+.header {
 	padding-bottom: rem-calc(48);
 	background-color: rgb(149, 159, 162);
 	background-image: url("#{$asset-path}/img/images/bg-main.jpg");
@@ -189,7 +189,7 @@ input.expanding-search-input {
 
 }
 
-#main-menu {
+.main-menu {
 
 	li {
 

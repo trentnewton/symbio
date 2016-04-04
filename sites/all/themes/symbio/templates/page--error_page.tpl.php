@@ -4,7 +4,7 @@
       <?php include ($directory."/partials/off-canvas-menu.php"); ?>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
-      <main id="main-wrapper">
+      <main id="main-wrapper" class="main-wrapper">
         <?php include ($directory."/partials/header.php"); ?>
       <?php if(!drupal_is_front_page()):?>
         <?php include ($directory."/partials/masthead.php"); ?>
@@ -25,7 +25,7 @@
           </div>
         </section>
         <?php if ($page['search']): ?>
-        <section id="search-box">
+        <section class="search-box">
           <?php print render($page['search']); ?>
         </section>
         <?php endif; ?>

@@ -1,4 +1,4 @@
-<section id="masthead" role="banner">
+<section class="masthead" role="banner">
   <div class="row column">
     <?php if ($page['masthead']): ?>
     <div class="page-title enter-bottom">

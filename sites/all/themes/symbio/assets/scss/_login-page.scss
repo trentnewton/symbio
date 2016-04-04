@@ -1,20 +1,20 @@
 // login
 
-#login-header,
-#login-footer {
+.login-header,
+.login-footer {
 	background: $white;
 	padding-top: rem-calc(36);
 	padding-bottom: rem-calc(36);
 }
 
-#login-header,
-#login-body,
-#login-footer {
+.login-header,
+.login-body,
+.login-footer {
 	@extend .text-center;
 }
 
-#login-body,
-#login-footer {
+.login-body,
+.login-footer {
 
 	a {
 
@@ -35,11 +35,11 @@
 
 }
 
-#login-header {
+.login-header {
 	border-bottom: 3px solid $iron;
 }
 
-#login-body {
+.login-body {
 	background-image: url("#{$asset-path}/img/images/grey-bg.png");
 	background-color: $iron;
 	padding-top: rem-calc(36);
@@ -86,7 +86,7 @@
 
 }
 
-#login-footer {
+.login-footer {
 	border-top: 3px solid $iron;
 
 	nav {

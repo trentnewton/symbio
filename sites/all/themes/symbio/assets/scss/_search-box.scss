@@ -1,6 +1,6 @@
 // search bar
 
-#search-box {
+.search-box {
 	background-color: $base;
 	background-image: url("#{$asset-path}/img/images/swirl.png");
 	padding-top: rem-calc(36);

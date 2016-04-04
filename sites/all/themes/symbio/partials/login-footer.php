@@ -1,4 +1,4 @@
-<footer id="login-footer" itemscope itemtype="http://schema.org/WPFooter">
+<footer class="login-footer" itemscope itemtype="http://schema.org/WPFooter">
   <div class="row column">
     <p class="copyright"><?php print t('Copyright'); ?> &copy; <?php echo date("Y"); ?> <?php print $site_name ?></p>
     <nav>
