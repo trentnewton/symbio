@@ -22,32 +22,32 @@
           <?php print render($page['content']); ?>
         </div>
         <?php endif; ?>
-        <?php if ($page['first-category-section']): ?>
+        <?php if ($page['first_category_section']): ?>
         <div id="main-content" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
           <article class="categories">
             <div class="row column" itemprop="text">
-              <?php print render($page['first-category-section']); ?>
+              <?php print render($page['first_category_section']); ?>
             </div>
           </article>
           <?php endif; ?>
-          <?php if ($page['secondary-category-section']): ?>
+          <?php if ($page['secondary_category_section']): ?>
           <article class="categories">
             <div class="row column" itemprop="text">
-              <?php print render($page['secondary-category-section']); ?>
+              <?php print render($page['secondary_category_section']); ?>
             </div>
           </article>
           <?php endif; ?>
-          <?php if ($page['third-category-section']): ?>
+          <?php if ($page['third_category_section']): ?>
           <article class="categories">
             <div class="row column" itemprop="text">
-              <?php print render($page['third-category-section']); ?>
+              <?php print render($page['third_category_section']); ?>
             </div>
           </article>
           <?php endif; ?>
-          <?php if ($page['fourth-category-section']): ?>
+          <?php if ($page['fourth_category_section']): ?>
           <article class="categories">
             <div class="row column" itemprop="text">
-              <?php print render($page['fourth-category-section']); ?>
+              <?php print render($page['fourth_category_section']); ?>
             </div>
           </article>
           <?php endif; ?>

@@ -28,14 +28,14 @@
               <?php print render($page['content']); ?>
               <?php endif; ?>
               <?php print $messages; ?>
-              <?php if ($page['split-box-left']): ?>
-              <?php print render($page['split-box-left']); ?>
+              <?php if ($page['split_box_left']): ?>
+              <?php print render($page['split_box_left']); ?>
               <?php endif; ?>
             </div>
           </article>
           <aside class="column medium-6 split-box-right google-maps-container" data-equalizer-watch>
-          <?php if ($page['split-box-right']): ?>
-            <?php print render($page['split-box-right']); ?>
+          <?php if ($page['split_box_right']): ?>
+            <?php print render($page['split_box_right']); ?>
           <?php endif; ?>
           <div class="google-maps-overlay"></div>
           </aside>
