@@ -4,7 +4,7 @@
       <?php include ($directory."/partials/off-canvas-menu.php"); ?>
     </div>
     <div class="off-canvas-content" data-off-canvas-content>
-      <main id="main-wrapper" class="main-wrapper">
+      <main class="main-wrapper">
         <?php include ($directory."/partials/header.php"); ?>
         <?php if(drupal_is_front_page()):?>
           <?php print render($page['content']); ?>
