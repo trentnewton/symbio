@@ -148,6 +148,7 @@ sites/all/modules/navbar
 sites/all/modules/optimizedb
 sites/all/modules/pathauto
 sites/all/modules/plupload
+sites/all/modules/quickedit
 sites/all/modules/recaptcha
 sites/all/modules/redirect
 sites/all/modules/search_api

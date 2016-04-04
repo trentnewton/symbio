@@ -19,16 +19,7 @@
 	a {
 
 		&:not([class]) {
-
-			color: inherit;
-			border-bottom: $tertiary-color 2px solid;
-
-			&:hover,
-			&:focus {
-				color: $body-font-color;
-				background: $tertiary-color;
-			}
-
+			@extend .page-links;
 		}
 
 	}

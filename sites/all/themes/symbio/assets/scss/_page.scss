@@ -1,5 +1,17 @@
 // regular pages
 
+.page-links {
+	color: inherit;
+	border-bottom: $tertiary-color 2px solid;
+
+	&:hover,
+	&:focus {
+		color: $body-font-color;
+		background-color: $tertiary-color;
+	}
+
+}
+
 .regular-page {
 	padding-top: rem-calc(72);
 	padding-bottom: rem-calc(72);
@@ -8,15 +20,7 @@
 
 		&:not([class]),
 		&.catalogue-link {
-			color: inherit;
-			border-bottom: $tertiary-color 2px solid;
-
-			&:hover,
-			&:focus {
-				color: $body-font-color;
-				background-color: $tertiary-color;
-			}
-
+			@extend .page-links;
 		}
 
 	}
