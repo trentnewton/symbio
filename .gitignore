@@ -4,11 +4,15 @@
 
 # ignore node dependency directories (used by grunt)
 node_modules/
- 
+
 # ignore OS generated files
 ehthumbs.db
 Thumbs.db
- 
+
+# General CodeKit files to ignore
+config.codekit
+/min
+
 # ignore Editor files
 *.sublime-project
 *.sublime-workspace
@@ -18,12 +22,12 @@ Thumbs.db
 
 *.ini
 php5.ini
- 
+
 # ignore log files and databases
 *.log
 *.sql
 *.sqlite
- 
+
 # ignore compiled files
 *.com
 *.class
@@ -31,7 +35,7 @@ php5.ini
 *.exe
 *.o
 *.so
- 
+
 # ignore packaged files
 *.7z
 *.dmg
@@ -94,7 +98,7 @@ xmlrpc.php
 !README.md
 !CHANGELOG.md
 !composer.json
- 
+
 # track these mu-plugins, plugins, and themes
 
 # Views override
