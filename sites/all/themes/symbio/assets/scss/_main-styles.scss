@@ -46,6 +46,7 @@ button {
 
 table {
 	@include scroll;
+	white-space: initial;
 	width: 100%;
 	border: $table-border;
 	border-radius: 0;
