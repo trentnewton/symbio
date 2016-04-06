@@ -170,10 +170,18 @@ a.contextual-links-trigger {
 	transition: none;
 }
 
-.quickedit-button {
+.quickedit-toolbar.icon {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.quickedit-button.icon {
 	line-height: normal;
 	box-shadow: none;
 	background-image: none;
+	width: initial;
+	height: initial;
 }
 
 .ckeditor_links {
