@@ -56,8 +56,8 @@
 <article id="quote">
   <div class="row column about-page">
     <div class="text-blurb text-center enter-bottom">
-      <span class="quote-title"><?php print $node->field_about_quote_section_title['und'][0]['value']; ?></span>
-      <?php print $node->field_about_quote_section_text['und'][0]['value']; ?>
+      <span class="quote-title"><?php print render($content['field_about_quote_section_title']); ?></span>
+      <?php print render($content['field_about_quote_section_text']); ?>
     </div>
   </div>
 </article>

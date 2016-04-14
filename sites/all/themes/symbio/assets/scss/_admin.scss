@@ -37,6 +37,7 @@ th.active {
 
 .tabs-wrapper {
 	position: relative;
+	z-index: 99;
 
 	&:after {
 		content: '';
