@@ -13,7 +13,8 @@
     "motion-ui": "^1.2.2",
     "scrollreveal": "^3.1.4",
     "jquery-form": "~3.46.0",
-    "jquery-once": "~2.1.1"
+    "jquery-once": "~2.1.1",
+    "what-input": "^2.0.1"
   },
   "ignore": [
     "**/.*",
@@ -26,6 +27,7 @@
   "resolutions": {
     "motion-ui": "~1.2.0",
     "jquery": "2.2.3",
-    "scrollreveal": "^3.1.4"
+    "scrollreveal": "^3.1.4",
+    "what-input": "^2.0.1"
   }
 }
