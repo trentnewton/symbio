@@ -64,10 +64,10 @@ p.search-snippet {
 		@include css-triangle(6px, $primary-color, down);
 		display: inline-block;
 		position: relative;
+		top: rem-calc(-1);
 
 		&.rotated {
 			transform: rotate(-90deg);
-			top: 0;
 			left: rem-calc(1);
 		}
 
