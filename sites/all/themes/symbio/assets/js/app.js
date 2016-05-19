@@ -65,7 +65,13 @@
 
   $('.fieldset-title').on('click', function() {
     $('.search-advanced').toggleClass('collapsing');
-    $('.fieldset-wrapper').toggleClass('fade');
+    $('.fieldset-wrapper').toggle(function () {
+      $(this).animate({height: '16px'}, 1000);
+    }, function () {
+        $(this).animate({height: 'auto'}, 1000);
+    });
+    $('.fieldset-wrapper>.criterion').fadeToggle(500);
+    $('.fieldset-wrapper>.action').fadeToggle(500);
     $('.fieldset-legend-arrow').toggleClass('rotated');
     return false;
   });

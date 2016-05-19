@@ -36,13 +36,12 @@ p.search-snippet {
 	border: $fieldset-border;
 	margin: $fieldset-margin;
 	padding: $fieldset-padding;
-	transition: $transition-time ease-in-out;
+	transition: 1s ease-in-out;
 
 	&.collapsing {
 	    border-bottom: 1px solid transparent;
 	    border-left: 1px solid transparent;
 	    border-right: 1px solid transparent;
-	    height: 1em;
 
 		@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
 
@@ -65,12 +64,11 @@ p.search-snippet {
 		@include css-triangle(6px, $primary-color, down);
 		display: inline-block;
 		position: relative;
-		top: rem-calc(4);
 
 		&.rotated {
 			transform: rotate(-90deg);
 			top: 0;
-			left: rem-calc(4);
+			left: rem-calc(1);
 		}
 
 	}
@@ -81,16 +79,6 @@ p.search-snippet {
 	  		padding-left: rem-calc(4);
 	  		display: inline;
 	 	}
-
-	}
-
-	.fieldset-wrapper {
-		transition: ($transition-time * 2) ease-in-out;
-		opacity: 1;
-
-		&.fade {
-			opacity: 0;
-		}
 
 	}
 
