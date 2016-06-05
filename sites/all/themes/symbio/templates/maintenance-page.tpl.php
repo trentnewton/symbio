@@ -44,7 +44,7 @@
               <?php endif; ?>
             </div>
             <div class="row column">
-              <?php print $content; ?>
+              <p><?php print $content; ?></p>
             </div>
           </div>
         </div>
