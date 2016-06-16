@@ -48,9 +48,9 @@ php5.ini
 *.zip
 
 # Ignore configuration files that may contain sensitive information.
-sites/*/*settings*.php
+sites/*/settings*.php
 
-# Ignore paths that contain generated content.
+# Ignore paths that contain user-generated content.
 files/
 sites/*/files
 sites/*/private
