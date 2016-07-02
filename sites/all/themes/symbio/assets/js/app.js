@@ -61,6 +61,10 @@
     return false;
   });
 
+  // change to 4 item block grid when logged in for product data sheets
+
+  $('.logged-in .view-product-data-sheets-main ul.medium-up-3').addClass('medium-up-4').removeClass('medium-up-3');
+
   // collapsing fieldset
 
   $('.fieldset-title').on('click', function() {
