@@ -74,6 +74,7 @@ function symbio_breadcrumb($variables) {
   $crumbs = '';
   if (!empty($breadcrumb)) {
     $crumbs = '<h2 class="element-invisible">' . t('You are here') . '</h2><nav class="breadcrumbs">';
+    array_shift($breadcrumb); // Removes the Home item
     foreach($breadcrumb as $value) {
       $crumbs .= $value;
     }
