@@ -71,26 +71,15 @@ function symbio_js_alter(&$js) {
  */
 function symbio_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
-
-  $breadcrumb = str_replace("active", "current", $breadcrumb);
-
+  $crumbs = '';
   if (!empty($breadcrumb)) {
-    // Provide a navigational heading to give context for breadcrumb links to
-    // screen-reader users. Make the heading invisible with .element-invisible.
-    $breadcrumbs = '<h2 class="element-invisible">' . t('You are here') . '</h2>';
-
-    $breadcrumbs .= '<nav class="breadcrumbs">';
-
-    foreach ($breadcrumb as $key => $value) {
-      $breadcrumbs .= $value;
+    $crumbs = '<h2 class="element-invisible">' . t('You are here') . '</h2><nav class="breadcrumbs">';
+    foreach($breadcrumb as $value) {
+      $crumbs .= $value;
     }
-
-    $title = strip_tags(drupal_get_title());
-    $breadcrumbs .= '</nav>';
-
-    return $breadcrumbs;
+    $crumbs .= '<a class="current">' . drupal_get_title() . '</a></nav>';
   }
-
+  return $crumbs;
 }
 
 /**
