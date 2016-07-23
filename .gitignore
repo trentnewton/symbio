@@ -125,7 +125,6 @@ sites/all/modules/backup_migrate
 sites/all/modules/bean
 sites/all/modules/blockify
 sites/all/modules/boost
-sites/all/modules/breadcrumb_manager
 sites/all/modules/captcha
 sites/all/modules/ckeditor
 sites/all/modules/content_access
@@ -158,12 +157,9 @@ sites/all/modules/plupload
 sites/all/modules/quickedit
 sites/all/modules/recaptcha
 sites/all/modules/redirect
-sites/all/modules/search_api
-sites/all/modules/search_api_spellcheck
 sites/all/modules/simplified_menu_admin
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
-sites/all/modules/tac_lite
 sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
 sites/all/modules/telephone
