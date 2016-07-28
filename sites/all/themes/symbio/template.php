@@ -127,7 +127,7 @@ function symbio_preprocess_page(&$vars, $hook) {
     unset($vars['page']['content']['system_main']['default_message']); //will remove message "no front page content is created"
   }
 
-  drupal_add_js(drupal_get_path('theme', 'symbio') .'/assets/js/min/app-min.js', array(
+  drupal_add_js(drupal_get_path('theme', 'symbio') .'/dist/assets/js/app.js', array(
     'type' => 'file',
     'requires_jquery' => TRUE,
     'group' => JS_LIBRARY,

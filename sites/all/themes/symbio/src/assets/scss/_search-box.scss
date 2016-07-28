@@ -1,0 +1,37 @@
+// search bar
+
+.search-box {
+	background-color: $base;
+	background-image: url("#{$asset-path}/img/swirl.png");
+	padding-top: rem-calc(36);
+	padding-bottom: rem-calc(36);
+	border-bottom: 3px solid $iron;
+
+	.button,
+	button,
+	input,
+	select {
+		margin-bottom: 0;
+	}
+
+	input:not([type='submit']) {
+		padding-top: rem-calc(3);
+		padding-bottom: 0;
+		box-shadow: 0 1px 3px 1px rgba($black, 0.2);
+
+		&::-webkit-search-cancel-button {
+			margin-right: rem-calc(10);
+			display: block;
+		}
+
+	}
+
+	select {
+
+		&.postfix {
+			box-shadow: 1px 2px 3px rgba($black, 0.2);
+		}
+
+	}
+
+}

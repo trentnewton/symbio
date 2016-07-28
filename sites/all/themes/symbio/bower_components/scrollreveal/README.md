@@ -4,12 +4,13 @@
 
 ***
 
+[![License][license-image]][license-url]
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 
 - 3.3KB minified and Gzipped
 - No dependencies
-- From the ![heart](http://i.imgur.com/oXJmdtz.gif) of [@jlmakes](https://jlmak.es)
+- From the ![heart](http://i.imgur.com/oXJmdtz.gif) of [@jlmakes](https://twitter.com/jlmakes)
 
 ***
 
@@ -20,7 +21,7 @@
 The simplest method is to copy paste this snippet just before your closing `</body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.1.4/scrollreveal.min.js"></script>
+<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
 ```
 
 But you can also:
@@ -70,61 +71,61 @@ sr.reveal('.foo', { duration: 200 });
 
 #### 2.2. The Starting Defaults
 ```js
-//            'bottom', 'left', 'top', 'right'
-origin      : 'bottom',
+// 'bottom', 'left', 'top', 'right'
+origin: 'bottom',
 
-//            Can be any valid CSS distance, e.g. '5rem', '10%', '20vw', etc.
-distance    : '20px',
+// Can be any valid CSS distance, e.g. '5rem', '10%', '20vw', etc.
+distance: '20px',
 
-//            Time in milliseconds.
-duration    : 500,
-delay       : 0,
+// Time in milliseconds.
+duration: 500,
+delay: 0,
 
-//            Starting angles in degrees, will transition from these values to 0 in all axes.
-rotate      : { x: 0, y: 0, z: 0 },
+// Starting angles in degrees, will transition from these values to 0 in all axes.
+rotate: { x: 0, y: 0, z: 0 },
 
-//            Starting opacity value, before transitioning to the computed opacity.
-opacity     : 0,
+// Starting opacity value, before transitioning to the computed opacity.
+opacity: 0,
 
-//            Starting scale value, will transition from this value to 1
-scale       : 0.9,
+// Starting scale value, will transition from this value to 1
+scale: 0.9,
 
-//            Accepts any valid CSS easing, e.g. 'ease', 'ease-in-out', 'linear', etc.
-easing      : 'cubic-bezier(0.6, 0.2, 0.1, 1)',
+// Accepts any valid CSS easing, e.g. 'ease', 'ease-in-out', 'linear', etc.
+easing: 'cubic-bezier(0.6, 0.2, 0.1, 1)',
 
-//            When null, `<html>` is assumed to be the reveal container. You can pass a
-//            DOM node as a custom container, e.g. document.querySelector('.fooContainer')
-//            or a selector, e.g. '.fooContainer'
-container   : null,
+// `<html>` is the default reveal container. You can pass either:
+// DOM Node, e.g. document.querySelector('.fooContainer')
+// Selector, e.g. '.fooContainer'
+container: window.document.documentElement,
 
-//            true/false to control reveal animations on mobile.
-mobile      : true,
+// true/false to control reveal animations on mobile.
+mobile: true,
 
-//            true:  reveals occur every time elements become visible
-//            false: reveals occur once as elements become visible
-reset       : false,
+// true:  reveals occur every time elements become visible
+// false: reveals occur once as elements become visible
+reset: false,
 
-//            'always' — delay for all reveal animations
-//            'once'   — delay only the first time reveals occur
-//            'onload' - delay only for animations triggered by first load
-useDelay    : 'always',
+// 'always' — delay for all reveal animations
+// 'once'   — delay only the first time reveals occur
+// 'onload' - delay only for animations triggered by first load
+useDelay: 'always',
 
-//            Change when an element is considered in the viewport. The default value
-//            of 0.20 means 20% of an element must be visible for its reveal to occur.
-viewFactor  : 0.2,
+// Change when an element is considered in the viewport. The default value
+// of 0.20 means 20% of an element must be visible for its reveal to occur.
+viewFactor: 0.2,
 
-//            Pixel values that alter the container boundaries.
-//            e.g. Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
-//            --
-//            Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
-viewOffset  : { top: 0, right: 0, bottom: 0, left: 0 },
+// Pixel values that alter the container boundaries.
+// e.g. Set `{ top: 48 }`, if you have a 48px tall fixed toolbar.
+// --
+// Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
+viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
 
-//            Callbacks that fire for each completed element reveal, and if
-//            `config.reset = true`, for each completed element reset. When creating your
-//            callbacks, remember they are passed the element’s DOM node that triggered
-//            it as the first argument.
-afterReveal : function(domEl) {},
-afterReset  : function(domEl) {}
+// Callbacks that fire for each completed element reveal, and if
+// `config.reset = true`, for each completed element reset. When creating your
+// callbacks, remember they are passed the element’s DOM node that triggered
+// it as the first argument.
+afterReveal: function (domEl) {},
+afterReset: function (domEl) {}
 ```
 
 ## 3. Advanced
@@ -171,12 +172,13 @@ sr.reveal('.foo', fooReveal);
 sr.reveal('#chocolate', { delay: 500, scale: 0.9 });
 ```
 
-#### 3.3. Working With DOM Nodes (e.g. React)
+#### 3.3. Working With DOM Nodes
 
-You are not just limited to using selectors with `reveal()`, it also accepts a DOM node as the first argument.
+You are not just limited to using selectors with `reveal()`, it also accepts a Node or Node List as the first argument.
 
 ```js
-sr.reveal(document.getElementById('chocolate'));
+sr.reveal(document.getElementById('foo'));
+sr.reveal(document.querySelectorAll('.bar'));
 ```
 
 #### 3.4. Custom/Multiple Containers
@@ -402,7 +404,7 @@ _Continuing our example from 4.2._
 
 ## 5. Appendix
 
-Open source under the [MIT License](http://img.shields.io/badge/License-MIT-1a2434.svg). ©2014–2016 Julian Lloyd.
+Open source under the [MIT License](https://github.com/jlmakes/scrollreveal.js/blob/master/LICENSE.md). ©2014–2016 Julian Lloyd.
 
 #### 5.1. Browser Compatibility
 
@@ -433,6 +435,8 @@ Want to see your page here? Please send me your work (or of others) using Scroll
 
 ScrollReveal was inspired by the talented [Manoela Ilic](https://twitter.com/crnacura) and her [cbpScroller.js](http://tympanus.net/codrops/2013/07/18/on-scroll-effect-layout/).
 
+[license-image]: https://img.shields.io/badge/license-MIT-1283c3.svg
+[license-url]: https://github.com/jlmakes/scrollreveal.js/blob/master/LICENSE.md
 [npm-image]: https://img.shields.io/npm/v/scrollreveal.svg?style=flat
 [npm-url]: https://npmjs.org/package/scrollreveal
 [downloads-image]: https://img.shields.io/npm/dm/scrollreveal.svg?style=flat

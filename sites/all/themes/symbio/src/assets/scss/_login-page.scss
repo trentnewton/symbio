@@ -1,0 +1,109 @@
+// login
+
+.login-header,
+.login-footer {
+	background: $white;
+	padding-top: rem-calc(36);
+	padding-bottom: rem-calc(36);
+}
+
+.login-header,
+.login-body,
+.login-footer {
+	@extend .text-center;
+}
+
+.login-body,
+.login-footer {
+
+	a {
+
+		&:not([class]) {
+			@extend .page-links;
+		}
+
+	}
+
+}
+
+.login-header {
+	border-bottom: 3px solid $iron;
+}
+
+.login-body {
+	background-image: url("#{$asset-path}/img/grey-bg.png");
+	background-color: $iron;
+	padding-top: rem-calc(36);
+	padding-bottom: rem-calc(72);
+
+	h1 {
+		margin-bottom: rem-calc(36);
+	}
+
+}
+
+.login-form-box-wrapper {
+	@include see-thru-border;
+}
+
+.login-form-box,
+.webform-client-form {
+
+	.form-item {
+
+		label {
+			@extend .hide;
+		}
+
+	}
+
+}
+
+.login-form-box {
+	background: $white;
+	border-radius: $global-radius;
+	padding: rem-calc(36);
+	position: relative;
+	z-index: 1;
+}
+
+.form-link {
+	padding-top: rem-calc(12);
+	text-align: right;
+
+	@include breakpoint(small only) {
+		text-align: inherit;
+	}
+
+}
+
+.login-footer {
+	border-top: 3px solid $iron;
+
+	nav {
+
+		a {
+			position: relative;
+			margin-right: rem-calc(10);
+
+			&:before {
+				position: absolute;
+				right: rem-calc(-15);
+				content: '\00A0\00A0\007C\00A0';
+				color: $base;
+			}
+
+			&:last-child {
+				margin-right: 0;
+
+				&:before {
+					content: '';
+				}
+
+			}
+
+		}
+
+	}
+
+}

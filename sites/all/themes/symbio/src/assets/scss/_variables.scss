@@ -1,0 +1,27 @@
+// 1. Global
+// ---------
+
+$google-maps-bg-colour: #e5e3df;
+$white-rgb: rgba($white, 0.99);
+$black-rgb: rgba($black, 0.99);
+$primary-color-rgb: rgba($primary-color, 0.99);
+$secondary-color-rgb: rgba($secondary-color, 0.99);
+$tertiary-color-rgb: rgba($tertiary-color, 0.99);
+$asset-path: "..";
+$footer-height: (rem-calc(181) + rem-calc(36) + rem-calc(36));
+
+// 4. Base Typography
+// ------------------
+
+$anchor-color-rgb: rgba($anchor-color, 0.99);
+$anchor-color-hover-rgb: rgba($anchor-color-hover, 0.99);
+
+// 34. Title Bar
+
+$titlebar-height: rem-calc(60);
+
+// 36. Top Bar
+
+$topbar-link-bg-hover: rgba($secondary-color, 0.2);
+$topbar-link-bg-active-hover: $topbar-link-bg-hover;
+$topbar-dropdown-link-color-hover: $secondary-color-50;

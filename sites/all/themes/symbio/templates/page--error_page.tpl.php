@@ -18,7 +18,7 @@
               <?php print render($tabs); ?>
             </div>
             <?php endif; ?>
-            <figure><img src="<?php print $base_path; ?><?php print $directory; ?>/assets/img/images/error.jpg" alt="Error"></figure>
+            <figure><img src="<?php print $base_path; ?><?php print $directory; ?>/dist/assets/img/error.jpg" alt="Error"></figure>
             <?php if ($page['content']): ?>
             <?php print render($page['content']); ?>
             <?php endif; ?>
