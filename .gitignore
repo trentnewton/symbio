@@ -160,6 +160,7 @@ sites/all/modules/redirect
 sites/all/modules/simplified_menu_admin
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
+sites/all/modules/tac_lite
 sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
 sites/all/modules/telephone
