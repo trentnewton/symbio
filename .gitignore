@@ -161,7 +161,6 @@ sites/all/modules/simplified_menu_admin
 sites/all/modules/site_map
 sites/all/modules/special_menu_items
 sites/all/modules/tac_lite
-sites/all/modules/taxonomy_access
 sites/all/modules/taxonomy_menu
 sites/all/modules/telephone
 sites/all/modules/termstatus
@@ -170,7 +169,9 @@ sites/all/modules/tvi
 sites/all/modules/upgrade_status
 sites/all/modules/uuid
 sites/all/modules/views_bulk_operations
+sites/all/modules/views_content_cache
 sites/all/modules/views_distinct
+sites/all/modules/views_field_view
 sites/all/modules/webform
 sites/all/modules/webform_ajax
 sites/all/modules/xmlsitemap
