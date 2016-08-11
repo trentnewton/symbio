@@ -19,7 +19,7 @@
 	a {
 
 		&:not([class]),
-		&.catalogue-link {
+		&.nowrap {
 			@extend .page-links;
 		}
 
@@ -50,12 +50,23 @@
 		height: rem-calc(18);
 	}
 
-	.catalogue-link {
+	h2 {
 
-		@include breakpoint(medium up) {
-			position: absolute;
-			right: 0;
-			top: rem-calc(12);
+		@include breakpoint(small only) {
+			margin-bottom: rem-calc(40);
+		}
+
+	}
+
+	.catalogue-link {
+		position: absolute;
+		right: 0;
+		top: rem-calc(12);
+
+		@include breakpoint(small only) {
+			right: 50%;
+			transform: translateX(50%);
+			top: rem-calc(42);
 		}
 
 	}
@@ -79,8 +90,7 @@
 .categories,
 .view-safety-data-sheets-main,
 .view-product-data-sheets-main,
-.view-id-product_ranges,
-.view-id-product_ranges_3_item_grid_ {
+.view-id-product_ranges {
 	text-align: center;
 
 	p {
@@ -207,6 +217,30 @@
 
 	> ul {
 		@extend .no-bullet;
+	}
+
+}
+
+.dropdown.menu {
+
+	> {
+
+		li.is-dropdown-submenu-parent {
+
+			> a {
+
+				&:hover {
+
+					&:after {
+						border-color: $body-font-color transparent transparent;
+					}
+
+				}
+
+			}
+
+		}
+
 	}
 
 }

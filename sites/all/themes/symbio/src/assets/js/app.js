@@ -48,7 +48,7 @@
 
   // add svg icon to download link
 
-  $('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link');
+  $('<svg class="icon icon-download"><use xlink:href="#icon-download"></use></svg>').prependTo('.major-header>.catalogue-link>li>a');
 
   // wrap tables with overflow auto
 

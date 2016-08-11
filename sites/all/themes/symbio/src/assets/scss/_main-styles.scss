@@ -173,3 +173,11 @@ svg {
 .error {
 	color: $alert-color;
 }
+
+.nowrap {
+	white-space: nowrap;
+}
+
+.menu {
+	z-index: 999;
+}
