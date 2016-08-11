@@ -19,7 +19,7 @@
           }
           else
           { ?>
-          <a href="<?php print $base_path; ?>user/login"><?php print t('Login'); ?>&nbsp;<svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg></a>
+          <a href="<?php print $base_path; ?>user/login"><?php print t('Customer Login'); ?>&nbsp;<svg class="icon icon-login"><use xlink:href="#icon-login"></use></svg></a>
           <?php }
         ?>
         <?php if ($secondary_menu): ?>
