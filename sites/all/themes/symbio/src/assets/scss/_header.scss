@@ -201,10 +201,10 @@ input.expanding-search-input {
 			line-height: rem-calc(80);
 			padding: rem-calc(0 20);
 
-			// &.active,
-			// &.active-trail {
-			// 	background: $topbar-link-bg-active;
-			// }
+			&.active,
+			&.active-trail {
+				background: $menu-item-background-active;
+			}
 
 		}
 
