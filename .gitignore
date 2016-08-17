@@ -148,7 +148,6 @@ sites/all/modules/menu_html
 sites/all/modules/menu_token
 sites/all/modules/menu_trail_by_path
 sites/all/modules/metatag
-sites/all/modules/multiblock
 sites/all/modules/multiform
 sites/all/modules/navbar
 sites/all/modules/optimizedb
