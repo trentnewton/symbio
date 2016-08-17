@@ -124,7 +124,6 @@ sites/all/modules/backports
 sites/all/modules/backup_migrate
 sites/all/modules/bean
 sites/all/modules/blockify
-sites/all/modules/boost
 sites/all/modules/captcha
 sites/all/modules/ckeditor
 sites/all/modules/content_access
