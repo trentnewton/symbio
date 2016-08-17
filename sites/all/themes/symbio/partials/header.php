@@ -9,7 +9,7 @@
         </div>
       </div>
       <div class="large-7 columns">
-        <nav class="right-top-info-links">
+        <nav class="right-top-info-links nowrap">
         <?php
           global $user;
 
