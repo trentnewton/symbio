@@ -19,7 +19,8 @@ regions[third_category_section] = Third Category Section
 regions[fourth_category_section] = Fourth Category Section
 regions[split_box_left] = Split Box Left
 regions[split_box_right] = Split Box Right
-regions[footer] = Footer
+regions[footer_copyright] = Footer Copyright
+regions[footer_menu] = Footer Menu
 
 regions[highlighted]    = Highlighted
 regions[help]           = Help

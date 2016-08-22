@@ -80,6 +80,10 @@
 .login-footer {
 	border-top: 3px solid $iron;
 
+	.copyright {
+		margin-bottom: rem-calc(20);
+	}
+
 	nav {
 
 		a {

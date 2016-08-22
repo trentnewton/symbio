@@ -118,7 +118,6 @@ sites/all/modules/views/handlers/*
 # disallow these
 sites/example.sites.php
 sites/all/modules/admin_views
-sites/all/modules/advanced_text_formatter
 sites/all/modules/autoupload
 sites/all/modules/backports
 sites/all/modules/backup_migrate
@@ -163,6 +162,7 @@ sites/all/modules/taxonomy_menu
 sites/all/modules/telephone
 sites/all/modules/termstatus
 sites/all/modules/token
+sites/all/modules/token_filter
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
 sites/all/modules/uuid
