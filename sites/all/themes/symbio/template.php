@@ -100,7 +100,7 @@ function symbio_breadcrumb_alter(&$active_trail, $item) {
 // reformat secondary menu (remove ul and li's)
 
 function symbio_links__system_secondary_menu($variables) {
-$link = $variables['links'];
+  $link = $variables['links'];
 
   $html = "\n";
 
