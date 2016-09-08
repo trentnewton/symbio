@@ -30,6 +30,10 @@ p {
 		margin-bottom: 0;
 	}
 
+	&:only-child {
+		margin-bottom: $paragraph-margin-bottom;
+	}
+
 }
 
 a,
