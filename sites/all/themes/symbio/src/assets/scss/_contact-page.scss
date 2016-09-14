@@ -1,35 +1,3 @@
-// split sections
-
-.split-boxes {
-	@include clearfix();
-}
-
-.row-split {
-	max-width: ($global-width / 2 - $grid-column-gutter-medium);
-	width: 100%;
-
-	@include breakpoint(small only) {
-		max-width: $global-width;
-	}
-
-}
-
-.split-box-left {
-
-	.row-split {
-		float: right;
-	}
-
-}
-
-.split-box-right {
-
-	.row-split {
-		float: left;
-	}
-
-}
-
 // contact
 
 .google-maps-container {

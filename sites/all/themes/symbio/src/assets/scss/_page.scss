@@ -245,6 +245,117 @@
 
 }
 
+// split sections
+
+.split-boxes {
+	@include clearfix();
+
+	.medium-4 {
+
+		.row-split {
+			max-width: ($global-width * 0.333333 - ($grid-column-gutter-medium / 2));
+			width: 100%;
+
+			@include breakpoint(small only) {
+				max-width: $global-width;
+			}
+
+		}
+
+	}
+
+	.medium-5 {
+
+		.row-split {
+			max-width: ($global-width * 0.416667 - ($grid-column-gutter-medium / 2));
+			width: 100%;
+
+			@include breakpoint(small only) {
+				max-width: $global-width;
+			}
+
+		}
+
+	}
+
+	.medium-6 {
+
+		.row-split {
+			max-width: ($global-width * 0.5 - ($grid-column-gutter-medium / 2));
+			width: 100%;
+
+			@include breakpoint(small only) {
+				max-width: $global-width;
+			}
+
+		}
+
+	}
+
+	.medium-7 {
+
+		.row-split {
+			max-width: ($global-width * 0.583333 - ($grid-column-gutter-medium / 2));
+			width: 100%;
+
+			@include breakpoint(small only) {
+				max-width: $global-width;
+			}
+
+		}
+
+	}
+
+	.medium-8 {
+
+		.row-split {
+			max-width: ($global-width * 0.666667 - ($grid-column-gutter-medium / 2));
+			width: 100%;
+
+			@include breakpoint(small only) {
+				max-width: $global-width;
+			}
+
+		}
+
+	}
+
+	.large-6 {
+
+		@include breakpoint(large up) {
+
+			.row-split {
+				max-width: ($global-width * 0.5 - $grid-column-gutter-medium);
+				width: 100%;
+
+				@include breakpoint(small only) {
+					max-width: $global-width;
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+.split-box-left {
+
+	.row-split {
+		float: right;
+	}
+
+}
+
+.split-box-right {
+
+	.row-split {
+		float: left;
+	}
+
+}
+
 // downloads
 
 .download {

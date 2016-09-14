@@ -1,0 +1,215 @@
+.brands {
+	padding-top: rem-calc(72);
+	padding-bottom: rem-calc(72);
+	text-align: center;
+	background: $secondary-color-5;
+
+	.major-header {
+		margin: 0;
+
+		h2 {
+
+			@include breakpoint(small only) {
+				margin: 0;
+			}
+
+		}
+
+	}
+
+}
+
+.brands-sections {
+
+	h4 {
+		margin-bottom: rem-calc(36);
+	}
+
+	h3,
+	h4 {
+		text-shadow: 0 1px 4px rgba($black, 0.6);
+		letter-spacing: rem-calc(12);
+	}
+
+	h3,
+	hr {
+		margin: 0;
+	}
+
+	.logo-box {
+
+		.logo {
+			color: $body-font-color;
+			margin: 0;
+			@include absolute-center;
+		}
+
+		.logo-svg {
+			width: rem-calc(243);
+			height: rem-calc(243);
+		}
+
+		a {
+			display: block;
+			width: rem-calc(120);
+			margin: 0 auto;
+		}
+
+	}
+
+}
+
+.symbio-brand,
+.ths-brand,
+.go-green-brand,
+.c3-brand {
+	position: relative;
+	z-index: 1;
+}
+
+.symbio-brand-text,
+.go-green-brand-text {
+	color: $white;
+	clip-path: polygon(95% 60%, 95% 100%, 0 100%, 0 0, 95% 0, 95% 40%, 100% 50%);
+
+	.row-split {
+		padding-right: 6%;
+	}
+
+	h3 {
+		color: $white;
+	}
+
+	h4 {
+		color: rgba($white, 0.7);
+	}
+
+	.text-overlay {
+		background: rgba($black, 0.6);
+	}
+
+}
+
+.ths-brand-text,
+.c3-brand-text {
+	color: $secondary-color;
+	clip-path: polygon(5% 100%, 5% 60%, 0 50%, 5% 40%, 5% 0, 100% 0, 100% 100%);
+
+	.row-split {
+		padding-left: 6%;
+	}
+
+	h3 {
+		color: $secondary-color;
+	}
+
+	hr {
+		border-bottom: 1px solid $secondary-color-50;
+	}
+
+	h4 {
+		color: rgba($secondary-color, 0.7);
+	}
+
+	.text-overlay {
+		background: rgba($white, 0.7);
+	}
+
+}
+
+.symbio-brand-text,
+.ths-brand-text,
+.go-green-brand-text,
+.c3-brand-text {
+	background-position: top center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-color: $base;
+	position: relative;
+	z-index: 0;
+
+	.text-overlay {
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		z-index: -1;
+	}
+
+	@include breakpoint(small only) {
+		clip-path: polygon(100% 95%, 60% 95%, 50% 100%, 40% 95%, 0 95%, 0 0, 100% 0);
+		height: auto !important;
+
+		.row-split {
+			padding: rem-calc(0);
+		}
+
+	}
+
+}
+
+.symbio-brand-text {
+	background-image: url("#{$asset-path}/img/symbio-brand.jpg");
+}
+
+.ths-brand-text {
+	background-image: url("#{$asset-path}/img/ths-brand.jpg");
+}
+
+.go-green-brand-text {
+	background-image: url("#{$asset-path}/img/go-green-brand.jpg");
+}
+
+.c3-brand-text {
+	background-image: url("#{$asset-path}/img/c3-brand.jpg");
+}
+
+.symbio-brand-logo,
+.go-green-brand-logo {
+
+	&:before {
+		left: -20%;
+	}
+
+}
+
+.ths-brand-logo,
+.c3-brand-logo {
+
+	&:before {
+		right: -20%;
+	}
+
+}
+
+.symbio-brand-logo,
+.ths-brand-logo,
+.go-green-brand-logo,
+.c3-brand-logo {
+	position: relative;
+
+	&:before {
+		content: '';
+		position: absolute;
+		width: 120%;
+		height: 100%;
+		top: 0;
+		z-index: -1;
+		background: linear-gradient(to top, $white 0%, $gainsboro 100%);
+
+		@include breakpoint(small only) {
+			width: 100%;
+			height: 120%;
+			top: -20%;
+			left: 0;
+			right: 0;
+		}
+
+	}
+
+}
+
+.symbio-brand-logo-box {
+	position: relative;
+}
