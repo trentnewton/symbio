@@ -22,6 +22,7 @@
 .brands-sections {
 
 	h4 {
+		margin-top: rem-calc(4.8);
 		margin-bottom: rem-calc(36);
 	}
 
@@ -41,7 +42,11 @@
 		.logo {
 			color: $body-font-color;
 			margin: 0;
-			@include absolute-center;
+
+			@include breakpoint (small only) {
+				@include absolute-center;
+			}
+
 		}
 
 		.logo-svg {
@@ -189,6 +194,10 @@
 .c3-brand-logo {
 	position: relative;
 
+	@include breakpoint(small only) {
+		height: rem-calc(340) !important;
+	}
+
 	&:before {
 		content: '';
 		position: absolute;
@@ -208,8 +217,4 @@
 
 	}
 
-}
-
-.symbio-brand-logo-box {
-	position: relative;
 }
