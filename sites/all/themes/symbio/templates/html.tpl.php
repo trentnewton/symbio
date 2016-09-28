@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
+<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>" itemscope itemtype="http://schema.org/WebSite">
 	<head>
 	    <title><?php print $head_title; ?></title>
 		<?php print $head; ?>
