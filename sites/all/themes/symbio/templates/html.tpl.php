@@ -1,6 +1,6 @@
-<!DOCTYPE html>
-<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>" itemscope itemtype="http://schema.org/WebSite">
-	<head>
+<!doctype html<?php print $rdf_header; ?>>
+<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"<?php print $rdf_namespaces; ?> itemscope itemtype="http://schema.org/WebSite">
+	<head<?php print $rdf_profile?>>
 	    <title><?php print $head_title; ?></title>
 		<?php print $head; ?>
 		<?php print $styles; ?>
