@@ -23,35 +23,35 @@
         </div>
         <?php endif; ?>
         <?php if ($page['first_category_section']): ?>
-        <div id="main-content" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
-          <article class="categories">
-            <div class="row column" itemprop="text">
-              <?php print render($page['first_category_section']); ?>
-            </div>
-          </article>
-          <?php endif; ?>
-          <?php if ($page['secondary_category_section']): ?>
-          <article class="categories">
-            <div class="row column" itemprop="text">
-              <?php print render($page['secondary_category_section']); ?>
-            </div>
-          </article>
-          <?php endif; ?>
-          <?php if ($page['third_category_section']): ?>
-          <article class="categories">
-            <div class="row column" itemprop="text">
-              <?php print render($page['third_category_section']); ?>
-            </div>
-          </article>
-          <?php endif; ?>
-          <?php if ($page['fourth_category_section']): ?>
-          <article class="categories">
-            <div class="row column" itemprop="text">
-              <?php print render($page['fourth_category_section']); ?>
-            </div>
-          </article>
-          <?php endif; ?>
-        </div>
+          <div id="main-content" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
+            <article class="categories">
+              <div class="row column" itemprop="text">
+                <?php print render($page['first_category_section']); ?>
+              </div>
+            </article>
+            <?php if ($page['secondary_category_section']): ?>
+            <article class="categories">
+              <div class="row column" itemprop="text">
+                <?php print render($page['secondary_category_section']); ?>
+              </div>
+            </article>
+            <?php endif; ?>
+            <?php if ($page['third_category_section']): ?>
+            <article class="categories">
+              <div class="row column" itemprop="text">
+                <?php print render($page['third_category_section']); ?>
+              </div>
+            </article>
+            <?php endif; ?>
+            <?php if ($page['fourth_category_section']): ?>
+            <article class="categories">
+              <div class="row column" itemprop="text">
+                <?php print render($page['fourth_category_section']); ?>
+              </div>
+            </article>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
       <?php endif;?>
       </main>
       <?php include ($directory."/partials/footer.php"); ?>
