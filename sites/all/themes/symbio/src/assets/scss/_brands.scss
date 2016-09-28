@@ -39,7 +39,7 @@
 
 	.logo-box {
 
-		.logo {
+		.logo-svg-container {
 			color: $body-font-color;
 			margin: 0;
 
@@ -64,74 +64,98 @@
 
 }
 
-.symbio-brand,
-.ths-brand,
-.go-green-brand,
-.c3-brand {
+.brand {
 	position: relative;
 	z-index: 1;
 }
 
-.symbio-brand-text,
-.go-green-brand-text {
-	color: $white;
-	clip-path: polygon(95% 60%, 95% 100%, 0 100%, 0 0, 95% 0, 95% 40%, 100% 50%);
+.views-row-odd {
 
-	.row-split {
-		padding-right: 6%;
-	}
-
-	h3 {
+	.text {
 		color: $white;
+		clip-path: polygon(95% 60%, 95% 100%, 0 100%, 0 0, 95% 0, 95% 40%, 100% 50%);
+
+		.row-split {
+			padding-right: 6%;
+		}
+
+		h3 {
+			color: $white;
+		}
+
+		h4 {
+			color: rgba($white, 0.7);
+		}
+
+		.text-overlay {
+			background: rgba($black, 0.6);
+		}
+
 	}
 
-	h4 {
-		color: rgba($white, 0.7);
-	}
+	.logo {
 
-	.text-overlay {
-		background: rgba($black, 0.6);
+		&:before {
+			left: -20%;
+		}
+
 	}
 
 }
 
-.ths-brand-text,
-.c3-brand-text {
-	color: $secondary-color;
-	clip-path: polygon(5% 100%, 5% 60%, 0 50%, 5% 40%, 5% 0, 100% 0, 100% 100%);
+.views-row-even {
 
-	.row-split {
-		padding-left: 6%;
-	}
-
-	h3 {
+	.text {
 		color: $secondary-color;
+		clip-path: polygon(5% 100%, 5% 60%, 0 50%, 5% 40%, 5% 0, 100% 0, 100% 100%);
+
+		.row-split {
+			padding-left: 6%;
+		}
+
+		h3 {
+			color: $secondary-color;
+		}
+
+		hr {
+			border-bottom: 1px solid $secondary-color-50;
+		}
+
+		h4 {
+			color: rgba($secondary-color, 0.7);
+		}
+
+		.text-overlay {
+			background: rgba($white, 0.7);
+		}
+
 	}
 
-	hr {
-		border-bottom: 1px solid $secondary-color-50;
-	}
+	.logo {
 
-	h4 {
-		color: rgba($secondary-color, 0.7);
-	}
+		&:before {
+			right: -20%;
+		}
 
-	.text-overlay {
-		background: rgba($white, 0.7);
 	}
 
 }
 
-.symbio-brand-text,
-.ths-brand-text,
-.go-green-brand-text,
-.c3-brand-text {
+.text {
 	background-position: top center;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-color: $base;
 	position: relative;
-	z-index: 0;
+	z-index: 2;
+
+	p {
+		font-size: inherit;
+		text-transform: inherit;
+		font-weight: inherit;
+		margin-top: 0;
+		margin-bottom: $paragraph-margin-bottom;
+	}
 
 	.text-overlay {
 		position: absolute;
@@ -154,45 +178,9 @@
 
 }
 
-.symbio-brand-text {
-	background-image: url("#{$asset-path}/img/symbio-brand.jpg");
-}
-
-.ths-brand-text {
-	background-image: url("#{$asset-path}/img/ths-brand.jpg");
-}
-
-.go-green-brand-text {
-	background-image: url("#{$asset-path}/img/go-green-brand.jpg");
-}
-
-.c3-brand-text {
-	background-image: url("#{$asset-path}/img/c3-brand.jpg");
-}
-
-.symbio-brand-logo,
-.go-green-brand-logo {
-
-	&:before {
-		left: -20%;
-	}
-
-}
-
-.ths-brand-logo,
-.c3-brand-logo {
-
-	&:before {
-		right: -20%;
-	}
-
-}
-
-.symbio-brand-logo,
-.ths-brand-logo,
-.go-green-brand-logo,
-.c3-brand-logo {
+.logo {
 	position: relative;
+	z-index: 1;
 
 	@include breakpoint(small only) {
 		height: rem-calc(340) !important;

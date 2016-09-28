@@ -34,6 +34,13 @@
 
   $('.off-canvas-list ul#main-menu-links>li').unwrap();
 
+  // add classes to split columns on product ranges page
+
+  $('.views-row-odd .text').addClass('split-box-left');
+  $('.views-row-odd .logo').addClass('split-box-right');
+  $('.views-row-even .text').addClass('medium-push-4 large-push-6 split-box-right');
+  $('.views-row-even .logo').addClass('medium-pull-8 large-pull-6 split-box-left');
+
   // add block grid class to site map list
 
   $('.site-map-box-menu>.content>ul.site-map-menu').addClass('row small-up-2 medium-up-3');
