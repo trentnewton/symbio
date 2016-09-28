@@ -27,3 +27,21 @@ regions[help]           = Help
 regions[bottom]         = Page bottom
 regions[page_top]       = Page top
 regions[page_bottom]    = Page bottom
+
+stylesheets[all][] = system.base.css
+stylesheets[all][] = system.theme.css
+stylesheets[all][] = system.messages.css
+stylesheets[all][] = system.menus.css
+stylesheets[all][] = search.css
+
+stylesheets[all][] = date.css
+stylesheets[all][] = field.css
+stylesheets[all][] = node.css
+stylesheets[all][] = user.css
+stylesheets[all][] = views.css
+
+stylesheets[all][] = ctools.css
+stylesheets[all][] = custom_search.css
+stylesheets[all][] = webform.css
+
+stylesheets[all][] = dist/assets/css/app.css
