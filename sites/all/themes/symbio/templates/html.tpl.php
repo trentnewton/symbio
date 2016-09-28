@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
 	<head>
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	    <meta name="HandheldFriendly" content="true">
 	    <title><?php print $head_title; ?></title>
-	    <meta name="application-name" content="<?php print $site_name; ?>">
-	    <meta name="msapplication-TileColor" content="#ffffff">
-		<meta name="msapplication-TileImage" content="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-270x270.png">
-	    <meta name="theme-color" content="#ffffff">
-	    <link rel="icon" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-192x192.png" sizes="192x192">
-	    <link rel="apple-touch-icon-precomposed" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-180x180.png">
 	    <?php print $styles; ?>
 		<?php print $head; ?>
 	</head>
