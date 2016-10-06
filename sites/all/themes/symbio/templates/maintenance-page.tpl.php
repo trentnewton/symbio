@@ -1,27 +1,15 @@
-<!DOCTYPE html>
-<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="HandheldFriendly" content="true">
-    <title><?php print $head_title; ?></title>
-    <meta name="application-name" content="<?php print $site_name; ?>">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-270x270.png">
-    <meta name="theme-color" content="#ffffff">
-    <link rel="icon" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-192x192.png" sizes="192x192">
-    <link rel="apple-touch-icon-precomposed" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/img/icon-180x180.png">
+<!doctype html<?php print $rdf_header; ?>>
+<html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"<?php print $rdf_namespaces; ?> itemscope itemtype="http://schema.org/WebSite">
+  <head<?php print $rdf_profile?>>
+      <title><?php print $head_title; ?></title>
     <?php print $head; ?>
-    <?php
-      global $user;
-      // Check to see if $user has the administrator role.
-      if (in_array('administrator', array_values($user->roles))) {
-        print $styles;
-      }
-    ?>
-    <link rel="stylesheet" href="<?php global $base_path; print $base_path; ?><?php print $directory; ?>/dist/assets/css/app.css">
+    <?php print $styles; ?>
   </head>
   <body class="<?php print $classes; ?>" <?php print $attributes;?> itemscope itemtype="http://schema.org/WebPage">
     <?php include ($directory."/partials/svg.php"); ?>
+    <div id="skip-link">
+      <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
+    </div>
     <?php print $page_top; ?>
     <?php include ($directory."/partials/login-header.php"); ?>
     <main id="main-content" class="login-body" itemscope itemprop="mainContentOfPage" itemtype="http://schema.org/WebPageElement">
