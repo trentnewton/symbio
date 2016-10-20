@@ -89,3 +89,43 @@ ul.pager {
     }
 
 }
+
+.ajax-progress .throbber,
+.views_infinite_scroll-ajax-loader {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg width='120px' height='120px' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' class='uil-ring'%3E %3Ccircle cx='50' cy='50' r='40' stroke-dasharray='163.36281798666926 87.9645943005142' stroke='#{$primary-color-rgb}' fill='none' stroke-width='20'%3E %3C/circle%3E %3C/svg%3E");
+	background-size: rem-calc(20);
+	width: rem-calc(20);
+	height: rem-calc(20);
+	// float: left;
+	margin: rem-calc(4);
+	animation-iteration-count: infinite;
+	animation-timing-function: linear;
+	animation-duration: $transition-time;
+	animation-name: rotating;
+}
+
+@keyframes rotating {
+
+	0% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+
+}
+
+.views_infinite_scroll-ajax-loader {
+
+	img {
+		display: none;
+	}
+
+}
+
+.pager--infinite-scroll {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
