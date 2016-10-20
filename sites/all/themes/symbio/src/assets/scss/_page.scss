@@ -225,12 +225,9 @@
 
 }
 
-.view-content {
-
-	> ul {
-		@extend .no-bullet;
-	}
-
+.view-content > ul,
+ul.view-content {
+	@extend .no-bullet;
 }
 
 .dropdown.menu {
