@@ -50,7 +50,7 @@
       <?php print $attachment_before; ?>
     </div>
   <?php endif; ?>
-  <ul class="view-content row medium-up-2 blah">
+  <ul class="view-content row medium-up-2">
     <?php if ($rows): ?>
       <?php print $rows; ?>
     <?php elseif ($empty): ?>
