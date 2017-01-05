@@ -26,9 +26,7 @@
 
   // wrap a's around current pagination numbers
 
-  $('li.pager-current').wrapInner('<a />');
-
-  $('li.pager-ellipsis').wrapInner('<a />');
+  $('li.pager-current, li.pager-ellipsis').wrapInner('<a />');
 
   // unwrap ul from mobile navigation
 
