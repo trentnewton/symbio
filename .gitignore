@@ -119,6 +119,8 @@ sites/all/modules/views/handlers/*
 # disallow these
 sites/example.sites.php
 sites/all/modules/admin_views
+sites/all/modules/advagg
+sites/all/modules/advanced_text_formatter
 sites/all/modules/autoupload
 sites/all/modules/backports
 sites/all/modules/backup_migrate
@@ -171,6 +173,7 @@ sites/all/modules/views_bulk_operations
 sites/all/modules/views_content_cache
 sites/all/modules/views_distinct
 sites/all/modules/views_field_view
+sites/all/modules/views_infinite_scroll
 sites/all/modules/webform
 sites/all/modules/webform_ajax
 sites/all/modules/xmlsitemap
