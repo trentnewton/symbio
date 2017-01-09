@@ -21,7 +21,7 @@
 The simplest method is to copy paste this snippet just before your closing `</body>` tag.
 
 ```html
-<script src="https://cdn.jsdelivr.net/scrollreveal.js/3.3.1/scrollreveal.min.js"></script>
+<script src="https://unpkg.com/scrollreveal@3.3.2/dist/scrollreveal.min.js"></script>
 ```
 
 But you can also:
@@ -120,10 +120,11 @@ viewFactor: 0.2,
 // Visual Aid: https://scrollrevealjs.org/assets/viewoffset.png
 viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
 
-// Callbacks that fire for each completed element reveal, and if
-// `config.reset = true`, for each completed element reset. When creating your
-// callbacks, remember they are passed the element’s DOM node that triggered
-// it as the first argument.
+// Callbacks that fire for each triggered element reveal, and reset.
+beforeReveal: function (domEl) {},
+beforeReset: function (domEl) {},
+
+// Callbacks that fire for each completed element reveal, and reset.
 afterReveal: function (domEl) {},
 afterReset: function (domEl) {}
 ```

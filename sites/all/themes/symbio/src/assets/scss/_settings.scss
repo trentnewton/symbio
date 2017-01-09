@@ -306,6 +306,8 @@ $button-sizes: (
   large: 1.25rem,
 );
 $button-opacity-disabled: 0.25;
+$button-background-hover-lightness: -20%;
+$button-hollow-hover-lightness: -50%;
 
 // 12. Button Group
 // ----------------
@@ -414,6 +416,7 @@ $input-cursor-disabled: default;
 $input-transition: all $transition-time ease-in-out;
 $input-number-spinners: true;
 $input-radius: 0;
+$button-radius: $global-radius;
 
 // 20. Label
 // ---------
@@ -494,6 +497,7 @@ $pagination-item-color-current: $pagination-item-color;
 $pagination-item-color-disabled: $iron;
 $pagination-ellipsis-color: $body-font-color;
 $pagination-mobile-items: false;
+$pagination-mobile-current-item: false;
 $pagination-arrows: true;
 
 // 27. Progress Bar
@@ -560,8 +564,11 @@ $table-row-stripe-hover: $gainsboro;
 $table-striped-background: $secondary-color-5;
 $table-stripe: even;
 $table-head-background: $secondary-color-50;
+$table-head-row-hover: darken($table-head-background, $table-hover-scale);
 $table-foot-background: $secondary-color-25;
+$table-foot-row-hover: darken($table-foot-background, $table-hover-scale);
 $table-head-font-color: $white;
+$table-foot-font-color: $body-font-color;
 $show-header-for-stacked: false;
 
 // 32. Tabs

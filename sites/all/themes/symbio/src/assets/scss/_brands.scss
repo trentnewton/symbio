@@ -72,8 +72,8 @@
 .views-row-odd {
 
 	.text {
+		@extend .split-box-left;
 		color: $white;
-		clip-path: polygon(95% 60%, 95% 100%, 0 100%, 0 0, 95% 0, 95% 40%, 100% 50%);
 
 		.row-split {
 			padding-right: 6%;
@@ -94,6 +94,7 @@
 	}
 
 	.logo {
+		@extend .split-box-right;
 
 		&:before {
 			left: -20%;
@@ -106,8 +107,8 @@
 .views-row-even {
 
 	.text {
+		@extend .split-box-right;
 		color: $secondary-color;
-		clip-path: polygon(5% 100%, 5% 60%, 0 50%, 5% 40%, 5% 0, 100% 0, 100% 100%);
 
 		.row-split {
 			padding-left: 6%;
@@ -132,6 +133,7 @@
 	}
 
 	.logo {
+		@extend .split-box-left;
 
 		&:before {
 			right: -20%;
@@ -143,6 +145,11 @@
 
 .views-row-even,
 .views-row-odd {
+
+	.text,
+	.logo {
+		min-height: rem-calc(480);
+	}
 
 	.text {
 		background-position: top center;
@@ -170,7 +177,6 @@
 		}
 
 		@include breakpoint(small only) {
-			clip-path: polygon(100% 95%, 60% 95%, 50% 100%, 40% 95%, 0 95%, 0 0, 100% 0);
 			height: auto !important;
 
 			.row-split {
