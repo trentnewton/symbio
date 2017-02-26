@@ -23,7 +23,7 @@
     var oddPoints = [[95, 60], [95, 100], [0, 100], [0, 0], [95, 0], [95, 40], [100, 50]];
     var smallPoints = [[100, 95], [60, 95], [50, 100], [40, 95], [0, 95], [0, 0], [100, 0]];
     var current_width = $(window).width();
-    if(current_width < 640){
+    if (current_width < 640){
       $('.views-row-odd .text').clipPath(smallPoints, {
         isPercentage: true,
         svgDefId: 'smalloddSvg'
@@ -48,7 +48,7 @@
 
   $(window).resize(clippathPolyfill);
 
-  $(document).ready(function(){
+  $(document).ready(function (){
 
     // add classes to split columns on product ranges page
 
