@@ -1,11 +1,3 @@
-// get header sass map
-
-@function header-size($breakpoint, $size) {
-
-    @return rem-calc(map-get(map-get($header-sizes, $breakpoint), $size) * 1px);
-
-}
-
 // mixins
 
 @mixin small-portrait {
