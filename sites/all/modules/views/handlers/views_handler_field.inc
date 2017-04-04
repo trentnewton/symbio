@@ -1204,7 +1204,7 @@ If you would like to have the characters \'[\' and \']\' please use the html ent
     // Filter this right away as our substitutions are already sanitized.
     // $value = filter_xss_admin($alter['text']);
     // $value = strtr($value, $tokens);
-    $value = strtr($alter['text'], $tokens);
+    $value = strtr($alter['text'], $tokens); // xss override
 
     return $value;
   }
