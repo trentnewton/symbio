@@ -126,7 +126,7 @@
 	color: $primary-color;
 	font-style: italic;
 	text-transform: lowercase;
-	font-size: header-size(medium, h3);
+	font-size: rem-calc(map-deep-get($header-styles, 'medium', 'h3', 'font-size') * 1px);
 	display: block;
 	margin-bottom: rem-calc(20);
 }
