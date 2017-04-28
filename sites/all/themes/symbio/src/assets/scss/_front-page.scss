@@ -41,7 +41,7 @@
 	}
 
 	p {
-		font-size: header-size(medium, h3);
+		font-size: rem-calc(map-deep-get($header-styles, 'medium', 'h3', 'font-size') * 1px);
 		text-transform: uppercase;
 		font-family: $header-font-family;
 		margin-top: rem-calc(144);
