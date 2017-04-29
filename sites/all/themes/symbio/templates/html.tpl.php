@@ -2,6 +2,7 @@
 <html class="no-js" lang="<?php print $language->language ?>" dir="<?php print $language->dir ?>"<?php print $rdf_namespaces; ?> itemscope itemtype="http://schema.org/WebSite">
 	<head<?php print $rdf_profile?>>
 	    <title><?php print $head_title; ?></title>
+	    <link type="text/plain" rel="author" href="/humans.txt">
 		<?php print $head; ?>
 		<?php print $styles; ?>
 	</head>
