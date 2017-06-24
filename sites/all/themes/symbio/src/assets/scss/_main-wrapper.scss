@@ -1,17 +1,17 @@
 // main wrapper
 
-.main-wrapper {
-	min-height: 100vh;
-	margin-bottom: -$footer-height;
+// .main-wrapper {
+// 	min-height: 100vh;
+// 	margin-bottom: -$footer-height;
 
-	&:after {
-		content: '';
-		display: block;
-	}
+// 	&:after {
+// 		content: '';
+// 		display: block;
+// 	}
 
-}
+// }
 
-.footer,
-.main-wrapper:after {
-	height: $footer-height;
-}
+// .footer,
+// .main-wrapper:after {
+// 	height: $footer-height;
+// }

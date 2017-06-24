@@ -44,11 +44,30 @@
     }
   }
 
-  $(document).ready(clippathPolyfill);
+  // function to set the height on fly
 
-  $(window).resize(clippathPolyfill);
+  function autoHeight() {
+    $('.main-wrapper, .front header.header').css('min-height', 0);
+    $('.main-wrapper, .front header.header').css('min-height', (
+      $(document).height()
+      // - $('#header').height()
+      - $('.top-info').height()
+      - $('.top-info').height()
+      - $('.top-info').height()
+      - $('footer.footer').height()
+    ));
+  }
+
+  // onResize bind of the function
+  $(window).resize(function() {
+    autoHeight();
+    clippathPolyfill();
+  });
 
   $(document).ready(function (){
+
+  	autoHeight();
+    clippathPolyfill();
 
     // add classes to split columns on product ranges page
 
