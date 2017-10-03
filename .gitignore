@@ -137,7 +137,6 @@ sites/all/modules/elements
 sites/all/modules/email
 sites/all/modules/entity
 sites/all/modules/file_entity
-sites/all/modules/google_analytics
 sites/all/modules/html5_tools
 sites/all/modules/instantfilter
 sites/all/modules/jquery_update
