@@ -80,9 +80,12 @@ function advagg_missing_generate($input = '') {
   if (is_string($data) || !is_array($data)) {
     // Try again with the function input.
     $filename = $input;
-    $data = advagg_get_hashes_from_filename($filename);
+    $data1 = advagg_get_hashes_from_filename($filename);
     if (is_string($data) || !is_array($data)) {
-      return $data;
+      return "$data $data1";
+    }
+    else {
+      $data = $data1;
     }
   }
 
@@ -297,7 +300,8 @@ function advagg_missing_send_saved_file(array $files_to_save, $uri, $created, $f
     }
 
     // Send out a 200 OK status.
-    header($_SERVER['SERVER_PROTOCOL'] . " 203 OK");
+    $number = variable_get('advagg_http_200_code', ADVAGG_HTTP_200_CODE);
+    header("{$_SERVER['SERVER_PROTOCOL']} $number OK");
 
     // Insure the Last-Modified header is set so 304's work correctly.
     if (file_exists($uri) && $filemtime = @filemtime($uri)) {
@@ -904,7 +908,7 @@ function advagg_get_css_aggregate_contents(array $files, array $aggregate_settin
       $import_statements[] = array($import_media, $matches[0]);
 
       // Close any open comment blocks.
-      $contents .= "/**/\n";
+      $contents .= "\n/*})'\"*/\n";
       if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0) {
         $contents .= "\n/* Above code came from $file */\n\n";
       }
@@ -980,7 +984,7 @@ function advagg_get_js_aggregate_contents(array $files, array $aggregate_setting
         }
 
         // Make sure that the file is ended properly.
-        $file_contents .= ";/**/\n";
+        $file_contents .= "\n;/*})'\"*/\n";
         if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0) {
           $file_contents .= "/* Above code came from $filename */\n\n";
         }
@@ -1237,7 +1241,7 @@ function advagg_save_data($uri, $data, $overwrite = FALSE) {
   }
 
   // Create temp filename.
-  $temporary_file = $dir . 'advagg_file_' . md5(getmypid() . microtime(TRUE) . mt_rand()) . $extension;
+  $temporary_file = $dir . 'advagg_file_' . drupal_hash_base64(microtime(TRUE) . mt_rand()) . $extension;
 
   // Save to temporary filename in the destination directory.
   $filepath = file_unmanaged_save_data($data, $temporary_file, FILE_EXISTS_REPLACE);

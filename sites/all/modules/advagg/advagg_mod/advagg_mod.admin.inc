@@ -33,7 +33,7 @@ function advagg_mod_admin_settings_form() {
   );
   $form['js']['advagg_mod_js_preprocess'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable preprocess on all JS'),
+    '#title' => t('Enable preprocess on all JS (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_preprocess', ADVAGG_MOD_JS_PREPROCESS),
     '#description' => t('Force all JavaScript to have the preprocess attribute be set to TRUE. All JavaScript files will be aggregated if enabled.'),
   );
@@ -45,13 +45,13 @@ function advagg_mod_admin_settings_form() {
   );
   $form['js']['advagg_mod_js_no_ajaxpagestate'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Remove ajaxPageState CSS and JS data if ajax.js is not used on this page'),
+    '#title' => t('Remove ajaxPageState CSS and JS data if ajax.js is not used on this page (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_no_ajaxpagestate', ADVAGG_MOD_JS_NO_AJAXPAGESTATE),
     '#description' => t('This assumes that the only thing that uses Drupal.settings.ajaxPageState.css and Drupal.settings.ajaxPageState.js is ajax.js.'),
   );
   $form['js']['advagg_mod_js_inline_resource_hints'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Resource hint src attributes found in the HTML content'),
+    '#title' => t('Resource hint src attributes found in the HTML content (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_inline_resource_hints', ADVAGG_MOD_JS_INLINE_RESOURCE_HINTS),
     '#description' => t('Scan any JavaScript that was added to the content part of the page incorrectly for a src attribute; if found use the advagg <a href="@url">resource hints settings</a> for faster loading.', array('@url' => url($config_path . '/advagg', array('fragment' => 'edit-resource-hints')))),
     '#disabled' => !variable_get('advagg_resource_hints_dns_prefetch', ADVAGG_RESOURCE_HINTS_DNS_PREFETCH) && !variable_get('advagg_resource_hints_preconnect', ADVAGG_RESOURCE_HINTS_PRECONNECT) && !variable_get('advagg_resource_hints_preload', ADVAGG_RESOURCE_HINTS_PRELOAD),
@@ -67,25 +67,25 @@ function advagg_mod_admin_settings_form() {
   );
   $form['js']['adjust_sort']['advagg_mod_js_head_extract'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move JavaScript added by drupal_add_html_head() into drupal_add_js()'),
+    '#title' => t('Move JavaScript added by drupal_add_html_head() into drupal_add_js() (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_head_extract', ADVAGG_MOD_JS_HEAD_EXTRACT),
     '#description' => t('This will move JavaScript added incorrectly to Drupal into the top of the drupal_add_js() queue.'),
   );
   $form['js']['adjust_sort']['advagg_mod_js_adjust_sort_external'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all external scripts to the top of the execution order'),
+    '#title' => t('Move all external scripts to the top of the execution order (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_adjust_sort_external', ADVAGG_MOD_JS_ADJUST_SORT_EXTERNAL),
     '#description' => t('This will group all external JavaScript files to be above all other JavaScript.'),
   );
   $form['js']['adjust_sort']['advagg_mod_js_adjust_sort_inline'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all inline scripts to the bottom of the execution order'),
+    '#title' => t('Move all inline scripts to the bottom of the execution order (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_adjust_sort_inline', ADVAGG_MOD_JS_ADJUST_SORT_INLINE),
     '#description' => t('This will group all inline JavaScript to be below all other JavaScript.'),
   );
   $form['js']['adjust_sort']['advagg_mod_js_adjust_sort_browsers'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all browser conditional JavaScript to the bottom of the group'),
+    '#title' => t('Move all browser conditional JavaScript to the bottom of the group (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_adjust_sort_browsers', ADVAGG_MOD_JS_ADJUST_SORT_BROWSERS),
     '#description' => t('This will group all browser conditional JavaScript to be in the lowest group of that conditional rule.'),
   );
@@ -129,7 +129,7 @@ function advagg_mod_admin_settings_form() {
     '#options' => array(
       0 => t('Disabled'),
       1 => t('All but JavaScript Libraries'),
-      3 => t('All but what is in the $all_in_footer_list'),
+      3 => t('All but what is in the $all_in_footer_list (recommended)'),
       2 => t('All (might break things)'),
     ),
     '#description' => t("If you have JavaScript inline in the body of your document, such as if you are displaying ads, you may need to keep Drupal JS Libraries in the head instead of moving them to the footer. This will keep all JS added with the JS_LIBRARY group in the head while still moving all other JavaScript to the footer."),
@@ -140,7 +140,7 @@ function advagg_mod_admin_settings_form() {
     '#default_value' => variable_get('advagg_mod_js_defer', ADVAGG_MOD_JS_DEFER),
     '#options' => array(
       0 => t('Disabled'),
-      2 => t('All but external scripts'),
+      2 => t('All but external scripts (recommended)'),
       1 => t('All (might break things)'),
     ),
     '#description' => t('This will delay the script execution until the HTML parser has finished. This will have a similar effect to moving all JavaScript to the footer. This might break javascript (especially inline); only use after extensive testing! <a href="@link">More Info</a>', array(
@@ -149,13 +149,13 @@ function advagg_mod_admin_settings_form() {
   );
   $form['js']['placement']['advagg_mod_js_async_in_header'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Asynchronous JavaScript Execution: Group together in the header'),
+    '#title' => t('Asynchronous JavaScript Execution: Group together in the header (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_async_in_header', ADVAGG_MOD_JS_ASYNC_IN_HEADER),
     '#description' => t('This will move all async JavaScript code to the header in the same group.'),
   );
   $form['js']['placement']['advagg_mod_js_footer_inline_alter'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Put a wrapper around inline JS if it was added in the content section incorrectly'),
+    '#title' => t('Put a wrapper around inline JS if it was added in the content section incorrectly (recommended)'),
     '#default_value' => variable_get('advagg_mod_js_footer_inline_alter', ADVAGG_MOD_JS_FOOTER_INLINE_ALTER),
     '#description' => t('This will put a wrapper around any inline JavaScript that was added to the content part of the page incorrectly. The wrapper will check every 250ms until window.Drupal.settings and window.jQuery are defined; at that point the inlined code will then run.'),
 
@@ -198,7 +198,7 @@ function advagg_mod_admin_settings_form() {
   );
   $form['js']['placement']['advagg_mod_js_defer_inline_alter'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Deferred inline JavaScript Execution: Put a wrapper around inline JS so it runs from a setTimeout call.'),
+    '#title' => t('Deferred inline JavaScript Execution: Put a wrapper around inline JS so it runs from a setTimeout call (recommended).'),
     '#default_value' => variable_get('advagg_mod_js_defer_inline_alter', ADVAGG_MOD_JS_DEFER_INLINE_ALTER),
     '#description' => t('This will put a wrapper around any inline JavaScript.'),
   );
@@ -254,7 +254,7 @@ function advagg_mod_admin_settings_form() {
   );
   $form['css']['advagg_mod_css_preprocess'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Enable preprocess on all CSS'),
+    '#title' => t('Enable preprocess on all CSS (recommended)'),
     '#default_value' => variable_get('advagg_mod_css_preprocess', ADVAGG_MOD_CSS_PREPROCESS),
     '#description' => t('Force all CSS to have the preprocess attribute be set to TRUE. All CSS files will be aggregated if enabled.'),
   );
@@ -293,25 +293,25 @@ function advagg_mod_admin_settings_form() {
   );
   $form['css']['adjust_sort']['advagg_mod_css_head_extract'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move CSS added by drupal_add_html_head() into drupal_add_css()'),
+    '#title' => t('Move CSS added by drupal_add_html_head() into drupal_add_css() (recommended)'),
     '#default_value' => variable_get('advagg_mod_css_head_extract', ADVAGG_MOD_CSS_HEAD_EXTRACT),
     '#description' => t('This will move CSS added incorrectly to Drupal into the top of the drupal_add_css() queue.'),
   );
   $form['css']['adjust_sort']['advagg_mod_css_adjust_sort_external'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all external CSS to the top of the execution order'),
+    '#title' => t('Move all external CSS to the top of the execution order (recommended)'),
     '#default_value' => variable_get('advagg_mod_css_adjust_sort_external', ADVAGG_MOD_CSS_ADJUST_SORT_EXTERNAL),
     '#description' => t('This will group all external CSS files to be above all other CSS.'),
   );
   $form['css']['adjust_sort']['advagg_mod_css_adjust_sort_inline'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all inline CSS to the bottom of the execution order'),
+    '#title' => t('Move all inline CSS to the bottom of the execution order (recommended)'),
     '#default_value' => variable_get('advagg_mod_css_adjust_sort_inline', ADVAGG_MOD_CSS_ADJUST_SORT_INLINE),
     '#description' => t('This will group all inline CSS to be below all other CSS.'),
   );
   $form['css']['adjust_sort']['advagg_mod_css_adjust_sort_browsers'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Move all browser conditional CSS to the bottom of the group'),
+    '#title' => t('Move all browser conditional CSS to the bottom of the group (recommended)'),
     '#default_value' => variable_get('advagg_mod_css_adjust_sort_browsers', ADVAGG_MOD_CSS_ADJUST_SORT_BROWSERS),
     '#description' => t('This will group all browser conditional CSS to be in the lowest group of that conditional rule.'),
   );
@@ -330,7 +330,7 @@ function advagg_mod_admin_settings_form() {
       0 => t('Disabled'),
       1 => t('All in head, above js'),
       3 => t('All in head'),
-      4 => t('All in head, use link rel="preload" (If enabled this is recommended)'),
+      4 => t('All in head, use link rel="preload" (recommended)'),
       5 => t('All in footer except for JS loading code'),
       7 => t('All in footer'),
     ),
@@ -360,6 +360,7 @@ function advagg_mod_admin_settings_form() {
   else {
     $title = t('Pages');
   }
+  $options += array(3 => t('File Controlled (Recommended).'));
 
   if ($visibility_defer == ADVAGG_MOD_VISIBILITY_PHP && !$access) {
     $form['css']['placement']['visibility_all'] = array(
@@ -377,7 +378,7 @@ function advagg_mod_admin_settings_form() {
       '#title' => t('Defer CSS only on specific pages'),
       '#options' => $options,
       '#default_value' => $visibility_defer,
-      '#description' => t('Apply the above CSS setting only on specific pages. On other pages it will act as being Disabled.'),
+      '#description' => t('Apply the above CSS setting only on specific pages. On other pages it will act as being Disabled. File Controlled will only use loadCSS() if a critical css file has been found and can be inlined.'),
       '#states' => array(
         'disabled' => array(
           ':input[name="advagg_mod_css_defer"]' => array('value' => '0'),
@@ -392,6 +393,35 @@ function advagg_mod_admin_settings_form() {
       '#states' => array(
         'disabled' => array(
           ':input[name="advagg_mod_css_defer"]' => array('value' => '0'),
+        ),
+        'invisible' => array(
+          ':input[name="advagg_mod_css_defer_visibility"]' => array('value' => '3'),
+        ),
+      ),
+    );
+    list(, $params) = advagg_mod_find_critical_css_file();
+    list($dirs) = $params;
+    $theme_path = drupal_get_path('theme', variable_get('theme_default', NULL)) . '/';
+    $form['css']['placement']['advagg_mod_css_defer_visibility_file_explained'] = array(
+      '#type' => 'item',
+      '#markup' => t('Valid example file locations for this page: <p><code>@line1</code><br><code>@line2</code><br><code>@line3</code></p> valid example file locations for the "front" page: <p><code>@line4</code><br><code>@line5</code><br><code>@line6</code></p> valid example file locations for "node/1" (<a href="@url">current_path()</a>) page: <p><code>@line7</code><br><code>@line8</code><br><code>@line9</code></p> valid example file locations for the node type of "page": <p><code>@line10</code><br><code>@line11</code><br><code>@line12</code></p>', array(
+        '@url' => 'https://api.drupal.org/api/drupal/includes%21path.inc/function/current_path/7.x',
+        '@line1' => "{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[4]}{$dirs[6]}.css",
+        '@line2' => "{$dirs[0]}{$dirs[1]}anonymous/{$dirs[4]}{$dirs[6]}.css",
+        '@line3' => "{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[4]}{$dirs[6]}.css",
+        '@line4' => "{$theme_path}{$dirs[1]}{$dirs[2]}{$dirs[4]}front.css",
+        '@line5' => "{$theme_path}{$dirs[1]}anonymous/{$dirs[4]}front.css",
+        '@line6' => "{$theme_path}{$dirs[1]}{$dirs[3]}{$dirs[4]}front.css",
+        '@line7' => "{$theme_path}{$dirs[1]}{$dirs[2]}{$dirs[4]}node/1.css",
+        '@line8' => "{$theme_path}{$dirs[1]}anonymous/{$dirs[4]}node/1.css",
+        '@line9' => "{$theme_path}{$dirs[1]}{$dirs[3]}{$dirs[4]}node/1.css",
+        '@line10' => "{$theme_path}{$dirs[1]}{$dirs[2]}{$dirs[5]}page.css",
+        '@line11' => "{$theme_path}{$dirs[1]}anonymous/{$dirs[5]}page.css",
+        '@line12' => "{$theme_path}{$dirs[1]}{$dirs[3]}{$dirs[5]}page.css",
+      )),
+      '#states' => array(
+        'visible' => array(
+          ':input[name="advagg_mod_css_defer_visibility"]' => array('value' => '3'),
         ),
       ),
     );
@@ -410,6 +440,9 @@ function advagg_mod_admin_settings_form() {
       'disabled' => array(
         ':input[name="advagg_mod_css_defer"]' => array('value' => '0'),
       ),
+      'invisible' => array(
+        ':input[name="advagg_mod_css_defer_visibility"]' => array('value' => '3'),
+      ),
     ),
   );
   $form['css']['placement']['advagg_mod_css_defer_js_code'] = array(
@@ -417,7 +450,7 @@ function advagg_mod_admin_settings_form() {
     '#title' => t('How to include the JS loading code'),
     '#default_value' => variable_get('advagg_mod_css_defer_js_code', ADVAGG_MOD_CSS_DEFER_JS_CODE),
     '#options' => array(
-      0 => t('Inline javascript loader library (If enabled this is recommended)'),
+      0 => t('Inline javascript loader library (recommended)'),
       2 => t('Local file included in aggregate'),
       4 => t('Externally load the latest from github'),
     ),
@@ -438,6 +471,9 @@ function advagg_mod_admin_settings_form() {
     '#states' => array(
       'disabled' => array(
         ':input[name="advagg_mod_css_defer"]' => array('value' => '0'),
+      ),
+      'invisible' => array(
+        ':input[name="advagg_mod_css_defer_visibility"]' => array('value' => '3'),
       ),
     ),
   );
@@ -607,6 +643,12 @@ function advagg_mod_admin_settings_form_validate($form, &$form_state) {
 function advagg_mod_admin_settings_form_submit($form, &$form_state) {
   // Clear caches.
   advagg_cache_clear_admin_submit();
+
+  // If file controlled, turn off skip first file turn on admin defer.
+  if ($form_state['values']['advagg_mod_css_defer_visibility'] == 3) {
+    $form_state['values']['advagg_mod_css_defer_skip_first_file'] = 0;
+    $form_state['values']['advagg_mod_css_defer_admin'] = TRUE;
+  }
 
   // If unified_multisite_dir has changed, flush menu router at the end of the
   // request.

@@ -551,6 +551,44 @@ function advagg_mod_process_move_js(array &$variables) {
 }
 
 /**
+ * Implements hook_page_alter().
+ */
+function advagg_mod_page_alter(&$page) {
+  // The $page variable is not an array; or the content key does not exist.
+  if (!is_array($page) || !isset($page['content'])) {
+    return;
+  }
+  // Return early if this setting is disabled.
+  list(, , , , , , , , , , $css_defer) = advagg_mod_get_lists();
+  if (empty($css_defer)) {
+    return;
+  }
+
+  // Get critical css file.
+  list($filenames) = advagg_mod_find_critical_css_file();
+
+  // Add inline critical css for front page.
+  if (!empty($filenames[0])) {
+    $inline_css = advagg_load_stylesheet($filenames[0], TRUE);
+    $page['content']['#attached']['css'][$filenames[0]] = array(
+      'data' => $inline_css,
+      'type' => 'inline',
+      'group' => CSS_SYSTEM - 1,
+      'weight' => -50000,
+      'movable' => FALSE,
+      'critical-css' => TRUE,
+    );
+    // Add in domain prefetch.
+    if (!empty($filenames[1]) && is_readable($filenames[1])) {
+      $domains = array_unique(file($filenames[1], FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES));
+      foreach ($domains as $domain) {
+        advagg_add_dns_prefetch($domain);
+      }
+    }
+  }
+}
+
+/**
  * @} End of "addtogroup hooks".
  */
 
@@ -727,6 +765,15 @@ function advagg_mod_advagg_modify_css_pre_render_alter(&$children, &$elements) {
     }
   }
 
+  // See if the onloadCSS.js is needed.
+  $onload_css = FALSE;
+  foreach ($children as $children_key => $values) {
+    if (!empty($values['#attributes']['onloadCSS'])) {
+      $onload_css = TRUE;
+      break;
+    }
+  }
+
   static $added;
   $library = advagg_library('loadCSS', 'advagg_mod');
   $options_defaults = advagg_mod_loadcss_js_defaults();
@@ -734,6 +781,9 @@ function advagg_mod_advagg_modify_css_pre_render_alter(&$children, &$elements) {
   $preload = '';
   if ($css_defer == 4) {
     $preload = '-preload';
+  }
+  elseif ($onload_css) {
+    $preload = '-onload';
   }
   $css_defer_js_code = variable_get('advagg_mod_css_defer_js_code', ADVAGG_MOD_CSS_DEFER_JS_CODE);
   if ($css_defer_js_code == 2) {
@@ -828,6 +878,11 @@ function advagg_mod_advagg_modify_css_pre_render_alter(&$children, &$elements) {
         $inline .= ", \"{$values['#attributes']['crossorigin']}\"";
       }
       $inline .= ')';
+
+      // Create onloadCSS wrapper code.
+      if (!empty($values['#attributes']['onloadCSS'])) {
+        $inline = "onloadCSS({$inline}, function() {{$values['#attributes']['onloadCSS']}});";
+      }
 
       // Make code work if loader code is below loadcss calls.
       $matches[2] = $matches[0] = $inline;
@@ -1012,6 +1067,20 @@ function advagg_mod_libraries_info() {
           ),
         ),
       ),
+      'normal-onload' => array(
+        'files' => array(
+          'js' => array(
+            'src/loadCSS.js' => array(
+              'type' => 'file',
+              'async' => TRUE,
+            ),
+            'src/onloadCSS.js' => array(
+              'type' => 'file',
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      ),
       'minified' => array(
         'files' => array(
           'js' => array(
@@ -1030,6 +1099,20 @@ function advagg_mod_libraries_info() {
               'async' => TRUE,
             ),
             'src/cssrelpreload.min.js' => array(
+              'type' => 'file',
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      ),
+      'minified-onload' => array(
+        'files' => array(
+          'js' => array(
+            'src/loadCSS.min.js' => array(
+              'type' => 'file',
+              'async' => TRUE,
+            ),
+            'src/onloadCSS.min.js' => array(
               'type' => 'file',
               'async' => TRUE,
             ),
@@ -1058,6 +1141,22 @@ function advagg_mod_libraries_info() {
             "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/cssrelpreload.js" => array(
               'type' => 'external',
               'data' => "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/cssrelpreload.js",
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      ),
+      'external-onload' => array(
+        'files' => array(
+          'js' => array(
+            "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/loadCSS.js" => array(
+              'type' => 'external',
+              'data' => "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/loadCSS.js",
+              'async' => TRUE,
+            ),
+            "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/onloadCSS.js" => array(
+              'type' => 'external',
+              'data' => "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/onloadCSS.js",
               'async' => TRUE,
             ),
           ),
@@ -1092,6 +1191,23 @@ function advagg_mod_libraries_info() {
           ),
         ),
       ),
+      'local-onload' => array(
+        'version' => '1.3.1',
+        'files' => array(
+          'js' => array(
+            "{$advagg_mod_path}/loadCSS.js" => array(
+              'type' => 'file',
+              'data' => "{$advagg_mod_path}/loadCSS.js",
+              'async' => TRUE,
+            ),
+            "{$advagg_mod_path}/onloadCSS.js" => array(
+              'type' => 'file',
+              'data' => "{$advagg_mod_path}/onloadCSS.js",
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      ),
       'local-minified' => array(
         'version' => '1.3.1',
         'files' => array(
@@ -1121,12 +1237,30 @@ function advagg_mod_libraries_info() {
           ),
         ),
       ),
+      'local-minified-onload' => array(
+        'version' => '1.3.1',
+        'files' => array(
+          'js' => array(
+            "{$advagg_mod_path}/loadCSS.min.js" => array(
+              'type' => 'file',
+              'data' => "{$advagg_mod_path}/loadCSS.min.js",
+              'async' => TRUE,
+            ),
+            "{$advagg_mod_path}/onloadCSS.min.js" => array(
+              'type' => 'file',
+              'data' => "{$advagg_mod_path}/onloadCSS.min.js",
+              'async' => TRUE,
+            ),
+          ),
+        ),
+      ),
     ),
   );
 
   // Add inline data.
   $loadcss_loc = "{$advagg_mod_path}/loadCSS.min.js";
   $cssrelpreload_loc = "{$advagg_mod_path}/cssrelpreload.min.js";
+  $onloadcss_loc = "{$advagg_mod_path}/onloadCSS.min.js";
   // Use given library if there.
   $libraries_paths = array();
   if (is_callable('libraries_get_libraries')) {
@@ -1151,6 +1285,17 @@ function advagg_mod_libraries_info() {
     }
     elseif (is_readable($libraries_paths['loadCSS'] . '/src/cssrelpreload.js')) {
       $cssrelpreload_loc = $libraries_paths['loadCSS'] . '/src/cssrelpreload.js';
+    }
+
+    // Get location of onloadCSS.
+    if (is_readable($libraries_paths['loadCSS'] . '/src/onloadCSS.min.js')) {
+      $onloadcss_loc = $libraries_paths['loadCSS'] . '/src/onloadCSS.min.js';
+      if ($libraries['loadCSS']['variants']['minified']['#files_exists']) {
+        $libraries['loadCSS']['variants']['minified-preload']['#files_exists'] = TRUE;
+      }
+    }
+    elseif (is_readable($libraries_paths['loadCSS'] . '/src/onloadCSS.js')) {
+      $onloadcss_loc = $libraries_paths['loadCSS'] . '/src/onloadCSS.js';
     }
   }
 
@@ -1178,6 +1323,22 @@ function advagg_mod_libraries_info() {
           'cssrelpreload_inline' => array(
             'type' => 'inline',
             'data' => (string) @advagg_file_get_contents($cssrelpreload_loc),
+            'no_defer' => TRUE,
+          ),
+        ),
+      ),
+    ),
+    'inline-onload' => array(
+      'files' => array(
+        'js' => array(
+          'loadCSS_inline' => array(
+            'type' => 'inline',
+            'data' => (string) @advagg_file_get_contents($loadcss_loc),
+            'no_defer' => TRUE,
+          ),
+          'onloadCSS_inline' => array(
+            'type' => 'inline',
+            'data' => (string) @advagg_file_get_contents($onloadcss_loc),
             'no_defer' => TRUE,
           ),
         ),
@@ -1278,6 +1439,89 @@ function advagg_mod_magic(array $magic_settings, $theme) {
 /**
  * @} End of "addtogroup 3rd_party_hooks".
  */
+
+/**
+ * Try to find the critical css file.
+ *
+ * @return array
+ *   The css and dns files to use.
+ */
+function advagg_mod_find_critical_css_file() {
+  $filename = FALSE;
+  $dirs = array(
+    0 => drupal_get_path('theme', $GLOBALS['theme']) . '/',
+    1 => 'critical-css/',
+    // Use authenticated|anonymous or all.
+    2 => user_is_logged_in() ? 'authenticated/' : 'anonymous/',
+    3 => 'all/',
+    // Use urls or object_type.
+    4 => 'urls/',
+    5 => 'type/',
+    6 => current_path(),
+  );
+  $front_page = drupal_is_front_page();
+  $object = menu_get_object();
+  $params = array($dirs, $front_page, $object);
+
+  // Allow for altering the starting point.
+  // Call hook_advagg_mod_critical_css_file_pre_alter().
+  drupal_alter('advagg_mod_critical_css_file_pre', $filename, $params);
+  list($dirs, $front_page, $object) = $params;
+
+  // Look in themename/critical-css/authenticated|anonymous/urls|object_type.
+  if (!empty($dirs[0]) || !empty($dirs[1])) {
+    if (!$filename
+      && $front_page
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[4]}front.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[4]}front";
+    }
+    if (!$filename
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[4]}{$dirs[6]}.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[4]}{$dirs[6]}";
+    }
+    if (!$filename
+      && isset($object->type)
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[5]}{$object->type}.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[2]}{$dirs[5]}{$object->type}";
+    }
+
+    // Look in themename/critical-css/all/urls|object_type.
+    if (!$filename
+      && $front_page
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[4]}front.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[4]}front";
+    }
+    if (!$filename
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[4]}{$dirs[6]}.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[4]}{$dirs[6]}";
+    }
+    if (!$filename
+      && isset($object->type)
+      && is_readable("{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[5]}{$object->type}.css")
+    ) {
+      $filename = "{$dirs[0]}{$dirs[1]}{$dirs[3]}{$dirs[5]}{$object->type}";
+    }
+  }
+
+  // Build return array.
+  $filenames = array('', '');
+  if ($filename) {
+    $filenames = array(
+      "$filename.css",
+      "$filename.dns",
+    );
+  }
+
+  // Allow for altering the ending point.
+  // Call hook_advagg_mod_critical_css_file_post_alter().
+  drupal_alter('advagg_mod_critical_css_file_post', $filenames, $params);
+  return array($filenames, $params);
+}
 
 /**
  * Form validation handler. Disable certain magic settings before being saved.
@@ -2578,7 +2822,13 @@ function advagg_mod_sort_css_js(array &$array, $type) {
 function advagg_mod_inline_page() {
   $visibility = variable_get('advagg_mod_inline_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_pages', '');
-  return advagg_mod_match_path($pages, $visibility);
+
+  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
+    return advagg_mod_match_path($pages, $visibility);
+  }
+  else {
+    return FALSE;
+  }
 }
 
 /**
@@ -2590,7 +2840,13 @@ function advagg_mod_inline_page() {
 function advagg_mod_inline_page_css() {
   $visibility = variable_get('advagg_mod_inline_css_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_css_pages', '');
-  return advagg_mod_match_path($pages, $visibility);
+
+  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
+    return advagg_mod_match_path($pages, $visibility);
+  }
+  else {
+    return FALSE;
+  }
 }
 
 /**
@@ -2602,7 +2858,13 @@ function advagg_mod_inline_page_css() {
 function advagg_mod_inline_page_js() {
   $visibility = variable_get('advagg_mod_inline_js_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_js_pages', '');
-  return advagg_mod_match_path($pages, $visibility);
+
+  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
+    return advagg_mod_match_path($pages, $visibility);
+  }
+  else {
+    return FALSE;
+  }
 }
 
 /**
@@ -2614,7 +2876,13 @@ function advagg_mod_inline_page_js() {
 function advagg_mod_css_defer_page() {
   $visibility = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_NOTLISTED);
   $pages = variable_get('advagg_mod_css_defer_pages', '');
-  return advagg_mod_match_path($pages, $visibility);
+
+  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
+    return advagg_mod_match_path($pages, $visibility);
+  }
+  else {
+    return FALSE;
+  }
 }
 
 /**
@@ -2740,7 +3008,7 @@ function advagg_mod_match_path($pages, $visibility) {
       // those pages listed in $block->pages.
       $page_match = !($visibility xor $page_match);
     }
-    elseif (module_exists('php')) {
+    elseif (module_exists('php') && $visibility == ADVAGG_MOD_VISIBILITY_PHP) {
       $page_match = php_eval($pages);
     }
     else {

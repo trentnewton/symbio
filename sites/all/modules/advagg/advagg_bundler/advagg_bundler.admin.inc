@@ -18,7 +18,7 @@ function advagg_bundler_admin_settings_form() {
   $form = array();
   $form['advagg_bundler_active'] = array(
     '#type' => 'checkbox',
-    '#title' => t('Bundler is Active'),
+    '#title' => t('Bundler is Active (recommended)'),
     '#default_value' => variable_get('advagg_bundler_active', ADVAGG_BUNDLER_ACTIVE),
     '#description' => t('If not checked, the bundler will passively monitor your site, but it will not split up aggregates.'),
   );
@@ -46,7 +46,7 @@ function advagg_bundler_admin_settings_form() {
     '#title' => t('Target Number Of CSS Bundles Per Page'),
     '#default_value' => variable_get('advagg_bundler_max_css', ADVAGG_BUNDLER_MAX_CSS),
     '#options' => $options,
-    '#description' => t('If 0 is selected then the bundler is disabled'),
+    '#description' => t('If 0 is selected then the bundler is disabled. 2 is recommended for HTTP 1.1 and 15 for HTTP 2.0.'),
     '#states' => array(
       'disabled' => array(
         '#edit-advagg-bundler-active' => array('checked' => FALSE),
@@ -58,7 +58,7 @@ function advagg_bundler_admin_settings_form() {
     '#title' => t('Target Number Of JS Bundles Per Page'),
     '#default_value' => variable_get('advagg_bundler_max_js', ADVAGG_BUNDLER_MAX_JS),
     '#options' => $options,
-    '#description' => t('If 0 is selected then the bundler is disabled'),
+    '#description' => t('If 0 is selected then the bundler is disabled. 5 is recommended for HTTP 1.1 and 15 for HTTP 2.0.'),
     '#states' => array(
       'disabled' => array(
         '#edit-advagg-bundler-active' => array('checked' => FALSE),
@@ -72,7 +72,7 @@ function advagg_bundler_admin_settings_form() {
     '#default_value' => variable_get('advagg_bundler_grouping_logic', ADVAGG_BUNDLER_GROUPING_LOGIC),
     '#options' => array(
       0 => t('File count'),
-      1 => t('File size'),
+      1 => t('File size (recommended)'),
     ),
     '#description' => t('If file count is selected then each bundle will try to have a similar number of original files aggregated inside of it. If file size is selected then each bundle will try to have a similar file size.'),
     '#states' => array(

@@ -112,9 +112,9 @@ define('ADVAGG_CLEAR_SCRIPTS', TRUE);
 define('ADVAGG_NEEDS_UPDATE', FALSE);
 
 /**
- * How long to wait until advagg cron will run again. Default is 24 hours.
+ * How long to wait until advagg cron will run again. Default is 23 hours.
  */
-define('ADVAGG_CRON_FREQUENCY', 86400);
+define('ADVAGG_CRON_FREQUENCY', 82800);
 
 /**
  * How long to wait until unaccessed aggregates are removed from the database.
@@ -319,6 +319,11 @@ define('ADVAGG_JS_REMOVE_EMPTY_FILES', FALSE);
 define('ADVAGG_DISABLE_ON_ADMIN', FALSE);
 
 /**
+ * Default is 200; 203 has been requested in the past.
+ */
+define('ADVAGG_HTTP_200_CODE', 200);
+
+/**
  * @} End of "defgroup default_variables".
  */
 
@@ -340,7 +345,7 @@ function advagg_block_view_alter(&$data, $block) {
     return;
   }
 
-  if (empty($data) || !isset($data['content'])) {
+  if (empty($data) || empty($data['content'])) {
     return;
   }
 
@@ -1171,6 +1176,24 @@ function advagg_js_alter(&$js) {
  * @{
  * Hooks that are not apart of core or AdvAgg.
  */
+
+/**
+ * Implements hook_cron_alter().
+ */
+function advagg_cron_alter(&$data) {
+  // Run this cron job every 2 minutes.
+  if (isset($data['advagg_js_compress_cron'])) {
+    $data['advagg_js_compress_cron']['rule'] = '*/2 * * * *';
+  }
+  // Run this cron job every 5 minutes.
+  if (isset($data['advagg_relocate_cron'])) {
+    $data['advagg_relocate_cron']['rule'] = '*/5 * * * *';
+  }
+  // Run this cron job every day.
+  if (isset($data['advagg_cron'])) {
+    $data['advagg_cron']['rule'] = '0 0 * * *';
+  }
+}
 
 /**
  * Implements hook_password_policy_force_change_allowed_paths_alter().
@@ -3201,11 +3224,19 @@ function advagg_enabled() {
       $GLOBALS['conf']['preprocess_js'] = FALSE;
     }
 
+    // Check if the advagg cookie is set.
+    $cookie_name = 'AdvAggDisabled';
+    $bypass_cookie = FALSE;
+    $key = drupal_hmac_base64('advagg_cookie', drupal_get_private_key() . drupal_get_hash_salt() . variable_get('cron_key', 'drupal'));
+    if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
+      $bypass_cookie = TRUE;
+    }
+
     // Allow for AdvAgg to be enabled per request.
     if (isset($_GET['advagg'])
       && $_GET['advagg'] == 1
       && !defined('MAINTENANCE_MODE')
-      && user_access('bypass advanced aggregation')
+      && (user_access('bypass advanced aggregation') || $bypass_cookie)
     ) {
       $GLOBALS['conf']['advagg_enabled'] = TRUE;
       $GLOBALS['conf']['preprocess_css'] = TRUE;
@@ -3220,12 +3251,11 @@ function advagg_enabled() {
     if (variable_get('advagg_enabled', ADVAGG_ENABLED)) {
       // Do not use AdvAgg or preprocessing functions if the disable cookie is
       // set.
-      $cookie_name = 'AdvAggDisabled';
-      $key = drupal_hash_base64(drupal_get_private_key());
-      if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
+      if ($bypass_cookie && !isset($_GET['advagg'])) {
         $GLOBALS['conf']['advagg_enabled'] = FALSE;
         $GLOBALS['conf']['preprocess_css'] = FALSE;
         $GLOBALS['conf']['preprocess_js'] = FALSE;
+        $bypass_cookie = TRUE;
 
         // Let the user know that the AdvAgg bypass cookie is currently set.
         static $msg_set;
@@ -3247,7 +3277,7 @@ function advagg_enabled() {
       // Disable advagg if requested.
       if (isset($_GET['advagg'])
         && $_GET['advagg'] == -1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['advagg_enabled'] = FALSE;
         $GLOBALS['conf']['preprocess_css'] = FALSE;
@@ -3256,7 +3286,7 @@ function advagg_enabled() {
       // Disable core preprocessing if requested.
       if (isset($_GET['advagg-core'])
         && $_GET['advagg-core'] == 0
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['preprocess_css'] = FALSE;
         $GLOBALS['conf']['preprocess_js'] = FALSE;
@@ -3264,7 +3294,7 @@ function advagg_enabled() {
       // Enable core preprocessing if requested.
       if (isset($_GET['advagg-core'])
         && $_GET['advagg-core'] == 1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['preprocess_css'] = TRUE;
         $GLOBALS['conf']['preprocess_js'] = TRUE;
@@ -3272,7 +3302,7 @@ function advagg_enabled() {
       // Enable debugging if requested.
       if (isset($_GET['advagg-debug'])
         && $_GET['advagg-debug'] == 1
-        && user_access('bypass advanced aggregation')
+        && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
         $GLOBALS['conf']['advagg_debug'] = TRUE;
       }
@@ -3300,7 +3330,7 @@ function advagg_admin_config_root_path() {
  */
 function advagg_current_hooks_hash_array() {
   $aggregate_settings = &drupal_static(__FUNCTION__);
-  if (isset($aggregate_settings)) {
+  if (!empty($aggregate_settings)) {
     return $aggregate_settings;
   }
   list($css_path, $js_path) = advagg_get_root_files_dir();
@@ -3365,7 +3395,7 @@ function advagg_current_hooks_hash_array() {
 function advagg_get_current_hooks_hash() {
   $current_hash = &drupal_static(__FUNCTION__);
 
-  if (!isset($current_hash)) {
+  if (empty($current_hash)) {
     // Get all advagg hooks and variables in use.
     $aggregate_settings = advagg_current_hooks_hash_array();
 
@@ -4693,7 +4723,7 @@ function advagg_scan_filesystem_for_changes_live() {
 
   $bypass_cookie = FALSE;
   $cookie_name = 'AdvAggDisabled';
-  $key = drupal_hash_base64(drupal_get_private_key());
+  $key = drupal_hmac_base64('advagg_cookie', drupal_get_private_key() . drupal_get_hash_salt() . variable_get('cron_key', 'drupal'));
   if (!empty($_COOKIE[$cookie_name]) && $_COOKIE[$cookie_name] == $key) {
     $bypass_cookie = TRUE;
   }
@@ -5485,7 +5515,7 @@ function advagg_get_remote_libraries_versions($refresh = FALSE) {
       }
 
       // Check if callback is live.
-      $remote = advagg_get_remote_libraries_version($key, $library);
+      $remote = advagg_get_remote_libraries_version($key, $library, FALSE);
       if (!empty($remote)) {
         $versions[$key]['remote'] = $remote;
       }
@@ -5534,7 +5564,7 @@ function advagg_get_remote_libraries_versions_cache($cid = '') {
  * @return string
  *   The latest version number as a string or 0 on failure.
  */
-function advagg_get_remote_libraries_version($name, array $library, $use_cache = FALSE) {
+function advagg_get_remote_libraries_version($name, array $library, $use_cache = TRUE) {
   if ($use_cache) {
     $cid = 'advagg_get_remote_libraries_versions';
     $versions = advagg_get_remote_libraries_versions_cache($cid);

@@ -146,7 +146,7 @@ function advagg_relocate_css_alter(&$css) {
 
   $aggregate_settings = advagg_current_hooks_hash_array();
   // Check external css setting.
-  if (!$aggregate_settings['variables']['advagg_relocate_css_inline_external']) {
+  if (empty($aggregate_settings['variables']['advagg_relocate_css_inline_external'])) {
     return;
   }
 
@@ -369,7 +369,7 @@ function advagg_relocate_js_post_alter(array &$js, $force_check = FALSE) {
 
   $aggregate_settings = advagg_current_hooks_hash_array();
   // Check external js setting.
-  if (!$aggregate_settings['variables']['advagg_relocate_js']) {
+  if (empty($aggregate_settings['variables']['advagg_relocate_js'])) {
     return;
   }
 
@@ -831,6 +831,9 @@ function _advagg_relocate_get_urls(array $data, $type, array $aggregate_settings
     // If no_relocate=TRUE, do not move it to be local.
     if (!empty($value['no_relocate'])) {
       continue;
+    }
+    if (empty($value['data'])) {
+      $value['data'] = $key;
     }
     $parsed = parse_url($value['data']);
     if (!empty($domains_blacklist)) {

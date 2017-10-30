@@ -191,7 +191,7 @@ function advagg_ext_compress_string(&$contents, $type, $log_errors) {
   else {
     $dir = $js_path[0];
   }
-  $new_temp_file = $dir . '/advagg_file_' . md5(getmypid() . microtime(TRUE) . mt_rand()) . '.' . $type;
+  $new_temp_file = $dir . '/advagg_file_' . drupal_hash_base64(microtime(TRUE) . mt_rand()) . '.' . $type;
   $temp_file_full = advagg_get_relative_path($new_temp_file);
 
   file_put_contents($new_temp_file, $contents);
