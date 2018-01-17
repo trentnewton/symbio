@@ -212,6 +212,9 @@ function advagg_insert_update_files(array $files, $type) {
           ->insertFields($record)
           ->execute();
         if ($return) {
+          if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
+            watchdog('advagg-debug', 'Inserting into db <pre>@record</pre>.', array('@record' => print_r($record, TRUE)), WATCHDOG_DEBUG);
+          }
           $write_done = TRUE;
         }
       }
@@ -254,6 +257,9 @@ function advagg_insert_update_files(array $files, $type) {
             ->fields($diff)
             ->execute();
           if ($return) {
+            if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
+              watchdog('advagg-debug', 'Updating db <pre>@diff</pre>.', array('@diff' => print_r($diff, TRUE)), WATCHDOG_DEBUG);
+            }
             $write_done = TRUE;
           }
         }
@@ -1792,7 +1798,7 @@ function _advagg_build_css_path(array $matches, $base = '', array $aggregate_set
   if (empty($parsed_url['host'])) {
     $base_url = ltrim($base_url, '/');
   }
-  $base_url = advagg_file_create_url($base_url, $_aggregate_settings, $run_file_create_url);
+  $base_url = advagg_file_create_url($base_url, $_aggregate_settings, $run_file_create_url, 'css');
 
   return 'url(' . $base_url . $query . $fragment . ')';
 }

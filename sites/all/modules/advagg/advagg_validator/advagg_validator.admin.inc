@@ -24,6 +24,7 @@
  */
 function advagg_validator_admin_css_w3_form() {
   drupal_set_title(t('AdvAgg: CSS Validator using w3.org'));
+  advagg_display_message_if_requirements_not_met();
 
   $form = advagg_validator_admin_form_generator('css', FALSE);
 
@@ -46,6 +47,7 @@ function advagg_validator_admin_css_w3_form() {
  */
 function advagg_validator_admin_css_lint_form() {
   drupal_set_title(t('AdvAgg: CSS Validator using CSSLINT'));
+  advagg_display_message_if_requirements_not_met();
 
   // Tell user to update library if a new version is available.
   $module_name = 'advagg_validator';
@@ -95,6 +97,7 @@ function advagg_validator_admin_css_lint_form() {
  */
 function advagg_validator_admin_js_hint_form() {
   drupal_set_title(t('AdvAgg: JavaScript Validator using JSHINT'));
+  advagg_display_message_if_requirements_not_met();
 
   // Tell user to update library if a new version is available.
   $module_name = 'advagg_validator';

@@ -169,6 +169,11 @@ define('ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH', TRUE);
 define('ADVAGG_FORCE_HTTPS_PATH', FALSE);
 
 /**
+ * Convert relative path CSS inside src() to be absolute.
+ */
+define('ADVAGG_CSS_ABSOLUTE_PATH', FALSE);
+
+/**
  * If TRUE then the css is being rendered via javascript.
  */
 define('ADVAGG_CSS_IN_JS', FALSE);
@@ -322,6 +327,11 @@ define('ADVAGG_DISABLE_ON_ADMIN', FALSE);
  * Default is 200; 203 has been requested in the past.
  */
 define('ADVAGG_HTTP_200_CODE', 200);
+
+/**
+ * Verify all 3 hashes from the filename, if TRUE only verify 1st hash.
+ */
+define('ADVAGG_WEAK_FILE_VERIFICATION', FALSE);
 
 /**
  * @} End of "defgroup default_variables".
@@ -2290,6 +2300,16 @@ function advagg_replace_drupal_settings_string($subject, $replace) {
   $settings_substring = substr($subject, $start, $script_end - $start);
   $json_end = strripos($settings_substring, '});');
 
+  // Check if LABjs has added an additional wrapper around Drupal settings.
+  $script_tag_start = strripos(substr($subject, 0, $start), '<script');
+  if (strpos(substr($subject, $script_tag_start, $start), '$L.wait(') !== FALSE) {
+    // Refine JSON end position.
+    $_json_end = strripos(substr($settings_substring, 0, $json_end), '});');
+    if ($_json_end !== FALSE) {
+      $json_end = $_json_end;
+    }
+  }
+
   // Replace Drupal.settings json.
   $subject = substr($subject, 0, $start + 30) . $replace . substr($subject, $json_end + $start + 1);
   return $subject;
@@ -3301,10 +3321,10 @@ function advagg_enabled() {
       }
       // Enable debugging if requested.
       if (isset($_GET['advagg-debug'])
-        && $_GET['advagg-debug'] == 1
         && (user_access('bypass advanced aggregation') || $bypass_cookie)
       ) {
-        $GLOBALS['conf']['advagg_debug'] = TRUE;
+        // Cast to an int.
+        $GLOBALS['conf']['advagg_debug'] = (int) $_GET['advagg-debug'];
       }
     }
   }
@@ -3350,6 +3370,7 @@ function advagg_current_hooks_hash_array() {
       'advagg_devel' => variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) < 0 ? TRUE : FALSE,
       'advagg_convert_absolute_to_relative_path' => variable_get('advagg_convert_absolute_to_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_RELATIVE_PATH),
       'advagg_convert_absolute_to_protocol_relative_path' => variable_get('advagg_convert_absolute_to_protocol_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH),
+      'advagg_css_absolute_path' => variable_get('advagg_css_absolute_path', ADVAGG_CSS_ABSOLUTE_PATH),
       'advagg_force_https_path' => variable_get('advagg_force_https_path', ADVAGG_FORCE_HTTPS_PATH),
       'advagg_css_dir' => $css_path[0],
       'advagg_js_dir' => $js_path[0],
@@ -3572,7 +3593,7 @@ function advagg_get_root_files_dir($reset = FALSE) {
       $css_paths[1] = str_replace('/advagg_js', '/advagg_css', $js_paths[1]);
     }
     elseif (empty($js_paths[1]) && !empty($css_paths[1])) {
-      $js_paths[1] = str_replace('/advagg_js', '/advagg_css', $css_paths[1]);
+      $js_paths[1] = str_replace('/advagg_css', '/advagg_js', $css_paths[1]);
     }
 
     // Fix if empty.
@@ -4779,21 +4800,29 @@ function advagg_match_file_pattern($filename) {
  *
  * @param string $path
  *   Path to check.
+ * @param bool $strip_base_path
+ *   Do no add the base path to the given path if TRUE.
  *
  * @return string
  *   The path.
  */
-function advagg_convert_abs_to_rel($path) {
+function advagg_convert_abs_to_rel($path, $strip_base_path = FALSE) {
   $base_url = $GLOBALS['base_url'];
   // Add a slash to end if none is found.
   if (strpos(strrev($base_url), '/') !== 0) {
     $base_url .= '/';
   }
+  // Set base path.
+  $base_path = $GLOBALS['base_path'];
+  if ($strip_base_path) {
+    $base_path = '';
+  }
+
   // Do conversion of https and http to self references.
   $base_url_https = advagg_force_https_path($base_url);
-  $path = str_replace($base_url_https, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url_https, $base_path, $path);
   $base_url_http = advagg_force_http_path($base_url);
-  $path = str_replace($base_url_http, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url_http, $base_path, $path);
 
   $base_url = advagg_convert_abs_to_protocol($GLOBALS['base_url']);
   // Add a slash to end if none is found.
@@ -4801,7 +4830,7 @@ function advagg_convert_abs_to_rel($path) {
     $base_url .= '/';
   }
   // Do conversion of protocol relative to self references.
-  $path = str_replace($base_url, $GLOBALS['base_path'], $path);
+  $path = str_replace($base_url, $base_path, $path);
 
   return $path;
 }
@@ -4866,11 +4895,13 @@ function advagg_force_http_path($path) {
  *   Array of settings used.
  * @param bool $run_file_create_url
  *   If TRUE then run the given path through file_create_url().
+ * @param string $source_type
+ *   CSS or JS; if empty url in not embedded in another file.
  *
  * @return string
  *   The file uri.
  */
-function advagg_file_create_url($path, array $aggregate_settings = array(), $run_file_create_url = TRUE) {
+function advagg_file_create_url($path, array $aggregate_settings = array(), $run_file_create_url = TRUE, $source_type = '') {
   $file_uri = $path;
   if ($run_file_create_url) {
     $file_uri = file_create_url($path);
@@ -4893,6 +4924,43 @@ function advagg_file_create_url($path, array $aggregate_settings = array(), $run
     && variable_get('advagg_convert_absolute_to_protocol_relative_path', ADVAGG_CONVERT_ABSOLUTE_TO_PROTOCOL_RELATIVE_PATH))
   ) {
     $file_uri = advagg_convert_abs_to_protocol($file_uri);
+  }
+  if ($source_type === 'css'
+    && !advagg_is_external($file_uri)
+    && ((isset($aggregate_settings['variables']['advagg_css_absolute_path'])
+    && $aggregate_settings['variables']['advagg_css_absolute_path'])
+    || (!isset($aggregate_settings['variables']['advagg_css_absolute_path'])
+    && variable_get('advagg_css_absolute_path', ADVAGG_CSS_ABSOLUTE_PATH)))
+  ) {
+    // Get public dir.
+    list($css_path) = advagg_get_root_files_dir();
+    $parsed = parse_url($css_path[0]);
+    $new_parsed = array();
+    if (!empty($parsed['host'])) {
+      $new_parsed['host'] = $parsed['host'];
+    }
+    if (!empty($parsed['path'])) {
+      $new_parsed['path'] = $parsed['path'];
+    }
+    $css_path_0 = advagg_glue_url($new_parsed);
+    $parsed = parse_url($css_path[1]);
+    $new_parsed = array();
+    if (!empty($parsed['host'])) {
+      $new_parsed['host'] = $parsed['host'];
+    }
+    if (!empty($parsed['path'])) {
+      $new_parsed['path'] = $parsed['path'];
+    }
+    $css_path_1 = advagg_glue_url($new_parsed);
+    $pos = strpos($css_path_1, $css_path_0);
+    if (!empty($pos)) {
+      $public_dir = substr($css_path_1, 0, $pos);
+
+      // If public dir is not in the file uri, use absolute URL.
+      if (strpos($file_uri, $public_dir) === FALSE) {
+        $file_uri = url($path, array('absolute' => TRUE));
+      }
+    }
   }
   // Finally force https.
   if ((isset($aggregate_settings['variables']['advagg_force_https_path'])
@@ -5125,7 +5193,21 @@ function _advagg_load_stylesheet(array $matches) {
   $file = advagg_load_stylesheet($filename, NULL, FALSE);
 
   if (empty($file)) {
-    return $matches[0];
+    if (strpos($matches[0], 'http://') === 0
+      || strpos($matches[0], 'https://') === 0
+      || strpos($matches[0], '//') === 0
+    ) {
+      return $matches[0];
+    }
+    if (variable_get('advagg_debug', ADVAGG_DEBUG) >= 2) {
+      watchdog('advagg-debug', 'Trying to load @file via @import statement but it was not found.', array('@file' => $filename), WATCHDOG_DEBUG);
+    }
+    if (variable_get('advagg_cache_level', ADVAGG_CACHE_LEVEL) <= 1) {
+      return $matches[0];
+    }
+    else {
+      return '';
+    }
   }
 
   // Determine the file's directory.
@@ -6093,6 +6175,18 @@ function advagg_get_version_description($library_name, $module_name, $only_remot
   $path = drupal_get_path('module', $module_name);
   $info = drupal_parse_info_file("{$path}/{$module_name}.info");
 
+  // Check if library was unzipped with -master.
+  if (!empty($description) && is_callable('libraries_get_libraries')) {
+    $libraries_paths = libraries_get_libraries();
+    if (!empty($libraries_paths["{$library_name}-master"])) {
+      $description = $t('Rename @lib_dir_master to @lib_dir at this location: @lib_path_master.', array(
+        '@lib_dir_master' => "{$library_name}-master",
+        '@lib_path_master' => $libraries_paths["{$library_name}-master"],
+        '@lib_dir' => $library_name,
+      ));
+    }
+  }
+
   return array($description, $info);
 }
 
@@ -6122,5 +6216,22 @@ function advagg_generate_advagg_filename_from_db($type) {
   $hooks_hash = advagg_get_current_hooks_hash();
   foreach ($results as $row) {
     return $type . ADVAGG_SPACE . $row->aggregate_filenames_hash . ADVAGG_SPACE . $row->aggregate_contents_hash . ADVAGG_SPACE . $hooks_hash . '.' . $type;
+  }
+}
+
+/**
+ * Display a message if there are requirement issues with AdvAgg.
+ */
+function advagg_display_message_if_requirements_not_met() {
+  module_load_include('install', 'advagg');
+  $requirements = advagg_install_fast_checks();
+  if (!empty($requirements)) {
+    module_load_include('admin.inc', 'system');
+    usort($requirements, '_system_sort_requirements');
+    $report = theme('status_report', array('requirements' => $requirements));
+    drupal_set_message(t('Go to the <a href="@url">status report page</a> and fix the issues that AdvAgg lists there. Sneak peak: !report', array(
+      '@url' => url('admin/reports/status'),
+      '!report' => $report,
+    )));
   }
 }

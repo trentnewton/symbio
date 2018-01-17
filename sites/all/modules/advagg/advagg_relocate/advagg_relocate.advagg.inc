@@ -407,7 +407,7 @@ function advagg_relocate_advagg_relocate_process_http_request_alter(&$response, 
     return;
   }
   // Fix loader so it works if not loaded from connect.facebook.net.
-  $base_url = 'https://connect.facebook.net';
+  $base_fb_url = 'https://connect.facebook.net';
   $matches = array();
   $pattern = '/function\s+([\w]{1,2})\(\)\{var ([\w]{1,2})=null,([\w]{1,2})=null,([\w]{1,2})=([\w]{1,2})\.getElementsByTagName\([\'"]script[\'"]\)/';
   preg_match($pattern, $response->data, $matches);
@@ -419,7 +419,7 @@ function advagg_relocate_advagg_relocate_process_http_request_alter(&$response, 
   // function B(){var E=null,F=null,G=b.getElementsByTagName("script");
   // to
   // function B(){var E="https://connect.facebook.net",G=b.getElementsByTagName("script"),F=G[0].
-  $response->data = str_replace($matches[0], "function {$matches[1]}(){var {$matches[2]}=\"$base_url\",{$matches[4]}={$matches[5]}.getElementsByTagName(\"script\"),{$matches[3]}={$matches[4]}[0]", $response->data);
+  $response->data = str_replace($matches[0], "function {$matches[1]}(){var {$matches[2]}=\"$base_fb_url\",{$matches[4]}={$matches[5]}.getElementsByTagName(\"script\"),{$matches[3]}={$matches[4]}[0]", $response->data);
 
   // Get Facebook IDs.
   $fb_ids = array_filter(array_map('trim', explode("\n", variable_get('advagg_relocate_js_fbevents_local_ids', ADVAGG_RELOCATE_JS_FBEVENTS_LOCAL_IDS))));
@@ -439,11 +439,11 @@ function advagg_relocate_advagg_relocate_process_http_request_alter(&$response, 
   // Update local copies of the /signals/config/ js.
   $js = array();
   foreach ($fb_ids as $fb_id) {
-    $url = "$base_url/signals/config/$fb_id?v=$version";
+    $url = "$base_fb_url/signals/config/$fb_id?v=$version";
     $js[$url]['data'] = $url;
     $js[$url]['type'] = 'external';
     $js[$url]['#fbid'] = "config$fb_id";
-    $url = "$base_url/signals/plugins/$fb_id?v=$version";
+    $url = "$base_fb_url/signals/plugins/$fb_id?v=$version";
     $js[$url]['data'] = $url;
     $js[$url]['type'] = 'external';
     $js[$url]['#fbid'] = "plugins$fb_id";

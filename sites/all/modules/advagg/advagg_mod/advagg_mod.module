@@ -106,12 +106,12 @@ define('ADVAGG_MOD_JS_ASYNC', FALSE);
 define('ADVAGG_MOD_JS_FOOTER_INLINE_ALTER', TRUE);
 
 /**
- * Turns on functionality on every page except the listed pages.
+ * Turns on functionality on every page except the listed pages (blacklist).
  */
 define('ADVAGG_MOD_VISIBILITY_NOTLISTED', 0);
 
 /**
- * Turns on functionality only on the listed pages.
+ * Turns on functionality only on the listed pages (whitelist).
  */
 define('ADVAGG_MOD_VISIBILITY_LISTED', 1);
 
@@ -119,6 +119,11 @@ define('ADVAGG_MOD_VISIBILITY_LISTED', 1);
  * Turns on functionality if the associated PHP code returns TRUE.
  */
 define('ADVAGG_MOD_VISIBILITY_PHP', 2);
+
+/**
+ * Turns on functionality if there is a file matching the page pattern.
+ */
+define('ADVAGG_MOD_VISIBILITY_FILE_CONTROLLED', 3);
 
 /**
  * Default value of the inclusion method for the loadCSS code.
@@ -683,6 +688,24 @@ function advagg_mod_advagg_modify_js_pre_render_alter(&$children, &$elements) {
       }
     }
 
+    // Count the number of holdReady's there are.
+    $holdready_count = array();
+    foreach ($children as $key => &$values) {
+      if (!empty($values['#attributes']['onload'])
+        && (stripos($values['#attributes']['onload'], 'jQuery.holdReady(true)') !== FALSE
+          || stripos($values['#attributes']['onload'], 'jQuery.holdReady(!0)') !== FALSE
+        )
+      ) {
+        // Normalize the src attribute.
+        $src = $values['#attributes']['src'];
+        $pos = strpos($values['#attributes']['src'], '#');
+        if ($pos !== FALSE) {
+          $src = substr($values['#attributes']['src'], 0, $pos);
+        }
+        $holdready_count[$src] = TRUE;
+      }
+    }
+
     foreach ($children as $key => &$values) {
       // Core's Drupal.settings. Put inside wrapper if there is an onload call
       // for init_drupal_core_settings. Have to do this here because the
@@ -697,7 +720,11 @@ function advagg_mod_advagg_modify_js_pre_render_alter(&$children, &$elements) {
           }
         }
         if ($found) {
-          $values['#value'] = "function init_drupal_core_settings() {" . $values['#value'] . "\nif(jQuery.isFunction(jQuery.holdReady)){jQuery.holdReady(false);}} if(window.jQuery && window.Drupal){init_drupal_core_settings();}";
+          $holdready_string = '';
+          if (!empty($holdready_count)) {
+            $holdready_string .= str_repeat('jQuery.holdReady(false);', count($holdready_count));
+          }
+          $values['#value'] = "function init_drupal_core_settings() {{$values['#value']}\nif(jQuery.isFunction(jQuery.holdReady)){{$holdready_string}}} if(window.jQuery && window.Drupal){init_drupal_core_settings();}";
         }
       }
     }
@@ -745,9 +772,18 @@ function advagg_mod_advagg_modify_css_pre_render_alter(&$children, &$elements) {
   }
 
   $critical_css = FALSE;
-  foreach ($elements['#items'] as $item) {
-    if ($item['type'] === 'inline' && !empty($item['critical-css'])) {
-      $critical_css = TRUE;
+  // Only check for the critical-css key if configured to do so.
+  if (variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_LISTED) == ADVAGG_MOD_VISIBILITY_FILE_CONTROLLED) {
+    foreach ($elements['#items'] as $item) {
+      if ($item['type'] === 'inline' && !empty($item['critical-css'])) {
+        $critical_css = TRUE;
+        break;
+      }
+    }
+    // Return early if there's no critical css for the path and deferring is
+    // file controlled.
+    if (!$critical_css) {
+      return;
     }
   }
 
@@ -994,7 +1030,7 @@ function advagg_mod_advagg_current_hooks_hash_array_alter(&$aggregate_settings) 
     $aggregate_settings['variables']['advagg_mod_css_defer_js_code'] = variable_get('advagg_mod_css_defer_js_code', ADVAGG_MOD_CSS_DEFER_JS_CODE);
     $aggregate_settings['variables']['advagg_mod_inline_visibility'] = variable_get('advagg_mod_inline_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
     $aggregate_settings['variables']['advagg_mod_inline_pages'] = variable_get('advagg_mod_inline_pages', '');
-    $aggregate_settings['variables']['advagg_mod_css_defer_visibility'] = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_NOTLISTED);
+    $aggregate_settings['variables']['advagg_mod_css_defer_visibility'] = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
     $aggregate_settings['variables']['advagg_mod_css_defer_pages'] = variable_get('advagg_mod_css_defer_pages', '');
 
     // Run functions for page visibility.
@@ -1033,7 +1069,7 @@ function advagg_mod_libraries_info() {
         'advagg_mod_libraries_preload_callback',
       ),
     ),
-    'local version' => '1.3.1',
+    'local version' => '2.0.1',
     'remote' => array(
       'callback' => 'advagg_get_github_version_json',
       'url' => 'https://rawgit.com/filamentgroup/loadCSS/master/package.json',
@@ -1056,10 +1092,6 @@ function advagg_mod_libraries_info() {
       'normal-preload' => array(
         'files' => array(
           'js' => array(
-            'src/loadCSS.js' => array(
-              'type' => 'file',
-              'async' => TRUE,
-            ),
             'src/cssrelpreload.js' => array(
               'type' => 'file',
               'async' => TRUE,
@@ -1094,10 +1126,6 @@ function advagg_mod_libraries_info() {
       'minified-preload' => array(
         'files' => array(
           'js' => array(
-            'src/loadCSS.min.js' => array(
-              'type' => 'file',
-              'async' => TRUE,
-            ),
             'src/cssrelpreload.min.js' => array(
               'type' => 'file',
               'async' => TRUE,
@@ -1133,11 +1161,6 @@ function advagg_mod_libraries_info() {
       'external-preload' => array(
         'files' => array(
           'js' => array(
-            "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/loadCSS.js" => array(
-              'type' => 'external',
-              'data' => "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/loadCSS.js",
-              'async' => TRUE,
-            ),
             "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/cssrelpreload.js" => array(
               'type' => 'external',
               'data' => "//cdn.rawgit.com/filamentgroup/loadCSS/v{$version}/src/cssrelpreload.js",
@@ -1178,11 +1201,6 @@ function advagg_mod_libraries_info() {
         'version' => '1.3.1',
         'files' => array(
           'js' => array(
-            "{$advagg_mod_path}/loadCSS.js" => array(
-              'type' => 'file',
-              'data' => "{$advagg_mod_path}/loadCSS.js",
-              'async' => TRUE,
-            ),
             "{$advagg_mod_path}/cssrelpreload.js" => array(
               'type' => 'file',
               'data' => "{$advagg_mod_path}/cssrelpreload.js",
@@ -1224,11 +1242,6 @@ function advagg_mod_libraries_info() {
         'version' => '1.3.1',
         'files' => array(
           'js' => array(
-            "{$advagg_mod_path}/loadCSS.min.js" => array(
-              'type' => 'file',
-              'data' => "{$advagg_mod_path}/loadCSS.min.js",
-              'async' => TRUE,
-            ),
             "{$advagg_mod_path}/cssrelpreload.min.js" => array(
               'type' => 'file',
               'data' => "{$advagg_mod_path}/cssrelpreload.min.js",
@@ -1315,11 +1328,6 @@ function advagg_mod_libraries_info() {
     'inline-preload' => array(
       'files' => array(
         'js' => array(
-          'loadCSS_inline' => array(
-            'type' => 'inline',
-            'data' => (string) @advagg_file_get_contents($loadcss_loc),
-            'no_defer' => TRUE,
-          ),
           'cssrelpreload_inline' => array(
             'type' => 'inline',
             'data' => (string) @advagg_file_get_contents($cssrelpreload_loc),
@@ -1798,6 +1806,7 @@ function advagg_mod_get_lists(array $js = array(), array $css = array()) {
     $inline_js_wrap_skip_list[] = 'GA_googleFetchAds(';
     $inline_js_wrap_skip_list[] = 'GA_googleFillSlot(';
     $inline_js_wrap_skip_list[] = 'adsbygoogle';
+    $inline_js_wrap_skip_list[] = '_paq.push(["';
     if (module_exists('h5p')) {
       $inline_js_wrap_skip_list[] = 'H5PIntegration';
     }
@@ -1818,6 +1827,7 @@ function advagg_mod_get_lists(array $js = array(), array $css = array()) {
     $inline_js_defer_skip_list[] = 'GA_googleFetchAds(';
     $inline_js_defer_skip_list[] = 'GA_googleFillSlot(';
     $inline_js_defer_skip_list[] = 'adsbygoogle';
+    $inline_js_defer_skip_list[] = '_paq.push(["';
     if (module_exists('h5p')) {
       $inline_js_defer_skip_list[] = 'H5PIntegration';
     }
@@ -2063,6 +2073,7 @@ function advagg_mod_js_async_defer(array &$js) {
   $jquery_min_rev = strrev('/jquery.min.js');
   $jquery_ui_rev = strrev('/jquery-ui.js');
   $jquery_ui_min_rev = strrev('jquery-ui.min.js');
+  $hold_ready = FALSE;
   foreach ($js as $name => &$values) {
     // Skip if not a file or external.
     if ($values['type'] !== 'file' && $values['type'] !== 'external') {
@@ -2084,7 +2095,10 @@ function advagg_mod_js_async_defer(array &$js) {
     ) {
       $jquery_defered = TRUE;
       // Do not fire jQuery.ready until Drupal.settings has been defined.
-      $values['onload'] = "if(jQuery.isFunction(jQuery.holdReady)){jQuery.holdReady(true);}";
+      if (empty($hold_ready)) {
+        $values['onload'] = "if(jQuery.isFunction(jQuery.holdReady)){jQuery.holdReady(true);}";
+        $hold_ready = TRUE;
+      }
       // jquery_update fallback.
       if (module_exists('jquery_update') && variable_get('jquery_update_jquery_cdn', 'none') !== 'none') {
         if ($use_on_error) {
@@ -2814,75 +2828,51 @@ function advagg_mod_sort_css_js(array &$array, $type) {
 }
 
 /**
- * Returns TRUE if this page should have inline CSS/JS.
+ * Returns TRUE if this page should have inline CSS and JS.
  *
  * @return bool
- *   TRUE or FALSE.
+ *   TRUE or FALSE. Default is FALSE.
  */
 function advagg_mod_inline_page() {
   $visibility = variable_get('advagg_mod_inline_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_pages', '');
-
-  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
-    return advagg_mod_match_path($pages, $visibility);
-  }
-  else {
-    return FALSE;
-  }
+  return advagg_mod_match_path($pages, $visibility);
 }
 
 /**
  * Returns TRUE if this page should have inline CSS.
  *
  * @return bool
- *   TRUE or FALSE.
+ *   TRUE or FALSE. Default is FALSE.
  */
 function advagg_mod_inline_page_css() {
   $visibility = variable_get('advagg_mod_inline_css_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_css_pages', '');
-
-  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
-    return advagg_mod_match_path($pages, $visibility);
-  }
-  else {
-    return FALSE;
-  }
+  return advagg_mod_match_path($pages, $visibility);
 }
 
 /**
  * Returns TRUE if this page should have inline JS.
  *
  * @return bool
- *   TRUE or FALSE.
+ *   TRUE or FALSE. Default is FALSE.
  */
 function advagg_mod_inline_page_js() {
   $visibility = variable_get('advagg_mod_inline_js_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_inline_js_pages', '');
-
-  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
-    return advagg_mod_match_path($pages, $visibility);
-  }
-  else {
-    return FALSE;
-  }
+  return advagg_mod_match_path($pages, $visibility);
 }
 
 /**
  * Returns TRUE if this page should have critical CSS inlined.
  *
  * @return bool
- *   TRUE or FALSE.
+ *   TRUE or FALSE. Default is FALSE.
  */
 function advagg_mod_css_defer_page() {
-  $visibility = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_NOTLISTED);
+  $visibility = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $pages = variable_get('advagg_mod_css_defer_pages', '');
-
-  if ($visibility >= ADVAGG_MOD_VISIBILITY_PHP) {
-    return advagg_mod_match_path($pages, $visibility);
-  }
-  else {
-    return FALSE;
-  }
+  return advagg_mod_match_path($pages, $visibility);
 }
 
 /**
@@ -2985,22 +2975,33 @@ function advagg_mod_inline_css(array &$css, $file_limit = 0, $size_limit = 0) {
  * @see block_block_list_alter()
  */
 function advagg_mod_match_path($pages, $visibility) {
+  // Default to not matching.
+  $page_match = FALSE;
   // Limited visibility blocks must list at least one page.
-  if ($visibility == ADVAGG_MOD_VISIBILITY_LISTED && empty($pages)) {
-    $page_match = FALSE;
+  if (empty($pages) && $visibility <= ADVAGG_MOD_VISIBILITY_PHP) {
+    if ($visibility == ADVAGG_MOD_VISIBILITY_NOTLISTED) {
+      $page_match = TRUE;
+    }
   }
-  elseif ($pages) {
-    // Match path if necessary.
-    // Convert path to lowercase. This allows comparison of the same path
-    // with different case. Ex: /Page, /page, /PAGE.
-    $pages = drupal_strtolower($pages);
-    if ($visibility < ADVAGG_MOD_VISIBILITY_PHP) {
+  else {
+    // Match on php.
+    if ($visibility == ADVAGG_MOD_VISIBILITY_PHP) {
+      if (module_exists('php')) {
+        $page_match = php_eval($pages);
+      }
+    }
+    // Match the given $pages.
+    elseif ($visibility < ADVAGG_MOD_VISIBILITY_PHP) {
+      $current_path = current_path();
+      // Convert path to lowercase. This allows comparison of the same path
+      // with different case. Ex: /Page, /page, /PAGE.
+      $pages = drupal_strtolower($pages);
       // Convert the Drupal path to lowercase.
-      $path = drupal_strtolower(drupal_get_path_alias($_GET['q']));
+      $path = drupal_strtolower(drupal_get_path_alias($current_path));
       // Compare the lowercase internal and lowercase path alias (if any).
       $page_match = drupal_match_path($path, $pages);
-      if ($path != $_GET['q']) {
-        $page_match = $page_match || drupal_match_path($_GET['q'], $pages);
+      if ($path != $current_path) {
+        $page_match = $page_match || drupal_match_path($current_path, $pages);
       }
       // When $visibility has a value of 0 (ADVAGG_MOD_VISIBILITY_NOTLISTED),
       // the block is displayed on all pages except those listed in $pages.
@@ -3008,15 +3009,6 @@ function advagg_mod_match_path($pages, $visibility) {
       // those pages listed in $block->pages.
       $page_match = !($visibility xor $page_match);
     }
-    elseif (module_exists('php') && $visibility == ADVAGG_MOD_VISIBILITY_PHP) {
-      $page_match = php_eval($pages);
-    }
-    else {
-      $page_match = FALSE;
-    }
-  }
-  else {
-    $page_match = TRUE;
   }
 
   return $page_match;

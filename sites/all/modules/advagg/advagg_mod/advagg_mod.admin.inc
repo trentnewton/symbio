@@ -14,6 +14,7 @@
  */
 function advagg_mod_admin_settings_form() {
   drupal_set_title(t('AdvAgg: Modifications'));
+  advagg_display_message_if_requirements_not_met();
   $config_path = advagg_admin_config_root_path();
 
   // Tell user to update library if a new version is available.
@@ -343,8 +344,8 @@ function advagg_mod_admin_settings_form() {
   $css_defer_pages = variable_get('advagg_mod_css_defer_pages', '');
   $visibility_defer = variable_get('advagg_mod_css_defer_visibility', ADVAGG_MOD_VISIBILITY_LISTED);
   $options = array(
-    ADVAGG_MOD_VISIBILITY_NOTLISTED => t('All pages except those listed'),
-    ADVAGG_MOD_VISIBILITY_LISTED => t('Only the listed pages'),
+    ADVAGG_MOD_VISIBILITY_NOTLISTED => t('All pages except those listed (blacklist)'),
+    ADVAGG_MOD_VISIBILITY_LISTED => t('Only the listed pages (whitelist)'),
   );
   $description = t("Specify pages by using their paths. Enter one path per line. The '*' character is a wildcard. Example paths are %blog for the blog page and %blog-wildcard for every personal blog. %front is the front page.", array(
     '%blog' => 'blog',
@@ -360,7 +361,7 @@ function advagg_mod_admin_settings_form() {
   else {
     $title = t('Pages');
   }
-  $options += array(3 => t('File Controlled (Recommended).'));
+  $options += array(ADVAGG_MOD_VISIBILITY_FILE_CONTROLLED => t('File Controlled (Recommended).'));
 
   if ($visibility_defer == ADVAGG_MOD_VISIBILITY_PHP && !$access) {
     $form['css']['placement']['visibility_all'] = array(
@@ -481,7 +482,7 @@ function advagg_mod_admin_settings_form() {
   $pages_all = variable_get('advagg_mod_inline_pages', '');
   $pages_css = variable_get('advagg_mod_inline_css_pages', '');
   $pages_js = variable_get('advagg_mod_inline_js_pages', '');
-  unset($options[ADVAGG_MOD_VISIBILITY_NOTLISTED]);
+  unset($options[ADVAGG_MOD_VISIBILITY_NOTLISTED], $options[ADVAGG_MOD_VISIBILITY_FILE_CONTROLLED]);
   $form['landing_page'] = array(
     '#type' => 'fieldset',
     '#title' => t('Inline CSS/JS on specific pages'),

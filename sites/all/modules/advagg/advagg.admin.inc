@@ -18,6 +18,7 @@
  */
 function advagg_admin_settings_form($form, $form_state) {
   drupal_set_title(t('AdvAgg: Configuration'));
+  advagg_display_message_if_requirements_not_met();
   $config_path = advagg_admin_config_root_path();
 
   // Simple checkbox settings.
@@ -495,6 +496,12 @@ function advagg_admin_settings_form($form, $form_state) {
       ),
     ),
   );
+  $form['global']['obscure']['advagg_css_absolute_path'] = array(
+    '#type' => 'checkbox',
+    '#title' => t('Convert CSS url() to absolute paths if file is outside of the public:// dir.'),
+    '#default_value' => variable_get('advagg_css_absolute_path', ADVAGG_CSS_ABSOLUTE_PATH),
+    '#description' => t('Useful for CSS files hosted on S3 where the referenced files inside of url() is not in the same location as the aggregated CSS file.'),
+  );
   $form['global']['obscure']['advagg_skip_file_create_url_inside_css'] = array(
     '#type' => 'checkbox',
     '#title' => t('Do not run CSS url() values through file_create_url().'),
@@ -644,6 +651,7 @@ function advagg_admin_settings_form($form, $form_state) {
  */
 function advagg_admin_operations_form($form, $form_state) {
   drupal_set_title(t('AdvAgg: Operations'));
+  advagg_display_message_if_requirements_not_met();
 
   // Explain what can be done on this page.
   $form['tip'] = array(
@@ -921,6 +929,7 @@ function advagg_admin_operations_form($form, $form_state) {
  */
 function advagg_admin_info_form($form, $form_state) {
   drupal_set_title(t('AdvAgg: Information'));
+  advagg_display_message_if_requirements_not_met();
 
   // Explain what can be done on this page.
   $form['tip'] = array(

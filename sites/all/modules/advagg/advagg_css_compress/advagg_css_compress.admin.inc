@@ -14,6 +14,7 @@
  */
 function advagg_css_compress_admin_settings_form($form, $form_state) {
   drupal_set_title(t('AdvAgg: CSS Compression Settings'));
+  advagg_display_message_if_requirements_not_met();
   $config_path = advagg_admin_config_root_path();
 
   $form = array();

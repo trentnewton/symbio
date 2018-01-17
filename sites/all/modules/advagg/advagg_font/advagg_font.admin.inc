@@ -14,6 +14,7 @@
  */
 function advagg_font_admin_settings_form() {
   drupal_set_title(t('AdvAgg: Async Font Loader'));
+  advagg_display_message_if_requirements_not_met();
   $form = array();
 
   $versions = advagg_get_remote_libraries_versions();
@@ -115,6 +116,8 @@ function advagg_font_admin_settings_form() {
     if (!empty($replacements)) {
       $fonts = array();
       foreach ($replacements as $key => $replacement) {
+        // Do not display !important after the fallback font name.
+        $replacement[5] = str_replace(' !important', '', $replacement[5]);
         $fonts[$key . ' ' . $replacement[3]] = $replacement[5];
       }
 

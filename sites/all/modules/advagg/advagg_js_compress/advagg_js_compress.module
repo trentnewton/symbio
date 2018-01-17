@@ -224,6 +224,7 @@ function advagg_js_compress_libraries_info() {
     'vendor url' => 'https://github.com/tedious/JShrink',
     'download url' => 'https://github.com/tedious/JShrink/archive/master.zip',
     'local version' => '1.2.0',
+    'version' => '1.2.0',
     'files' => array(
       'php' => array(
         'src/JShrink/Minifier.php',
@@ -235,6 +236,7 @@ function advagg_js_compress_libraries_info() {
     'vendor url' => 'https://github.com/tchwork/jsqueeze',
     'download url' => 'https://github.com/tchwork/jsqueeze/archive/master.zip',
     'local version' => '2.0.5',
+    'version' => '2.0.5',
     'files' => array(
       'php' => array(
         'src/JSqueeze.php',
@@ -242,8 +244,16 @@ function advagg_js_compress_libraries_info() {
     ),
   );
   $libraries['jsminplus'] = array(
+    'vendor url' => 'https://github.com/JSMinPlus/JSMinPlus',
+    'download url' => 'https://github.com/JSMinPlus/JSMinPlus/archive/master.zip',
     'name' => 'JSMinPlus',
     'local version' => '1.4',
+    'version arguments' => array(
+      'file' => 'jsminplus.php',
+      'pattern' => '/JSMinPlus\s+version\s+([0-9a-zA-Z\.-]+)/',
+      'lines' => 10,
+      'cols' => 40,
+    ),
     'files' => array(
       'php' => array(
         'jsminplus.php',
@@ -251,11 +261,19 @@ function advagg_js_compress_libraries_info() {
     ),
   );
   $libraries['jspacker'] = array(
+    'vendor url' => 'https://github.com/tholu/php-packer',
+    'download url' => 'https://github.com/tholu/php-packer/archive/master.zip',
     'name' => 'JSPacker',
     'local version' => '1.1',
+    'version arguments' => array(
+      'file' => 'src/Packer.php',
+      'pattern' => '/\.\s+version\s+([0-9a-zA-Z\.-]+)/',
+      'lines' => 4,
+      'cols' => 40,
+    ),
     'files' => array(
       'php' => array(
-        'jspacker.php',
+        'src/Packer.php',
       ),
     ),
   );
@@ -442,6 +460,7 @@ function advagg_js_compress_all_js_files_list() {
 
   module_load_include('inc', 'advagg_js_compress', 'advagg_js_compress.advagg');
   $compressor_list = advagg_js_compress_get_enabled_compressors(array(), -1);
+  $compressor_list_count = count($compressor_list);
 
   // Check if files have been compressed.
   module_load_include('inc', 'advagg', 'advagg');
@@ -457,7 +476,7 @@ function advagg_js_compress_all_js_files_list() {
     $list[] = $info;
 
     // No jsmin info or incomplete data => rerun compression tests.
-    if (empty($info['advagg_js_compress']) || count($info['advagg_js_compress']) !== count($compressor_list)) {
+    if (empty($info['advagg_js_compress']) || count($info['advagg_js_compress']) !== $compressor_list_count) {
       $redo_list[] = $info;
       continue;
     }
@@ -481,6 +500,34 @@ function advagg_js_compress_all_js_files_list() {
     if ($bad_compression_count == count($info['advagg_js_compress'])) {
       $redo_list[] = $info;
     }
+  }
+
+  // More complex metrics for the redo list once the list gets down to 5.
+  if (count($redo_list) < 5) {
+    $empty_ratio_count = 0;
+    $bad_compression_count = 0;
+    $redo_list_alt = array();
+    foreach ($redo_list as $info) {
+      foreach ($info['advagg_js_compress'] as $values) {
+        if (empty($values['ratio'])) {
+          if ($values['code'] != -1) {
+            $empty_ratio_count++;
+          }
+          else {
+            $bad_compression_count++;
+          }
+        }
+      }
+      // More than one compressor has an empty ratio.
+      if ($empty_ratio_count > $compressor_list_count - 2) {
+        $redo_list[] = $info;
+      }
+      // All failed; try again if the number of files is above 1.
+      if ($bad_compression_count == count($info['advagg_js_compress']) && count($redo_list) > 1) {
+        $redo_list[] = $info;
+      }
+    }
+    $redo_list = $redo_list_alt;
   }
   return array($list, $redo_list);
 }
@@ -533,8 +580,8 @@ function advagg_js_compress_redo_files(array $redo_list, $max_time = 30, $drush 
     }
 
     if ($drush) {
-      drush_log(dt('Compressing %data.', array(
-        '%data' => $values['data'],
+      drush_log(dt('Compressing @data.', array(
+        '@data' => $values['data'],
       )), 'ok');
     }
 
@@ -599,9 +646,16 @@ function advagg_js_compress_batch_callback() {
  * The batch processor.
  */
 function advagg_js_compress_batch_process($redo, &$context) {
-  // Do heavy lifting here...
+  // Give it up to 3 minutes.
+  $max_time = ini_get('max_execution_time');
+  if ($max_time != 0 && $max_time < 180) {
+    set_time_limit(180);
+  }
+  ignore_user_abort(TRUE);
+
   // Display a progress message...
   $context['message'] = t("Now processing @filename...", array('@filename' => $redo['data']));
+  // Do heavy lifting here...
   advagg_js_compress_redo_files(array($redo));
 }
 

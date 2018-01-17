@@ -14,6 +14,8 @@
  */
 function advagg_relocate_admin_settings_form() {
   drupal_set_title(t('AdvAgg: Relocate'));
+  advagg_display_message_if_requirements_not_met();
+
   $form = array();
   $times[0] = 'No Limit';
   // @codingStandardsIgnoreStart

@@ -14,6 +14,7 @@
  */
 function advagg_js_compress_admin_settings_form($form, $form_state) {
   drupal_set_title(t('AdvAgg: JS Compression'));
+  advagg_display_message_if_requirements_not_met();
   $config_path = advagg_admin_config_root_path();
 
   $form = array();
@@ -30,6 +31,15 @@ function advagg_js_compress_admin_settings_form($form, $form_state) {
         '@batch' => url($config_path . '/advagg/js-compress/batch'),
         '%count' => count($redo_list),
       )) . '</p>',
+    );
+    $form['advagg_js_compressor_redo_list'] = array(
+      '#type' => 'fieldset',
+      '#title' => t('List of files that need to be recompressed'),
+      '#collapsible' => TRUE,
+      '#collapsed' => TRUE,
+    );
+    $form['advagg_js_compressor_redo_list']['list'] = array(
+      '#markup' => '<p><pre><tt>' . (print_r($redo_list, TRUE)) . '</tt></pre></p>',
     );
   }
 

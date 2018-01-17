@@ -26,11 +26,6 @@ define('ADVAGG_FONT_COOKIE', 1);
 define('ADVAGG_FONT_NO_FOUT', 0);
 
 /**
- * Default version of fontfaceobserver to use.
- */
-define('ADVAGG_FONT_GITHUB_VERSION_FONTFACEOBSERVER', '2.0.9');
-
-/**
  * @} End of "addtogroup default_variables".
  */
 
