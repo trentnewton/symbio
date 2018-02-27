@@ -3,7 +3,6 @@ description = Defines simple link field types.
 core = 7.x
 package = Fields
 
-files[] = link.module
 files[] = link.migrate.inc
 
 ; Tests
@@ -19,9 +18,9 @@ files[] = tests/link.validate.test
 files[] = views/link_views_handler_argument_target.inc
 files[] = views/link_views_handler_filter_protocol.inc
 
-; Information added by Drupal.org packaging script on 2017-07-25
-version = "7.x-1.5-beta2"
+; Information added by Drupal.org packaging script on 2018-02-21
+version = "7.x-1.5-beta3"
 core = "7.x"
 project = "link"
-datestamp = "1500985445"
+datestamp = "1519222098"
 
