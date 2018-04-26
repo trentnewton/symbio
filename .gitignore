@@ -107,10 +107,10 @@ robots.txt
 
 # Views override
 
-sites/all/modules/views/*
-!sites/all/modules/views/handlers
-sites/all/modules/views/handlers/*
-!sites/all/modules/views/handlers/views_handler_field.inc
+# sites/all/modules/views/*
+# !sites/all/modules/views/handlers
+# sites/all/modules/views/handlers/*
+# !sites/all/modules/views/handlers/views_handler_field.inc
 
 
 # -------------------------
