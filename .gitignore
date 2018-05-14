@@ -118,7 +118,6 @@ robots.txt
 # -------------------------
 
 # disallow these
-sites/example.sites.php
 sites/all/modules/admin_views
 sites/all/modules/advanced_text_formatter
 sites/all/modules/autoupload
