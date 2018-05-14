@@ -87,7 +87,7 @@ robots.txt
 # /modules
 # /profiles
 # /scripts
-/sites/default
+# /sites/default
 # /themes
 
  -------------------------
