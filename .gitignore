@@ -157,7 +157,6 @@ sites/all/modules/token
 sites/all/modules/token_filter
 sites/all/modules/tvi
 sites/all/modules/upgrade_status
-sites/all/modules/uuid
 sites/all/modules/views_content_cache
 sites/all/modules/views_distinct
 sites/all/modules/views_field_view
