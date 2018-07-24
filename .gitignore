@@ -162,6 +162,5 @@ sites/all/modules/views_distinct
 sites/all/modules/views_field_view
 sites/all/modules/views_infinite_scroll
 sites/all/modules/webform_ajax
-sites/all/modules/xmlsitemap
 sites/all/themes/adminimal_theme
 maintenance.html
