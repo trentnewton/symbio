@@ -122,7 +122,6 @@ sites/all/modules/admin_views
 sites/all/modules/advanced_text_formatter
 sites/all/modules/autoupload
 sites/all/modules/backports
-sites/all/modules/bean
 sites/all/modules/blockify
 sites/all/modules/ckeditor
 sites/all/modules/content_access
