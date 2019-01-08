@@ -126,7 +126,6 @@ sites/all/modules/blockify
 sites/all/modules/ckeditor
 sites/all/modules/content_access
 sites/all/modules/custom_search
-sites/all/modules/date
 sites/all/modules/devel
 sites/all/modules/email
 sites/all/modules/html5_tools
